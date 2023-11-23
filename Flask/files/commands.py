@@ -38,6 +38,8 @@ def loaddb(filename):
             for lieu_data in lieux:
                 lieu = Lieu(lieuId=lieu_data["lieuId"], nomL=lieu_data["nomL"], capaciteL=lieu_data["capaciteL"], adresseL=lieu_data["adresseL"])
                 session.add(lieu)
+                session.commit()
+
 
         elif "Instrument" in nomTable:
             instruments = nomTable["Instrument"]
@@ -123,6 +125,7 @@ def loaddb(filename):
                 organisation_dun_groupe = OrganisationDunGroupe(OrgaID=organisation_dun_groupe_data["OrgaID"], concertId=organisation_dun_groupe_data["concertId"], JourArriveeODG=organisation_dun_groupe_data["JourArriveeODG"], HeureArriveeODG=organisation_dun_groupe_data["HeureArriveeODG"], JourDepartODG=organisation_dun_groupe_data["JourDepartODG"], HeureDepartODG=organisation_dun_groupe_data["HeureDepartODG"], TempsDeMontageODG=organisation_dun_groupe_data["TempsDeMontageODG"], TempsDeDemontageODG=organisation_dun_groupe_data["TempsDeDemontageODG"], HebergementID=organisation_dun_groupe_data["HebergementID"])
                 session.add(organisation_dun_groupe)
 
+                
         elif "Jouer" in nomTable:
             jouers = nomTable["Jouer"]
             for jouer_data in jouers:

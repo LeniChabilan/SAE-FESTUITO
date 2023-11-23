@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean, Date,DateTime, Float, Text, ForeignKey
+from sqlalchemy import Column, Integer, String, Boolean, Date,DateTime, Float, Text, ForeignKey , Time 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
@@ -42,12 +42,21 @@ class Festival(db.Model):
     dateDebutF = Column(Date)
     DateHeureFinF = Column(DateTime, nullable=False)
 
+# class StyleSimilaire(db.Model):
+#     __tablename__ = 'StyleSimilaire'
+#     styleId = Column(Integer, primary_key=True)
+#     styleSim = Column(Integer, ForeignKey('StyleMusical.styleId'))
+#     style = relationship(StyleMusical, foreign_keys=[styleId])
+#     styleSimilaire = relationship(StyleMusical, foreign_keys=[styleSim])
+
+
 class StyleSimilaire(db.Model):
     __tablename__ = 'StyleSimilaire'
-    styleId = Column(Integer, primary_key=True)
+    styleId = Column(Integer, ForeignKey('StyleMusical.styleId'), primary_key=True)
     styleSim = Column(Integer, ForeignKey('StyleMusical.styleId'))
-    style = relationship(StyleMusical, foreign_keys=[styleId])
-    styleSimilaire = relationship(StyleMusical, foreign_keys=[styleSim])
+    style = relationship('StyleMusical', foreign_keys=[styleId], backref='style_similar')
+    styleSimilaire = relationship('StyleMusical', foreign_keys=[styleSim])
+
 
 class GroupeDeMusique(db.Model):
     __tablename__ = 'GroupeDeMusique'
@@ -127,11 +136,11 @@ class OrganisationDunGroupe(db.Model):
     OrgaID = Column(Integer, primary_key=True, autoincrement=True)
     concertId = Column(Integer, ForeignKey('Concert.concertId'))
     JourArriveeODG = Column(Date)
-    HeureArriveeODG = Column(DateTime)
+    HeureArriveeODG = Column(Time)
     JourDepartODG = Column(Date)
-    HeureDepartODG = Column(DateTime)
-    TempsDeMontageODG = Column(DateTime)
-    TempsDeDemontageODG = Column(DateTime)
+    HeureDepartODG = Column(Time)
+    TempsDeMontageODG = Column(Time)
+    TempsDeDemontageODG = Column(Time)
     HebergementID = Column(Integer, ForeignKey('Hebergement.HebergementID'))
     concert = relationship(Concert)
     hebergement = relationship(Hebergement)

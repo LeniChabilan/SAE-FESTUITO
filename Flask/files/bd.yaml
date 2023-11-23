@@ -447,107 +447,107 @@
 
 
 - OrganisationDunGroupe:
-  - orgaId: 1
+  - OrgaID: 1
     concertId: 1
-    jourArriveeODG: "2023-06-15"
-    heureArriveeODG: "12:00:00"
-    jourDepartODG: "2023-06-17"
-    heureDepartODG: "12:00:00"
-    tempsDeMontageODG: "02:00:00"
-    tempsDeDemontageODG: "02:00:00"
-    hebergementId: 1
-  - orgaId: 2
+    JourArriveeODG: "2023-06-15"
+    HeureArriveeODG: "12:00:00"
+    JourDepartODG: "2023-06-17"
+    HeureDepartODG: "12:00:00"
+    TempsDeMontageODG: "02:00:00"
+    TempsDeDemontageODG: "02:00:00"
+    HebergementID: 1
+  - OrgaID: 2
     concertId: 2
-    jourArriveeODG: "2023-07-21"
-    heureArriveeODG: "14:00:00"
-    jourDepartODG: "2023-07-23"
-    heureDepartODG: "14:00:00"
-    tempsDeMontageODG: "02:30:00"
-    tempsDeDemontageODG: "02:30:00"
-    hebergementId: 2
-  - orgaId: 3
+    JourArriveeODG: "2023-07-21"
+    HeureArriveeODG: "14:00:00"
+    JourDepartODG: "2023-07-23"
+    HeureDepartODG: "14:00:00"
+    TempsDeMontageODG: "02:30:00"
+    TempsDeDemontageODG: "02:30:00"
+    HebergementID: 2
+  - OrgaID: 3
     concertId: 3
-    jourArriveeODG: "2023-09-06"
-    heureArriveeODG: "10:00:00"
-    jourDepartODG: "2023-09-08"
-    heureDepartODG: "10:00:00"
-    tempsDeMontageODG: "01:45:00"
-    tempsDeDemontageODG: "01:45:00"
-    hebergementId: 3
-  - orgaId: 4
+    JourArriveeODG: "2023-09-06"
+    HeureArriveeODG: "10:00:00"
+    JourDepartODG: "2023-09-08"
+    HeureDepartODG: "10:00:00"
+    TempsDeMontageODG: "01:45:00"
+    TempsDeDemontageODG: "01:45:00"
+    HebergementID: 3
+  - OrgaID: 4
     concertId: 4
-    jourArriveeODG: "2023-08-11"
-    heureArriveeODG: "12:00:00"
-    jourDepartODG: "2023-08-14"
-    heureDepartODG: "12:00:00"
-    tempsDeMontageODG: "01:45:00"
-    tempsDeDemontageODG: "01:45:00"
-    hebergementId: 1
-  - orgaId: 5
+    JourArriveeODG: "2023-08-11"
+    HeureArriveeODG: "12:00:00"
+    JourDepartODG: "2023-08-14"
+    HeureDepartODG: "12:00:00"
+    TempsDeMontageODG: "01:45:00"
+    TempsDeDemontageODG: "01:45:00"
+    HebergementID: 1
+  - OrgaID: 5
     concertId: 5
-    jourArriveeODG: "2023-10-16"
-    heureArriveeODG: "14:00:00"
-    jourDepartODG: "2023-10-18"
-    heureDepartODG: "14:00:00"
-    tempsDeMontageODG: "02:30:00"
-    tempsDeDemontageODG: "02:30:00"
-    hebergementId: 2
-  - orgaId: 6
+    JourArriveeODG: "2023-10-16"
+    HeureArriveeODG: "14:00:00"
+    JourDepartODG: "2023-10-18"
+    HeureDepartODG: "14:00:00"
+    TempsDeMontageODG: "02:30:00"
+    TempsDeDemontageODG: "02:30:00"
+    HebergementID: 2
+  - OrgaID: 6
     concertId: 6
-    jourArriveeODG: "2023-06-20"
-    heureArriveeODG: "10:00:00"
-    jourDepartODG: "2023-06-22"
-    heureDepartODG: "10:00:00"
-    tempsDeMontageODG: "02:00:00"
-    tempsDeDemontageODG: "02:00:00"
-    hebergementId: 3
-  - orgaId: 7
+    JourArriveeODG: "2023-06-20"
+    HeureArriveeODG: "10:00:00"
+    JourDepartODG: "2023-06-22"
+    HeureDepartODG: "10:00:00"
+    TempsDeMontageODG: "02:00:00"
+    TempsDeDemontageODG: "02:00:00"
+    HebergementID: 3
+  - OrgaID: 7
     concertId: 7
-    jourArriveeODG: "2023-07-25"
-    heureArriveeODG: "12:00:00"
-    jourDepartODG: "2023-07-27"
-    heureDepartODG: "12:00:00"
-    tempsDeMontageODG: "02:30:00"
-    tempsDeDemontageODG: "02:30:00"
-    hebergementId: 1
-  - orgaId: 8
+    JourArriveeODG: "2023-07-25"
+    HeureArriveeODG: "12:00:00"
+    JourDepartODG: "2023-07-27"
+    HeureDepartODG: "12:00:00"
+    TempsDeMontageODG: "02:30:00"
+    TempsDeDemontageODG: "02:30:00"
+    HebergementID: 1
+  - OrgaID: 8
     concertId: 8
-    jourArriveeODG: "2023-09-10"
-    heureArriveeODG: "10:00:00"
-    jourDepartODG: "2023-09-12"
-    heureDepartODG: "10:00:00"
-    tempsDeMontageODG: "01:45:00"
-    tempsDeDemontageODG: "01:45:00"
-    hebergementId: 2
-  - orgaId: 9
+    JourArriveeODG: "2023-09-10"
+    HeureArriveeODG: "10:00:00"
+    JourDepartODG: "2023-09-12"
+    HeureDepartODG: "10:00:00"
+    TempsDeMontageODG: "01:45:00"
+    TempsDeDemontageODG: "01:45:00"
+    HebergementID: 2
+  - OrgaID: 9
     concertId: 9
-    jourArriveeODG: "2023-08-15"
-    heureArriveeODG: "12:00:00"
-    jourDepartODG: "2023-08-17"
-    heureDepartODG: "12:00:00"
-    tempsDeMontageODG: "02:00:00"
-    tempsDeDemontageODG: "02:00:00"
-    hebergementId: 3
-  - orgaId: 10
+    JourArriveeODG: "2023-08-15"
+    HeureArriveeODG: "12:00:00"
+    JourDepartODG: "2023-08-17"
+    HeureDepartODG: "12:00:00"
+    TempsDeMontageODG: "02:00:00"
+    TempsDeDemontageODG: "02:00:00"
+    HebergementID: 3
+  - OrgaID: 10
     concertId: 10
-    jourArriveeODG: "2023-06-25"
-    heureArriveeODG: "14:00:00"
-    jourDepartODG: "2023-06-27"
-    heureDepartODG: "14:00:00"
-    tempsDeMontageODG: "02:30:00"
-    tempsDeDemontageODG: "02:30:00"
-    hebergementId: 4
+    JourArriveeODG: "2023-06-25"
+    HeureArriveeODG: "14:00:00"
+    JourDepartODG: "2023-06-27"
+    HeureDepartODG: "14:00:00"
+    TempsDeMontageODG: "02:30:00"
+    TempsDeDemontageODG: "02:30:00"
+    HebergementID: 4
 
 - Jouer:
   - instrumentId: 1
-    artisteId: 1
+    ArtisteId: 1
   - instrumentId: 2
-    artisteId: 2
+    ArtisteId: 2
   - instrumentId: 3
-    artisteId: 3
+    ArtisteId: 3
   - instrumentId: 1
-    artisteId: 4
+    ArtisteId: 4
   - instrumentId: 4
-    artisteId: 5
+    ArtisteId: 5
   - instrumentId: 2
-    artisteId: 6
+    ArtisteId: 6
