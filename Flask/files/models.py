@@ -23,12 +23,17 @@ class Instrument(db.Model):
     instrumentId = Column(Integer, primary_key=True)
     nomInstru = Column(String(255))
 
-class Spectateur(db.Model):
-    __tablename__ = 'Spectateur'
-    spectateurId = Column(Integer, primary_key=True)
-    nomSpec = Column(String(255))
-    emailSpec = Column(String(255))
-    MDPSpec = Column(String(255))
+class Utilisateur(db.Model):
+    __tablename__ = 'Utilisateur'
+    utilisateurId = Column(Integer, primary_key=True)
+    nomUtilisateur = Column(String(255))
+    emailUtilisateur = Column(String(255))
+    MDPUtilisateur = Column(String(255))
+    DdN= Column(Date)
+    tel= Column(String(255))
+
+
+    
 
 class StyleMusical(db.Model):
     __tablename__ = 'StyleMusical'
@@ -64,8 +69,10 @@ class GroupeDeMusique(db.Model):
     nomGM = Column(String(255))
     descriptionGM = Column(Text)
     lienGM = Column(String(255))
+    imageGroupe=Column(LargeBinary())
     styleId = Column(Integer, ForeignKey('StyleMusical.styleId'))
     style = relationship(StyleMusical)
+
 
 class Artiste(db.Model):
     __tablename__ = 'Artiste'
@@ -79,9 +86,9 @@ class Billet(db.Model):
     billetId = Column(Integer, primary_key=True)
     typeB = Column(String(255))
     prixB = Column(Float)
-    spectateurId = Column(Integer, ForeignKey('Spectateur.spectateurId'))
+    utilisateurId = Column(Integer, ForeignKey('Utilisateur.utilisateurId'))
     festivalId = Column(Integer, ForeignKey('Festival.festivalId'))
-    spectateur = relationship(Spectateur)
+    utilisateur = relationship(Utilisateur)
     festival = relationship(Festival)
 
 class Concert(db.Model):
@@ -112,17 +119,17 @@ class ActiviteAnnexe(db.Model):
 class PreInscription(db.Model):
     __tablename__ = 'PreInscription'
     preinscriptionId = Column(Integer, primary_key=True)
-    spectateurId = Column(Integer, ForeignKey('Spectateur.spectateurId'))
+    utilisateurId = Column(Integer, ForeignKey('Utilisateur.utilisateurId'))
     festivalId = Column(Integer, ForeignKey('Festival.festivalId'))
     dateHeurePI = Column(DateTime)
-    spectateur = relationship(Spectateur)
+    utilisateur = relationship(Utilisateur)
     festival = relationship(Festival)
 
 class GroupesFavoris(db.Model):
     __tablename__ = 'GroupesFavoris'
-    spectateurId = Column(Integer, ForeignKey('Spectateur.spectateurId'), primary_key=True)
+    utilisateurId = Column(Integer, ForeignKey('Utilisateur.utilisateurId'), primary_key=True)
     groupeId = Column(Integer, ForeignKey('GroupeDeMusique.groupeId'), primary_key=True)
-    spectateur = relationship(Spectateur)
+    utilisateur = relationship(Utilisateur)
     groupe = relationship(GroupeDeMusique)
 
 class Hebergement(db.Model):
