@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean, Date,DateTime, Float, Text, ForeignKey , Time 
+from sqlalchemy import Column, Integer, String, Boolean, Date,DateTime, Float, Text, ForeignKey , Time , LargeBinary
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
@@ -30,7 +30,8 @@ class Utilisateur(db.Model):
     emailUtilisateur = Column(String(255))
     MDPUtilisateur = Column(String(255))
     DdN= Column(Date)
-    tel= Column(String(255))
+    tel= Column(String(10))
+    role = Column(String(255))
 
 
     
@@ -44,7 +45,7 @@ class Festival(db.Model):
     __tablename__ = 'Festival'
     festivalId = Column(Integer, primary_key=True)
     nomF = Column(String(255))
-    dateDebutF = Column(Date)
+    dateHeureDebutF = Column(DateTime)
     DateHeureFinF = Column(DateTime, nullable=False)
 
 # class StyleSimilaire(db.Model):
@@ -69,7 +70,7 @@ class GroupeDeMusique(db.Model):
     nomGM = Column(String(255))
     descriptionGM = Column(Text)
     lienGM = Column(String(255))
-    imageGroupe=Column(LargeBinary())
+    photoGM=Column(LargeBinary(length=2**32-1))
     styleId = Column(Integer, ForeignKey('StyleMusical.styleId'))
     style = relationship(StyleMusical)
 
@@ -95,7 +96,7 @@ class Concert(db.Model):
     __tablename__ = 'Concert'
     concertId = Column(Integer, primary_key=True)
     dateHeureDebutConcert = Column(DateTime)
-    dureeConcert = Column(Integer)
+    dateHeureFinConcert = Column(DateTime)
     lieuId = Column(Integer, ForeignKey('Lieu.lieuId'))
     festivalId = Column(Integer, ForeignKey('Festival.festivalId'))
     groupeId = Column(Integer, ForeignKey('GroupeDeMusique.groupeId'))
