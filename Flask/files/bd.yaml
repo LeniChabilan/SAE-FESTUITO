@@ -6,7 +6,7 @@
   - lieuId: 2
     nomL: "Scène B"
     capaciteL: 3500
-    adresseL: "456 Rue du Spectacle"
+    adresseL: "456 Rue du Utilisateurtacle"
   - lieuId: 3
     nomL: "Scène C"
     capaciteL: 1500
@@ -26,47 +26,104 @@
   - instrumentId: 6
     nomInstru: "Trompette"
 
-- Spectateur:
-  - spectateurId: 1
-    nomSpec: "Jean Dupont"
-    emailSpec: "jean.dupont@email.com"
-    MDPSpec: "mdp123"
-  - spectateurId: 2
-    nomSpec: "Marie Martin"
-    emailSpec: "marie.martin@email.com"
-    MDPSpec: "mdp123"
-  - spectateurId: 3
-    nomSpec: "Pierre Dubois"
-    emailSpec: "pierre.dubois@email.com"
-    MDPSpec: "mdp123"
-  - spectateurId: 4
-    nomSpec: "Sophie Lefebvre"
-    emailSpec: "sophie.lefebvre@email.com"
-    MDPSpec: "mdp123"
-  - spectateurId: 5
-    nomSpec: "Michel Tremblay"
-    emailSpec: "michel.tremblay@email.com"
-    MDPSpec: "mdp123"
-  - spectateurId: 6
-    nomSpec: "Isabelle Gagnon"
-    emailSpec: "isabelle.gagnon@email.com"
-    MDPSpec: "mdp123"
-  - spectateurId: 7
-    nomSpec: "Luc Leclerc"
-    emailSpec: "luc.leclerc@email.com"
-    MDPSpec: "mdp123"
-  - spectateurId: 8
-    nomSpec: "Caroline Roy"
-    emailSpec: "caroline.roy@email.com"
-    MDPSpec: "mdp123"
-  - spectateurId: 9
-    nomSpec: "Marc Desjardins"
-    emailSpec: "marc.desjardins@email.com"
-    MDPSpec: "mdp123"
-  - spectateurId: 10
-    nomSpec: "Nathalie Bergeron"
-    emailSpec: "nathalie.bergeron@email.com"
-    MDPSpec: "mdp123"
+- Utilisateur:
+  - utilisateurId: 1
+    nomUtilisateur: "Jean Dupont"
+    emailUtilisateur: "jean.dupont@email.com"
+    MDPUtilisateur: "mdp123"
+    DdN: "1993-03-10"
+    tel: "0203040506"
+    role: "Spectateur"
+
+  - utilisateurId: 2
+    nomUtilisateur: "Marie Martin"
+    emailUtilisateur: "marie.martin@email.com"
+    MDPUtilisateur: "mdp123"
+    DdN: "1993-03-10"
+    tel: "0203040506"
+    role: "Spectateur"
+
+
+  - utilisateurId: 3
+    nomUtilisateur: "Pierre Dubois"
+    emailUtilisateur: "pierre.dubois@email.com"
+    MDPUtilisateur: "mdp123"
+    DdN: "1993-03-10"
+    tel: "0203040506"
+    role: "Spectateur"
+
+
+  - utilisateurId: 4
+    nomUtilisateur: "Sophie Lefebvre"
+    emailUtilisateur: "sophie.lefebvre@email.com"
+    MDPUtilisateur: "mdp123"
+    DdN: "1993-03-10"
+    tel: "0203040506"
+    role: "Spectateur"
+
+
+  - utilisateurId: 5
+    nomUtilisateur: "Michel Tremblay"
+    emailUtilisateur: "michel.tremblay@email.com"
+    MDPUtilisateur: "mdp123"
+    DdN: "1993-03-10"
+    tel: "0203040506"
+    role: "Spectateur"
+
+
+  - utilisateurId: 6
+    nomUtilisateur: "Isabelle Gagnon"
+    emailUtilisateur: "isabelle.gagnon@email.com"
+    MDPUtilisateur: "mdp123"
+    DdN: "1993-03-10"
+    tel: "0203040506"
+    role: "Spectateur"
+
+
+  - utilisateurId: 7
+    nomUtilisateur: "Luc Leclerc"
+    emailUtilisateur: "luc.leclerc@email.com"
+    MDPUtilisateur: "mdp123"
+    DdN: "1993-03-10"
+    tel: "0203040506"
+    role: "Spectateur"
+
+
+  - utilisateurId: 8
+    nomUtilisateur: "Caroline Roy"
+    emailUtilisateur: "caroline.roy@email.com"
+    MDPUtilisateur: "mdp123"
+    DdN: "1993-03-10"
+    tel: "0203040506"
+    role: "Spectateur"
+
+
+  - utilisateurId: 9
+    nomUtilisateur: "Marc Desjardins"
+    emailUtilisateur: "marc.desjardins@email.com"
+    MDPUtilisateur: "mdp123"
+    DdN: "1993-03-10"
+    tel: "0203040506"
+    role: "Spectateur"
+
+
+  - utilisateurId: 10
+    nomUtilisateur: "Nathalie Bergeron"
+    emailUtilisateur: "nathalie.bergeron@email.com"
+    MDPUtilisateur: "mdp123"
+    DdN: "1993-03-10"
+    tel: "0203040506"
+    role: "Spectateur"
+
+  - utilisateurId: 11
+    nomUtilisateur: "Admin"
+    emailUtilisateur: "admin@email.com"
+    MDPUtilisateur: "admin123"
+    DdN: "1993-03-10"
+    tel: "0203040506"
+    role: "Administateur"
+
+
 
 - StyleMusical:
   - styleId: 1
@@ -92,25 +149,10 @@
 
 - Festival:
   - festivalId: 1
-    nomF: "Rockapalooza"
-    dateDebutF: "2023-06-15"
-    DateHeureFinF: "2023-06-17 22:00:00"
-  - festivalId: 2
-    nomF: "Été en Folie"
-    dateDebutF: "2023-07-20"
-    DateHeureFinF: "2023-07-22 23:59:59"
-  - festivalId: 3
-    nomF: "Fusion Fest"
-    dateDebutF: "2023-09-05"
-    DateHeureFinF: "2023-09-08 21:30:00"
-  - festivalId: 4
-    nomF: "4AM Fest"
-    dateDebutF: "2023-08-10"
-    DateHeureFinF: "2023-08-12 20:45:00"
-  - festivalId: 5
-    nomF: "Extravaganza"
-    dateDebutF: "2023-10-15"
-    DateHeureFinF: "2023-10-17 23:00:00"
+    nomF: "FestIut'O"
+    dateHeureDebutF: "2023-06-15 8:00:00"
+    DateHeureFinF: "2023-06-17 23:00:00"
+
 
 - StyleSimilaire:
   - styleId: 1
@@ -131,26 +173,31 @@
     nomGM: "Les Électro Vibes"
     descriptionGM: "Groupe électro dynamique"
     lienGM: "https://www.electrovibes.com"
+    photoGM: "./static/img/artiste.jpg"
     styleId: 7
   - groupeId: 2
     nomGM: "Rock Titans"
     descriptionGM: "Légendaires rois du rock"
     lienGM: "https://www.rocktitans.com"
+    photoGM: "./static/img/artiste.jpg"
     styleId: 1
   - groupeId: 3
     nomGM: "Jazz Harmonix"
     descriptionGM: "Explorateurs du jazz moderne"
     lienGM: "https://www.jazzharmonix.com"
+    photoGM: "./static/img/artiste.jpg"
     styleId: 4
   - groupeId: 4
     nomGM: "Pop Sensations"
     descriptionGM: "Icônes de la musique pop"
     lienGM: "https://www.popsensations.com"
+    photoGM: "./static/img/artiste.jpg"
     styleId: 2
   - groupeId: 5
     nomGM: "Rap Revolution"
     descriptionGM: "Porte-parole du rap engagé"
     lienGM: "https://www.raprevolution.com"
+    photoGM: "./static/img/artiste.jpg"
     styleId: 3
 
 
@@ -203,117 +250,118 @@
 
 - Billet:
   - billetId: 1
-    typeB: "Billet Standard"
-    prixB: 50.0
-    spectateurId: 1
+    typeB: "Billet 2 Jours"
+    prixB: 75.0
+    utilisateurId: 1
     festivalId: 1
   - billetId: 2
     typeB: "Billet VIP"
     prixB: 100.0
-    spectateurId: 2
-    festivalId: 2
+    utilisateurId: 2
+    festivalId: 1
   - billetId: 3
-    typeB: "Billet Standard"
-    prixB: 60.0
-    spectateurId: 3
+    typeB: "Billet 1 Jour"
+    prixB: 43.0
+    utilisateurId: 3
     festivalId: 1
   - billetId: 4
-    typeB: "Billet Standard"
-    prixB: 55.0
-    spectateurId: 4
-    festivalId: 4
+    typeB: "Billet 2 Jours"
+    prixB: 75.0
+    utilisateurId: 4
+    festivalId: 1
   - billetId: 5
     typeB: "Billet VIP"
-    prixB: 120.0
-    spectateurId: 5
-    festivalId: 5
+    prixB: 100.0
+    utilisateurId: 5
+    festivalId: 1
   - billetId: 6
-    typeB: "Billet Standard"
-    prixB: 70.0
-    spectateurId: 6
-    festivalId: 2
+    typeB: "Billet 1 Jour"
+    prixB: 43.0
+    utilisateurId: 6
+    festivalId: 1
   - billetId: 7
-    typeB: "Billet Standard"
+    typeB: "Billet 2 Jours"
     prixB: 75.0
-    spectateurId: 7
-    festivalId: 3
+    utilisateurId: 7
+    festivalId: 1
   - billetId: 8
     typeB: "Billet VIP"
-    prixB: 150.0
-    spectateurId: 8
-    festivalId: 4
+    prixB: 100.0
+    utilisateurId: 8
+    festivalId: 1
   - billetId: 9
-    typeB: "Billet Standard"
-    prixB: 65.0
-    spectateurId: 9
-    festivalId: 5
+    typeB: "Billet 1 Jour"
+    prixB: 43.0
+    utilisateurId: 9
+    festivalId: 1
   - billetId: 10
-    typeB: "Billet Standard"
-    prixB: 55.0
-    spectateurId: 10
+    typeB: "Billet 2 Jours"
+    prixB: 75.0
+    utilisateurId: 10
     festivalId: 1
 
 - Concert:
   - concertId: 1
-    dateHeureDebutConcert: "2023-06-15 19:00:00"
-    dureeConcert: 120
+    dateHeureDebutConcert: "2023-06-15 20:00:00"
+    dateHeureFinConcert: "2023-06-15 22:00:00"
     lieuId: 1
     festivalId: 1
     groupeId: 1
   - concertId: 2
-    dateHeureDebutConcert: "2023-07-21 20:30:00"
-    dureeConcert: 90
+    dateHeureDebutConcert: "2023-06-17 10:30:00"
+    dateHeureFinConcert: "2023-06-17 12:00:00"
     lieuId: 2
-    festivalId: 2
+    festivalId: 1
     groupeId: 2
   - concertId: 3
-    dateHeureDebutConcert: "2023-09-06 18:45:00"
-    dureeConcert: 75
+    dateHeureDebutConcert: "2023-06-17 18:00:00"
+    dateHeureFinConcert: "2023-06-17 19:15:00"
     lieuId: 3
-    festivalId: 3
+    festivalId: 1
     groupeId: 3
   - concertId: 4
-    dateHeureDebutConcert: "2023-08-11 21:00:00"
-    dureeConcert: 100
+    dateHeureDebutConcert: "2023-06-16 21:00:00"
+    dateHeureFinConcert: "2023-06-16 23:00:00"
     lieuId: 1
-    festivalId: 4
+    festivalId: 1
     groupeId: 4
   - concertId: 5
-    dateHeureDebutConcert: "2023-10-16 22:15:00"
-    dureeConcert: 60
+    dateHeureDebutConcert: "2023-06-17 22:15:00"
+    dateHeureFinConcert: "2023-06-17 23:15:00"
     lieuId: 2
-    festivalId: 5
+    festivalId: 1
     groupeId: 5
   - concertId: 6
-    dateHeureDebutConcert: "2023-06-20 18:30:00"
-    dureeConcert: 90
+    dateHeureDebutConcert: "2023-06-16 9:30:00"
+    dateHeureFinConcert: "2023-06-16 11:00:00"
     lieuId: 3
-    festivalId: 2
+    festivalId: 1
     groupeId: 1
   - concertId: 7
-    dateHeureDebutConcert: "2023-07-25 19:15:00"
-    dureeConcert: 80
+    dateHeureDebutConcert: "2023-06-17 10:15:00"
+    dateHeureFinConcert: "2023-06-17 11:35:00"
     lieuId: 1
-    festivalId: 3
+    festivalId: 1
     groupeId: 2
   - concertId: 8
-    dateHeureDebutConcert: "2023-09-10 17:30:00"
-    dureeConcert: 70
+    dateHeureDebutConcert: "2023-06-17 14:30:00"
+    dateHeureFinConcert: "2023-06-17 15:40:00"
     lieuId: 2
-    festivalId: 4
+    festivalId: 1
     groupeId: 3
   - concertId: 9
-    dateHeureDebutConcert: "2023-08-15 20:45:00"
-    dureeConcert: 95
+    dateHeureDebutConcert: "2023-06-17 18:45:00"
+    dateHeureFinConcert: "2023-06-17 20:20:00"
     lieuId: 3
-    festivalId: 5
+    festivalId: 1
     groupeId: 4
   - concertId: 10
-    dateHeureDebutConcert: "2023-06-25 21:00:00"
-    dureeConcert: 110
+    dateHeureDebutConcert: "2023-06-16 19:00:00"
+    dateHeureFinConcert: "2023-06-16 20:50:00"
     lieuId: 1
     festivalId: 1
     groupeId: 5
+
 
 - ActiviteAnnexe:
   - activiteId: 1
@@ -327,107 +375,87 @@
     descriptionACT: "Conférence sur la musique"
     dateHeureACT: "2023-07-22 14:30:00"
     lieuId: 2
-    festivalId: 2
+    festivalId: 1
     VisibilitePubliqueACT: true
     GroupeDeMusiqueID: 2
   - activiteId: 3
     descriptionACT: "Séance de dédicaces"
     dateHeureACT: "2023-09-07 17:00:00"
     lieuId: 3
-    festivalId: 3
+    festivalId: 1
     VisibilitePubliqueACT: true
     GroupeDeMusiqueID: 3
   - activiteId: 4
     descriptionACT: "Atelier de danse"
     dateHeureACT: "2023-08-12 16:45:00"
     lieuId: 1
-    festivalId: 4
-    VisibilitePubliqueACT: true
-    GroupeDeMusiqueID: 4
-  - activiteId: 5
-    descriptionACT: "Projection de film musical"
-    dateHeureACT: "2023-10-17 19:30:00"
-    lieuId: 2
-    festivalId: 5
-    VisibilitePubliqueACT: true
-    GroupeDeMusiqueID: 5
-  - activiteId: 6
-    descriptionACT: "Spectacle de feu artifice"
-    dateHeureACT: "2023-06-17 21:30:00"
-    lieuId: 1
     festivalId: 1
     VisibilitePubliqueACT: true
-    GroupeDeMusiqueID: null
-  - activiteId: 7
-    descriptionACT: "Atelier de photographie"
-    dateHeureACT: "2023-07-23 15:15:00"
-    lieuId: 2
-    festivalId: 2
-    VisibilitePubliqueACT: true
-    GroupeDeMusiqueID: 1
+    GroupeDeMusiqueID: 4
+
 
 - PreInscription:
   - preinscriptionId: 1
-    spectateurId: 1
+    utilisateurId: 1
     festivalId: 1
     dateHeurePI: "2023-05-20 14:00:00"
   - preinscriptionId: 2
-    spectateurId: 2
-    festivalId: 2
+    utilisateurId: 2
+    festivalId: 1
     dateHeurePI: "2023-06-10 10:30:00"
   - preinscriptionId: 3
-    spectateurId: 3
-    festivalId: 3
+    utilisateurId: 3
+    festivalId: 1
     dateHeurePI: "2023-07-05 16:45:00"
   - preinscriptionId: 4
-    spectateurId: 4
+    utilisateurId: 4
     festivalId: 1
     dateHeurePI: "2023-05-25 12:15:00"
   - preinscriptionId: 5
-    spectateurId: 5
-    festivalId: 4
+    utilisateurId: 5
+    festivalId: 1
     dateHeurePI: "2023-08-02 09:30:00"
   - preinscriptionId: 6
-    spectateurId: 6
-    festivalId: 2
+    utilisateurId: 6
+    festivalId: 1
     dateHeurePI: "2023-06-15 17:00:00"
   - preinscriptionId: 7
-    spectateurId: 7
-    festivalId: 5
+    utilisateurId: 7
+    festivalId: 1
     dateHeurePI: "2023-09-10 13:45:00"
   - preinscriptionId: 8
-    spectateurId: 8
+    utilisateurId: 8
     festivalId: 1
     dateHeurePI: "2023-05-30 11:30:00"
   - preinscriptionId: 9
-    spectateurId: 9
-    festivalId: 3
+    utilisateurId: 9
+    festivalId: 1
     dateHeurePI: "2023-07-15 15:00:00"
   - preinscriptionId: 10
-    spectateurId: 10
-    festivalId: 4
+    utilisateurId: 10
+    festivalId: 1
     dateHeurePI: "2023-08-20 10:00:00"
 
 - GroupesFavoris:
-  - spectateurId: 1
+  - utilisateurId: 1
     groupeId: 1
-  - spectateurId: 1
+  - utilisateurId: 1
     groupeId: 2
-  - spectateurId: 2
+  - utilisateurId: 2
     groupeId: 3
-  - spectateurId: 3
+  - utilisateurId: 3
     groupeId: 2
-  - spectateurId: 4
+  - utilisateurId: 4
     groupeId: 4
-  - spectateurId: 5
+  - utilisateurId: 5
     groupeId: 5
-  - spectateurId: 6
+  - utilisateurId: 6
     groupeId: 1
-  - spectateurId: 7
+  - utilisateurId: 7
     groupeId: 3
-  - spectateurId: 8
+  - utilisateurId: 8
     groupeId: 4
-  - spectateurId: 8
+  - utilisateurId: 8
     groupeId: 5
 
 - Hebergement:
