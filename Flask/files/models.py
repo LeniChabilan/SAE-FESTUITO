@@ -1,15 +1,16 @@
 from sqlalchemy import Column, Integer, String, Boolean, Date,DateTime, Float, Text, ForeignKey , Time 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
+from .app import login_manager
 
 Base = declarative_base()
 from .app import db
 # from flask_login import UserMixin
 # from .app import login_manager
 
-# @login_manager.user_loader
-# def load_user(nomOrga):
-#     return Organisation.query.get(nomOrga)
+@login_manager.user_loader
+def load_user(spectateurId):
+    return Spectateur.query.get(spectateurId)
 
 class Lieu(db.Model):
     __tablename__ = 'Lieu'
