@@ -79,9 +79,9 @@ def get_max_id_concert():
     return session.query(func.max(Concert.concertId)).all()[0][0] + 1
 
 
-def ajouter_concert(dateHeureDebutConcert,dureeConcert, lieuId, festivalId,groupeId):
+def ajouter_concert(dateHeureDebutConcert,dateHeureFinConcert, lieuId, festivalId,groupeId):
     session=login()
-    conc=Concert(get_max_id_concert(),datetime.strptime(dateHeureDebutConcert,"%Y-%m-%d").date(),dureeConcert,lieuId,festivalId,groupeId)
+    conc=Concert(get_max_id_concert(),datetime.strptime(dateHeureDebutConcert,"%Y-%m-%d").date(),datetime.strptime(dateHeureFinConcert,"%Y-%m-%d").date(),lieuId,festivalId,groupeId)
     session.add(conc)
     session.commit()
 
@@ -97,12 +97,12 @@ def ajouter_groupe(nom,description,lien,image,styleId):
     session.add(grp)
     session.commit()
 
-def mod_concert(id,dateHeureDebutConcert,dureeConcert, lieuId, festivalId,groupeId):
+def mod_concert(id,dateHeureDebutConcert,dateFin, lieuId, festivalId,groupeId):
     session = login()
     conc=get_info_un_concert(id)
     if conc:
         conc.dateHeureDebutConcert=dateHeureDebutConcert
-        conc.dureeConcert=dureeConcert
+        conc.dateHeureFinConcert=dateFin
         conc.lieuId=lieuId
         conc.festivalId=festivalId
         conc.groupeId=groupeId
