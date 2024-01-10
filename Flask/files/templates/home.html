@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block styles %}{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static',filename='home.css')}}" />
+{% endblock %} {% block content %}
+<main>
+  <h1>Bienvenue sur FestIUT O</h1>
+
+  <div class="concert">
+    <img class="img-concert" src="{{ url_for('static', filename='img/fond.jpg') }}" alt="">
+    <div class="concert-info">
+      <h2 id="titre">Concert de l'année</h2>
+      <p id="description">Le concert de l'année aura lieu le 12/12/2020 à 20h00</p>
+      <a class="bouton-reserver" href="">
+        <button class="buttonOrg">
+          <span>Reserver</span>
+        </button>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="carousel-container">
+    <div class="carousel">
+      <img src="{{ url_for('static', filename='img/fond.jpg') }}" alt="">
+      <img src="{{ url_for('static', filename='img/fond.jpg') }}" alt="">
+      <img src="{{ url_for('static', filename='img/fond.jpg') }}" alt="">
+      <!-- Ajoutez d'autres images ici -->
+    </div>
+
+    <button class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</button>
+    <button class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</button>
+  </div>
+  
+
+</main>
+<script>
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    const carousel = document.querySelector('.carousel');
+    const slideWidth = document.querySelector('.carousel img').clientWidth;
+    carousel.style.transform = `translateX(${-index * slideWidth}px)`;
+    currentSlide = index;
+  }
+
+  function nextSlide() {
+    const totalSlides = document.querySelectorAll('.carousel img').length;
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    const totalSlides = document.querySelectorAll('.carousel img').length;
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  }
+</script>
+{% endblock %}
