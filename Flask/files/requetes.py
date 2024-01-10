@@ -31,10 +31,13 @@ def get_info_utilisateur(id):
     session=login()
     return session.query(Utilisateur).filter(Utilisateur.utilisateurId==id).first()
 
-
-def get_info_groupe(id):
+def get_info_groupe():
     session=login()
-    return session.query(Groupe).filter(Groupe.groupeId==id).first()
+    return session.query(GroupeDeMusique).all()
+
+def get_info_un_groupe(id):
+    session=login()
+    return session.query(GroupeDeMusique).filter(GroupeDeMusique.groupeId==id).first()
 
 def get_info_artiste(id):
     session=login()
@@ -68,3 +71,70 @@ def get_groupe_favori(idUtil):
     session=login()
     return session.query(GroupesFavoris).filter(GroupesFavoris.utilisateurId==idUtil).all()
     
+
+def get_max_id_concert():
+    session = login()
+    if session.query(func.max(Concert.concertId)).all()[0][0] is None:
+        return 1
+    return session.query(func.max(Concert.concertId)).all()[0][0] + 1
+
+
+def ajouter_concert(dateHeureDebutConcert,dureeConcert, lieuId, festivalId,groupeId):
+    session=login()
+    conc=Concert(get_max_id_concert(),datetime.strptime(dateHeureDebutConcert,"%Y-%m-%d").date(),dureeConcert,lieuId,festivalId,groupeId)
+    session.add(conc)
+    session.commit()
+
+def get_max_id_groupe():
+    session = login()
+    if session.query(func.max(GroupeDeMusique.groupeId)).all()[0][0] is None:
+        return 1
+    return session.query(func.max(GroupeDeMusique.groupeId)).all()[0][0] + 1
+
+def ajouter_groupe(nom,description,lien,image,styleId):
+    session = login()
+    grp=GroupeDeMusique(get_max_id_groupe(),nom,description,lien,image,styleId)
+    session.add(grp)
+    session.commit()
+
+def mod_concert(id,dateHeureDebutConcert,dureeConcert, lieuId, festivalId,groupeId):
+    session = login()
+    conc=get_info_un_concert(id)
+    if conc:
+        conc.dateHeureDebutConcert=dateHeureDebutConcert
+        conc.dureeConcert=dureeConcert
+        conc.lieuId=lieuId
+        conc.festivalId=festivalId
+        conc.groupeId=groupeId
+        session.commit()
+    else:
+        print("le concert n'a pas été trouvé")
+    
+
+def mod_groupe(id,nom,description,lien,image,styleId):
+    session=login()
+    grp=get_info_un_groupe(id)
+    if grp:
+        grp.nom=nom
+        grp.description=description
+        grp.image=image
+        grp.styleId=styleId
+        grp.lien=lien
+        session.commit()
+    else:
+        print("Le groupe n'a pas été trouvé")
+
+def sup_concert(id):
+    session=login()
+    try:
+        session.query(Lieu).filter_by(concertId=id).delete(synchronize_session=False)
+        session.query(Festival).filter_by(concertId=id).delete(synchronize_session=False)
+        session.query(GroupeDeMusique).filter_by(concertId=id).delete(synchronize_session=False)
+        session.commit()
+        return "Concert supprimé"
+    except:
+        session.rollback()
+        return "Erreur"
+
+
+
