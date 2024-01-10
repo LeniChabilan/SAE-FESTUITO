@@ -2,8 +2,22 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='home.css')}}" />
 {% endblock %} {% block content %}
 <main>
-  <h1>Bienvenue sur FestIUT O</h1>
+ 
+  <div class="auteur">
+    <div class="Marquee">
+      <div class="Marquee-content">
+        <div class="Marquee-tag">Liam</div>
+        <div class="Marquee-tag">Romain</div>
+        <div class="Marquee-tag">Nathan</div>
+        <div class="Marquee-tag">Antoine</div>
+        <div class="Marquee-tag">Leni</div>
+        <div class="Marquee-tag">Remi</div>
 
+      </div>
+    </div>
+  </div>
+  <h1>Bienvenue sur FestIUT O</h1>
+  
   <div class="concert">
     <img class="img-concert" src="{{ url_for('static', filename='img/fond.jpg') }}" alt="">
     <div class="concert-info">
@@ -15,9 +29,8 @@
         </button>
       </a>
     </div>
-
-    
   </div>
+
  <div class="carousel">
   <div class="slider">
     <div class="slide-track">
