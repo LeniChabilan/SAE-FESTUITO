@@ -162,6 +162,12 @@ ul {
   
 }
 
+.centre{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 footer {
   background-color: #2a2b38;
