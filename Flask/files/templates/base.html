@@ -6,7 +6,7 @@
   <head>
     {% block head %}
     <meta charset="utf-8" />
-    <title>Concert'O</title>
+    <title>Festiut'O</title>
     <script src="https://kit.fontawesome.com/b2318dca58.js" crossorigin="anonymous"></script>
     {% endblock %}
   </head>
@@ -15,21 +15,62 @@
       <div class="gauche">
         <a href="{{ url_for('home') }}">
           
-          <img class="img_base" id="img1" src="{{ url_for('static', filename='img/logomusiquejaune.png') }}" alt="image du logo de l'application" />
+          <img class="img_base" id="img1" src="{{ url_for('static', filename='img/logo.png') }}" alt="image du logo de l'application" />
         </a>
-        <h2 id="nom_Entreprise">FestIUT'O</h2>
+        <h2 id="nom_Entreprise">FESTIUT'O</h2>
       </div>
       <div class="droite">
-            
-        <a href="{{ url_for('home') }}" id="home">
-          <img class="img_maison" id="img2" src="{{ url_for('static', filename='img/home.png') }}" alt="logo silouhette maison" />
-        </a>
+        <a href="{{ url_for('home') }}" id="bouton_se_connecter">Accueil</a>
+        <a href="{{ url_for('concert') }}" id="bouton_se_connecter">Concert</a>
+        <a href="{{ url_for('horaires') }}" id="bouton_se_connecter">Horaires</a>
+        <a href="{{ url_for('billetterie') }}" id="bouton_se_connecter">Billetterie</a>
+        <ul>
+        {% if current_user.is_authenticated%}
+          <li><a class="username" >{{ current_user.nomOrga }}</a></li>
+          <li class="logout"><a href="{{ url_for('logout') }}" id="fond_bouton" class="noligne">
+            <button type="button" id="bouton_se_connecter">Se déconnecter</button>
+          </a></li>
+          {% else %}
+          <li> <a href="{{ url_for('connexion') }}" id="fond_bouton" class="noligne">
+            <button type="button" id="bouton_se_connecter">Se connecter</button>
+          </a></li>
+        {% endif %}
+        </ul>
       </div> 
     </header>
     <script
       type="text/javascript"
       src="{{ url_for('static',filename='script/App.js')}}"
     ></script>
-    {% block content %} {% endblock %}
+    {% block content %} 
+    {% endblock %}
+    <footer>
+      <div class="container-footer">
+        <div class="footer-section">
+          <h3>À Propos</h3>
+          <p>Notre mission est de créer une expérience inoubliable pour nos visiteurs</p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Téléphone: 01 23 45 67 89</p>
+          <p>Email: contact@festiuto.fr</p>
+          <p>Adresse: 123 Rue de la Musique, 75001 Paris, France</p>
+        </div>
+        <div class="footer-section">
+          <h3>Suivez-nous</h3>
+          <a href="https://facebook.com">
+            <img class="img_reseau" id="imgF" src="{{ url_for('static', filename='img/facebook.png') }}" alt="Facebook" />
+          </a>
+          <a href="https://twitter.com">
+            <img class="img_reseau" id="imgX" src="{{ url_for('static', filename='img/X.png') }}" alt="Twitter" />
+          </a>
+          <a href="https://Instagram.com">
+            <img class="img_reseau" id="imgX" src="{{ url_for('static', filename='img/Instagram.png') }}" alt="X" />
+          </a>
+        </div>
+      </div>
+      <div class="fin"><p>© 2024 FESTIUT'O. Tous droits réservés.</p></div>      
+    </footer>
+    <script type="text/javascript" src="{{ url_for('static', filename='script/App.js') }}"></script>
   </body>
 </html>
