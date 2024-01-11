@@ -5,12 +5,12 @@ from .app import login_manager
 
 Base = declarative_base()
 from .app import db
-# from flask_login import UserMixin
-# from .app import login_manager
+from flask_login import UserMixin
+from .app import login_manager
 
 @login_manager.user_loader
-def load_user(spectateurId):
-    return Spectateur.query.get(spectateurId)
+def load_user(utilisateurId):
+    return Utilisateur.query.get(utilisateurId)
 
 class Lieu(db.Model):
     __tablename__ = 'Lieu'
@@ -24,7 +24,7 @@ class Instrument(db.Model):
     instrumentId = Column(Integer, primary_key=True)
     nomInstru = Column(String(255))
 
-class Utilisateur(db.Model):
+class Utilisateur(db.Model,UserMixin):
     __tablename__ = 'Utilisateur'
     utilisateurId = Column(Integer, primary_key=True)
     nomUtilisateur = Column(String(255))
@@ -33,6 +33,9 @@ class Utilisateur(db.Model):
     DdN= Column(Date)
     tel= Column(String(10))
     role = Column(String(255))
+
+    def get_id(self):
+        return self.utilisateurId
 
 
     

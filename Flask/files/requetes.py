@@ -17,11 +17,13 @@ from .app import db
 from flask_login import UserMixin
 from .app import login_manager
 
+from .models import Utilisateur
+
 def login():
-    login='chabilan'
-    passwd='chabilan'
+    login='debray'
+    passwd='debray'
     serveur='servinfo-maria'
-    bd='DBchabilan'
+    bd='DBdebray'
     engine=create_engine('mysql+mysqldb://'+login+':'+passwd+'@'+serveur+'/'+bd, echo=False)
     Session = sessionmaker(bind=engine)
     session = Session()
@@ -136,5 +138,7 @@ def sup_concert(id):
         session.rollback()
         return "Erreur"
 
-
+def get_user_by_email(email):
+    session=login()
+    return session.query(Utilisateur).filter(Utilisateur.emailUtilisateur==email).first()
 

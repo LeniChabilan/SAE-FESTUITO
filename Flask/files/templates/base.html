@@ -28,11 +28,11 @@
         <ul>
         {% if current_user.is_authenticated%}
           <li><a class="username" >{{ current_user.nomOrga }}</a></li>
-          <li class="logout"><a href="{{ url_for('home') }}" id="fond_bouton" class="noligne">
+          <li class="logout"><a href="{{ url_for('connexion') }}" id="fond_bouton" class="noligne">
             <button type="button" id="bouton_se_connecter">Se déconnecter</button>
           </a></li>
           {% else %}
-          <li> <a href="{{ url_for('home') }}" id="fond_bouton" class="noligne">
+          <li> <a href="{{ url_for('connexion') }}" id="fond_bouton" class="noligne">
             <button type="button" id="bouton_se_connecter">Se connecter</button>
           </a></li>
         {% endif %}
