@@ -2,8 +2,28 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='home.css')}}" />
 {% endblock %} {% block content %}
 <main>
-  <h1>Bienvenue sur FestIUT O</h1>
+ 
+  <div class="auteur">
+    <div class="Marquee">
+      <div class="Marquee-content">
+        <div class="Marquee-tag">Liam</div>
+        <div class="Marquee-tag">Romain</div>
+        <div class="Marquee-tag">Nathan</div>
+        <div class="Marquee-tag">Antoine</div>
+        <div class="Marquee-tag">Leni</div>
+        <div class="Marquee-tag">Remi</div>
+        <div class="Marquee-tag">Liam</div>
+        <div class="Marquee-tag">Romain</div>
+        <div class="Marquee-tag">Nathan</div>
+        <div class="Marquee-tag">Antoine</div>
+        <div class="Marquee-tag">Leni</div>
+        <div class="Marquee-tag">Remi</div>
 
+      </div>
+    </div>
+  </div>
+  <h1>Bienvenue sur FestIUT O</h1>
+  
   <div class="concert">
     <img class="img-concert" src="{{ url_for('static', filename='img/fond.jpg') }}" alt="">
     <div class="concert-info">
@@ -15,20 +35,56 @@
         </button>
       </a>
     </div>
-    
   </div>
 
-  <div class="carousel-container">
-    <div class="carousel">
-      <img src="{{ url_for('static', filename='img/fond.jpg') }}" alt="">
-      <img src="{{ url_for('static', filename='img/fond.jpg') }}" alt="">
-      <img src="{{ url_for('static', filename='img/fond.jpg') }}" alt="">
-      <!-- Ajoutez d'autres images ici -->
+ <div class="carousel">
+  <div class="slider">
+    <div class="slide-track">
+      <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+      </div>
     </div>
-
-    <button class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</button>
-    <button class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</button>
   </div>
+</div>
   
 
 </main>
