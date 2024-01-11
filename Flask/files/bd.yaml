@@ -147,12 +147,24 @@
   - styleId: 10
     nomSM: "Blues"
 
-- Festival:
-  - festivalId: 1
-    nomF: "FestIut'O"
-    dateHeureDebutF: "2023-06-15 8:00:00"
-    DateHeureFinF: "2023-06-17 23:00:00"
+- GroupeConcert:
+  - groupeConcertId: 1
+    nomGroupeConcert: "Jeudi"
+    descriptionGP: "description du GP1"
+    dateHeureDebutGP: "2023-06-15 8:00:00"
+    dateHeureFinGP: "2023-06-15 23:00:00"
 
+  - groupeConcertId: 2
+    nomGroupeConcert: "Vendredi"
+    descriptionGP: "description du GP2"
+    dateHeureDebutGP: "2023-06-16 8:00:00"
+    dateHeureFinGP: "2023-06-16 23:00:00"
+  
+  - groupeConcertId: 3
+    nomGroupeConcert: "Samedi"
+    descriptionGP: "description du GP3"
+    dateHeureDebutGP: "2023-06-17 8:00:00"
+    dateHeureFinGP: "2023-06-17 23:00:00"
 
 - StyleSimilaire:
   - styleId: 1
@@ -253,113 +265,113 @@
     typeB: "Billet 2 Jours"
     prixB: 75.0
     utilisateurId: 1
-    festivalId: 1
+    groupeConcertId: 1
   - billetId: 2
     typeB: "Billet VIP"
     prixB: 100.0
     utilisateurId: 2
-    festivalId: 1
+    groupeConcertId: 1
   - billetId: 3
     typeB: "Billet 1 Jour"
     prixB: 43.0
     utilisateurId: 3
-    festivalId: 1
+    groupeConcertId: 1
   - billetId: 4
     typeB: "Billet 2 Jours"
     prixB: 75.0
     utilisateurId: 4
-    festivalId: 1
+    groupeConcertId: 1
   - billetId: 5
     typeB: "Billet VIP"
     prixB: 100.0
     utilisateurId: 5
-    festivalId: 1
+    groupeConcertId: 1
   - billetId: 6
     typeB: "Billet 1 Jour"
     prixB: 43.0
     utilisateurId: 6
-    festivalId: 1
+    groupeConcertId: 1
   - billetId: 7
     typeB: "Billet 2 Jours"
     prixB: 75.0
     utilisateurId: 7
-    festivalId: 1
+    groupeConcertId: 1
   - billetId: 8
     typeB: "Billet VIP"
     prixB: 100.0
     utilisateurId: 8
-    festivalId: 1
+    groupeConcertId: 1
   - billetId: 9
     typeB: "Billet 1 Jour"
     prixB: 43.0
     utilisateurId: 9
-    festivalId: 1
+    groupeConcertId: 1
   - billetId: 10
     typeB: "Billet 2 Jours"
     prixB: 75.0
     utilisateurId: 10
-    festivalId: 1
+    groupeConcertId: 1
 
 - Concert:
   - concertId: 1
     dateHeureDebutConcert: "2023-06-15 20:00:00"
     dateHeureFinConcert: "2023-06-15 22:00:00"
     lieuId: 1
-    festivalId: 1
+    groupeConcertId: 1
     groupeId: 1
   - concertId: 2
-    dateHeureDebutConcert: "2023-06-17 10:30:00"
-    dateHeureFinConcert: "2023-06-17 12:00:00"
+    dateHeureDebutConcert: "2023-06-15 10:30:00"
+    dateHeureFinConcert: "2023-06-15 12:00:00"
     lieuId: 2
-    festivalId: 1
+    groupeConcertId: 1
     groupeId: 2
   - concertId: 3
     dateHeureDebutConcert: "2023-06-17 18:00:00"
     dateHeureFinConcert: "2023-06-17 19:15:00"
     lieuId: 3
-    festivalId: 1
+    groupeConcertId: 3
     groupeId: 3
   - concertId: 4
     dateHeureDebutConcert: "2023-06-16 21:00:00"
     dateHeureFinConcert: "2023-06-16 23:00:00"
     lieuId: 1
-    festivalId: 1
+    groupeConcertId: 2
     groupeId: 4
   - concertId: 5
     dateHeureDebutConcert: "2023-06-17 22:15:00"
     dateHeureFinConcert: "2023-06-17 23:15:00"
     lieuId: 2
-    festivalId: 1
+    groupeConcertId: 3
     groupeId: 5
   - concertId: 6
     dateHeureDebutConcert: "2023-06-16 9:30:00"
     dateHeureFinConcert: "2023-06-16 11:00:00"
     lieuId: 3
-    festivalId: 1
+    groupeConcertId: 2
     groupeId: 1
   - concertId: 7
     dateHeureDebutConcert: "2023-06-17 10:15:00"
     dateHeureFinConcert: "2023-06-17 11:35:00"
     lieuId: 1
-    festivalId: 1
+    groupeConcertId: 3
     groupeId: 2
   - concertId: 8
     dateHeureDebutConcert: "2023-06-17 14:30:00"
     dateHeureFinConcert: "2023-06-17 15:40:00"
     lieuId: 2
-    festivalId: 1
+    groupeConcertId: 3
     groupeId: 3
   - concertId: 9
     dateHeureDebutConcert: "2023-06-17 18:45:00"
     dateHeureFinConcert: "2023-06-17 20:20:00"
     lieuId: 3
-    festivalId: 1
+    groupeConcertId: 3
     groupeId: 4
   - concertId: 10
     dateHeureDebutConcert: "2023-06-16 19:00:00"
     dateHeureFinConcert: "2023-06-16 20:50:00"
     lieuId: 1
-    festivalId: 1
+    groupeConcertId: 2
     groupeId: 5
 
 
@@ -368,28 +380,28 @@
     descriptionACT: "Atelier de peinture"
     dateHeureACT: "2023-06-16 15:00:00"
     lieuId: 1
-    festivalId: 1
+    groupeConcertId: 1
     VisibilitePubliqueACT: true
     GroupeDeMusiqueID: 1
   - activiteId: 2
     descriptionACT: "Conférence sur la musique"
     dateHeureACT: "2023-07-22 14:30:00"
     lieuId: 2
-    festivalId: 1
+    groupeConcertId: 1
     VisibilitePubliqueACT: true
     GroupeDeMusiqueID: 2
   - activiteId: 3
     descriptionACT: "Séance de dédicaces"
     dateHeureACT: "2023-09-07 17:00:00"
     lieuId: 3
-    festivalId: 1
+    groupeConcertId: 1
     VisibilitePubliqueACT: true
     GroupeDeMusiqueID: 3
   - activiteId: 4
     descriptionACT: "Atelier de danse"
     dateHeureACT: "2023-08-12 16:45:00"
     lieuId: 1
-    festivalId: 1
+    groupeConcertId: 1
     VisibilitePubliqueACT: true
     GroupeDeMusiqueID: 4
 
@@ -397,43 +409,43 @@
 - PreInscription:
   - preinscriptionId: 1
     utilisateurId: 1
-    festivalId: 1
+    groupeConcertId: 1
     dateHeurePI: "2023-05-20 14:00:00"
   - preinscriptionId: 2
     utilisateurId: 2
-    festivalId: 1
+    groupeConcertId: 1
     dateHeurePI: "2023-06-10 10:30:00"
   - preinscriptionId: 3
     utilisateurId: 3
-    festivalId: 1
+    groupeConcertId: 1
     dateHeurePI: "2023-07-05 16:45:00"
   - preinscriptionId: 4
     utilisateurId: 4
-    festivalId: 1
+    groupeConcertId: 1
     dateHeurePI: "2023-05-25 12:15:00"
   - preinscriptionId: 5
     utilisateurId: 5
-    festivalId: 1
+    groupeConcertId: 1
     dateHeurePI: "2023-08-02 09:30:00"
   - preinscriptionId: 6
     utilisateurId: 6
-    festivalId: 1
+    groupeConcertId: 1
     dateHeurePI: "2023-06-15 17:00:00"
   - preinscriptionId: 7
     utilisateurId: 7
-    festivalId: 1
+    groupeConcertId: 1
     dateHeurePI: "2023-09-10 13:45:00"
   - preinscriptionId: 8
     utilisateurId: 8
-    festivalId: 1
+    groupeConcertId: 1
     dateHeurePI: "2023-05-30 11:30:00"
   - preinscriptionId: 9
     utilisateurId: 9
-    festivalId: 1
+    groupeConcertId: 1
     dateHeurePI: "2023-07-15 15:00:00"
   - preinscriptionId: 10
     utilisateurId: 10
-    festivalId: 1
+    groupeConcertId: 1
     dateHeurePI: "2023-08-20 10:00:00"
 
 - GroupesFavoris:

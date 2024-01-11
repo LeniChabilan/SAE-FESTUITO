@@ -30,7 +30,7 @@ def loaddb(filename):
     # importation des données à partir de yaml
     import yaml
     data = yaml.safe_load(open(filename))
-    from .models import Lieu, Instrument, Utilisateur, StyleMusical, Festival, StyleSimilaire, GroupeDeMusique, Artiste, Billet, Concert, ActiviteAnnexe, PreInscription, GroupesFavoris, Hebergement, OrganisationDunGroupe, Jouer
+    from .models import Lieu, Instrument, Utilisateur, StyleMusical,GroupeConcert, StyleSimilaire, GroupeDeMusique, Artiste, Billet, Concert, ActiviteAnnexe, PreInscription, GroupesFavoris, Hebergement, OrganisationDunGroupe, Jouer
 
 
     for nomTable in data:
@@ -60,11 +60,17 @@ def loaddb(filename):
                 style = StyleMusical(styleId=style_data["styleId"], nomSM=style_data["nomSM"])
                 session.add(style)
 
-        elif "Festival" in nomTable:
-            festivals = nomTable["Festival"]
-            for festival_data in festivals:
-                festival = Festival(festivalId=festival_data["festivalId"], nomF=festival_data["nomF"], dateHeureDebutF=festival_data["dateHeureDebutF"], DateHeureFinF=festival_data["DateHeureFinF"])
-                session.add(festival)
+        # elif "Festival" in nomTable:
+        #     festivals = nomTable["Festival"]
+        #     for festival_data in festivals:
+        #         festival = Festival(festivalId=festival_data["festivalId"], nomF=festival_data["nomF"], dateHeureDebutF=festival_data["dateHeureDebutF"], DateHeureFinF=festival_data["DateHeureFinF"])
+        #         session.add(festival)
+
+        elif "GroupeConcert" in nomTable:
+            groupeConcerts = nomTable["GroupeConcert"]
+            for groupeConcert_data in groupeConcerts:
+                groupeConcert = GroupeConcert(groupeConcertId=groupeConcert_data["groupeConcertId"], nomGroupeConcert=groupeConcert_data["nomGroupeConcert"],descriptionGP=groupeConcert_data["descriptionGP"], dateHeureDebutGP=groupeConcert_data["dateHeureDebutGP"], dateHeureFinGP=groupeConcert_data["dateHeureFinGP"])
+                session.add(groupeConcert)
 
         elif "StyleSimilaire" in nomTable:
             styles_similaires = nomTable["StyleSimilaire"]
@@ -90,25 +96,25 @@ def loaddb(filename):
         elif "Billet" in nomTable:
             billets = nomTable["Billet"]
             for billet_data in billets:
-                billet = Billet(billetId=billet_data["billetId"], typeB=billet_data["typeB"], prixB=billet_data["prixB"], utilisateurId=billet_data["utilisateurId"], festivalId=billet_data["festivalId"])
+                billet = Billet(billetId=billet_data["billetId"], typeB=billet_data["typeB"], prixB=billet_data["prixB"], utilisateurId=billet_data["utilisateurId"], groupeConcertId=billet_data["groupeConcertId"])
                 session.add(billet)
 
         elif "Concert" in nomTable:
             concerts = nomTable["Concert"]
             for concert_data in concerts:
-                concert = Concert(concertId=concert_data["concertId"], dateHeureDebutConcert=concert_data["dateHeureDebutConcert"], dateHeureFinConcert=concert_data["dateHeureFinConcert"], lieuId=concert_data["lieuId"], festivalId=concert_data["festivalId"], groupeId=concert_data["groupeId"])
+                concert = Concert(concertId=concert_data["concertId"], dateHeureDebutConcert=concert_data["dateHeureDebutConcert"], dateHeureFinConcert=concert_data["dateHeureFinConcert"], lieuId=concert_data["lieuId"], groupeConcertId=concert_data["groupeConcertId"], groupeId=concert_data["groupeId"])
                 session.add(concert)
 
         elif "ActiviteAnnexe" in nomTable:
             activites = nomTable["ActiviteAnnexe"]
             for activite_data in activites:
-                activite = ActiviteAnnexe(activiteId=activite_data["activiteId"], descriptionACT=activite_data["descriptionACT"], dateHeureACT=activite_data["dateHeureACT"], lieuId=activite_data["lieuId"], festivalId=activite_data["festivalId"], VisibilitePubliqueACT=activite_data["VisibilitePubliqueACT"], GroupeDeMusiqueID=activite_data["GroupeDeMusiqueID"])
+                activite = ActiviteAnnexe(activiteId=activite_data["activiteId"], descriptionACT=activite_data["descriptionACT"], dateHeureACT=activite_data["dateHeureACT"], lieuId=activite_data["lieuId"], groupeConcertId=activite_data["groupeConcertId"], VisibilitePubliqueACT=activite_data["VisibilitePubliqueACT"], GroupeDeMusiqueID=activite_data["GroupeDeMusiqueID"])
                 session.add(activite)
 
         elif "PreInscription" in nomTable:
             pre_inscriptions = nomTable["PreInscription"]
             for pre_inscription_data in pre_inscriptions:
-                pre_inscription = PreInscription(preinscriptionId=pre_inscription_data["preinscriptionId"], utilisateurId=pre_inscription_data["utilisateurId"], festivalId=pre_inscription_data["festivalId"], dateHeurePI=pre_inscription_data["dateHeurePI"])
+                pre_inscription = PreInscription(preinscriptionId=pre_inscription_data["preinscriptionId"], utilisateurId=pre_inscription_data["utilisateurId"], groupeConcertId=pre_inscription_data["groupeConcertId"], dateHeurePI=pre_inscription_data["dateHeurePI"])
                 session.add(pre_inscription)
 
         elif "GroupesFavoris" in nomTable:
