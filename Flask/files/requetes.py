@@ -18,10 +18,10 @@ from flask_login import UserMixin
 from .app import login_manager
 
 def login():
-    login='chabilan'
-    passwd='chabilan'
+    login='debray'
+    passwd='debray'
     serveur='servinfo-maria'
-    bd='DBchabilan'
+    bd='DBdebray'
     engine=create_engine('mysql+mysqldb://'+login+':'+passwd+'@'+serveur+'/'+bd, echo=False)
     Session = sessionmaker(bind=engine)
     session = Session()
@@ -43,7 +43,7 @@ def get_info_artiste(id):
     session=login()
     return session.query(Artiste).filter(Artiste.artisteId==id).first()
 
-def get_info_tous_concert():
+def get_info_concert():
     session=login()
     return session.query(Concert).all()
 
