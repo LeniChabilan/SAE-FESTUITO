@@ -51,7 +51,8 @@
   }
   
   .card-body {
-    border: 30px solid var(--color-yellow);
+    /* border: 30px solid var(--color-yellow);  */
+    border: 30px solid #F4CFDF; 
     flex-direction: column;
     justify-content: inherit;
     
