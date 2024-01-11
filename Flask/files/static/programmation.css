@@ -27,8 +27,8 @@
   }
   
   .col-md-4 {
-    flex: 0 0 33.3333333333%;
-    max-width: 33.3333333333%;
+    flex-basis: 33%;
+    margin-top: 5vh;
   }
 
 
@@ -141,6 +141,11 @@
     background-color: var(--color-white);
     color: var(--color-dark);
   }
+  #row spectacles-list {
+    display: flex;
+    flex-wrap: wrap;
+
+}
   
   #header {
     padding-top: 1rem;
@@ -152,6 +157,7 @@
 
 .spectacles-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between; /* Pour espacer les éléments */
 }
 
