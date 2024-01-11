@@ -3,9 +3,12 @@ from flask import render_template, flash, redirect, url_for, request
 from .models import *
 from .requetes import *
 
+
+PROCHAIN=get_prochain_concert()
+
 @app.route("/")
 def home():
-    return render_template("home.html", title="Home")
+    return render_template("home.html", title="Home", lesConcerts=get_info_concert(),prochain=PROCHAIN)
 
 
 @app.route("/billeterie/<int:concertId>", methods=["GET", "POST"])

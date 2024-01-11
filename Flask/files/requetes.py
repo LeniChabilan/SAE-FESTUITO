@@ -1,5 +1,5 @@
 from .models import *
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine,asc
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import func
@@ -136,5 +136,8 @@ def sup_concert(id):
         session.rollback()
         return "Erreur"
 
-
-
+def get_prochain_concert():
+    session=login()
+    
+    conc=session.query(Concert).filter(Concert.dateHeureDebutConcert>=datetime.now()).order_by(asc(Concert.dateHeureDebutConcert)).first()
+    return conc
