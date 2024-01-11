@@ -43,6 +43,7 @@ class LoginForm(FlaskForm):
     next = HiddenField()
     def get_authenticated_user(self):
         user = get_user_by_email(self.emailUtilisateur.data)
+        print(user.MDPUtilisateur)
         if user is None:
             return None
         m = sha256()
