@@ -31,11 +31,45 @@ def connexion1():
 def inscription():
     return render_template("inscription.html")
 
-@app.route("/accueil_administrateur")
-def accueil():
-    return render_template("accueil_administrateur.html")
 
+
+@app.route("/admin")
+def admin():
+    return render_template("admin.html")
+
+
+@app.route("/administrer_artistes")
+def administrer_artistes():
+    return render_template("administrer_artistes.html")
+
+@app.route("/administrer_concert")
+def administrer_concert():
+    return render_template("administrer_concert.html")
+
+
+
+
+@app.route("/administrer_utilisateur")
+def administrer_utilisateur():
+    return render_template("administrer_utilisateur.html")
+
+
+@app.route("/consulter_les_artistes")
+def consulter_les_artistes():
+    return render_template("consulter_les_artistes.html")
+
+@app.route("/consulter_les_concert")
+def consulter_les_concert():
+    return render_template("consulter_les_concert.html")
+
+@app.route("/consulter_les_groupes")
+def consulter_les_groupes():
+    return render_template("consulter_les_groupes.html")
    
+
+
+
+
 
 class LoginForm(FlaskForm):
     emailUtilisateur = StringField('Username')
@@ -66,7 +100,7 @@ def connexion():
                 return redirect(url_for("home"))
             else:
                 login_user(user)
-                return redirect(url_for("accueil_administrateur"))
+                return redirect(url_for("admin"))
     return render_template("connexion.html", form=f)
 
 
@@ -74,3 +108,4 @@ def connexion():
 def logout():
     logout_user()
     return redirect(url_for('connexion'))
+

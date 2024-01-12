@@ -1,0 +1,51 @@
+{% extends 'base_sans_log.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='consulter_les_concert.css') }}" />
+{% endblock %}
+
+{% block content %}
+    <div class="main">
+        <div id="tete_page">
+            <div id="bouton_retour_choix_fiche">
+                <a href="{{ url_for('administrer_artistes') }}">
+                    <button type="button" class="bouton_de_retour">Retour</button>
+                </a>
+            </div>
+            <div class="middle">
+                <h1 id="modification">Liste des groupes</h1>
+            </div>
+        </div>
+        <div class="partie_principale">
+            {% if groupes %}
+                {% for grp, lArt in groupes.items() %}
+                    <table class="liste_des_concerts">
+                        <thead>
+                            <th>{{ grp.nomGroupe }}</th>
+                            <th></th>
+                            <th class="logo"><a href="{{ url_for('modification_groupe', groupeID=grp.groupeID) }}"><i class="fa-solid fa-pen"></i></a></th>
+                            <th class="logo"><a href="{{ url_for('sup_groupe', id=grp.groupeID) }}" onclick="return showConfirmationSupGroupe()"><i class="fa-solid fa-trash"></i></a></th>
+                        </thead>
+                        <thead>
+                            <th>artisteId</th>
+                            <th>nomArt</th>
+                            <th>groupeId</th>
+                        </thead>
+                        <tbody>
+                            {% if lArt %}
+                                {% for arti in lArt %}
+                                    <tr>
+                                        <th>{{ arti.artisteId }}</th>
+                                        <th>{{ arti.nomArt }}</th>
+                                        <th>{{ arti.groupeId }}</th>
+                                    </tr>
+                                {% endfor %}
+                            {% endif %} 
+                        </tbody>
+                    </table>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

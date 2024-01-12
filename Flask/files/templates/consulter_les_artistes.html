@@ -1,0 +1,44 @@
+{% extends 'base_sans_log.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='consulter_les_artistes.css') }}" />
+{% endblock %}
+
+{% block content %}
+    <div class="main">
+        <div id="tete_page">
+            <div id="bouton_retour_choix_fiche">
+                <a href="{{ url_for('administrer_artistes') }}">
+                    <button type="button" class="bouton_de_retour">Retour</button>
+                </a>
+            </div>
+            <div class="middle">
+                <h1 id="modification">Liste des artistes</h1>
+            </div>
+        </div>
+        <div class="partie_principale">
+            <table class="liste_des_concerts">
+                <thead>
+                    <th>artisteId</th>
+                    <th>nomArt</th>
+                    <th>groupeId</th>
+                    <!-- Le groupe iD est dans la table artiste directe mais peut-être mettre le nom du groupe associé à l'id -->
+                    <th></th>
+                    <th></th>
+                </thead>
+                {% if lArt != None %}
+                    {% for arti in lArt %}
+                        <tr>
+                            <th>{{ arti.artisteId }}</th>
+                            <th>{{ arti.nomArt }}</th>
+                            <th>{{ arti.groupeId }}</th>
+                            <th><a href="{{ url_for('consulter_les_artistes') }}"><i class="fa-solid fa-pen"></i></a></th>
+                            <th><a href="{{ url_for('consulter_les_artistes') }}"><i class="fa-solid fa-trash"></i></a></th>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

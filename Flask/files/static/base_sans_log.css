@@ -1,0 +1,74 @@
+html{
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body{
+    margin: 0;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15vh;
+    margin: 0;
+    background-color: #2a2b38;
+    border-bottom-left-radius: 2%; 
+    border-bottom-right-radius: 2%;
+  }
+  
+  ul {
+    display: flex;
+    list-style-type: none;
+  }
+  
+  .img_base {
+    height: 5vw;
+    width: 5vw;
+    border-radius: 15%;
+    margin-right: 2vw;
+    margin-left: 2vw;
+  }
+  
+  .img_reseau{
+    height: 1.5vw;
+    margin-right: 0.5vw;
+    margin-left: 0.5vw;
+  }
+  .fin{
+    text-align: center;
+  }
+  
+  #nom_Entreprise {
+    color: #ffffff;
+    font-size: 3vw;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+  }
+  
+
+    
+  
+  @media screen and (max-width: 1100px) {
+    #nom_Entreprise {
+      margin-right: 0vw;
+    }
+  }
+  
+  .gauche {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .droite{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2%;
+    
+  }
+  
+
+  
+ 
