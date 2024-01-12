@@ -51,8 +51,14 @@ def loaddb(filename):
         elif "Utilisateur" in nomTable:
             utilisateur = nomTable["Utilisateur"]
             for utilisateur_data in utilisateur:
-                utilisateur = Utilisateur(utilisateurId=utilisateur_data["utilisateurId"], nomUtilisateur=utilisateur_data["nomUtilisateur"], emailUtilisateur=utilisateur_data["emailUtilisateur"], MDPUtilisateur=utilisateur_data["MDPUtilisateur"], DdN=utilisateur_data["DdN"],tel=utilisateur_data["tel"],role=utilisateur_data["role"])
-                session.add(utilisateur)
+                from .models import Utilisateur
+                from hashlib import sha256
+                m = sha256()
+                m.update(utilisateur_data["MDPUtilisateur"].encode())
+                u =Utilisateur(utilisateurId=utilisateur_data["utilisateurId"], nomUtilisateur=utilisateur_data["nomUtilisateur"], emailUtilisateur=utilisateur_data["emailUtilisateur"], MDPUtilisateur= m.hexdigest(), DdN=utilisateur_data["DdN"],tel=utilisateur_data["tel"],role=utilisateur_data["role"])
+                # neworg(engine,organisation_data["nomOrga"],organisation_data["motDePasse"],organisation_data["typeOrga"])
+                # organisation = Organisation(nomOrga=organisation_data["nomOrga"], motDePasse=organisation_data["motDePasse"], typeOrga=organisation_data["typeOrga"])
+                session.add(u)
 
         elif "StyleMusical" in nomTable:
             styles = nomTable["StyleMusical"]
@@ -140,32 +146,32 @@ def loaddb(filename):
 
 
 
-# @app.cli.command()
-# def syncdb():
-#     '''Creates all missing tables.'''
-#     db.create_all()
+@app.cli.command()
+def syncdb():
+    '''Creates all missing tables.'''
+    db.create_all()
 
-# # @app.cli.command()
-# # @click.argument('nomorga')
-# # @click.argument('motDePasse')
-# # @click.argument('typeorga')
-# def neworg(engine,nomorga, motdepasse,typeorga):
-#     print(nomorga)
-#     from .models import Organisation
-#     from hashlib import sha256
-#     login='chabilan'
-#     passwd='chabilan'
-#     serveur='servinfo-maria'
-#     bd='DBchabilan'
-#     engine=create_engine('mysql+mysqldb://'+login+':'+passwd+'@'+serveur+'/'+bd, echo=False)
-#     m = sha256()
-#     print(m)
-#     m.update(motdepasse.encode())
-#     print(m)
-#     u = Organisation(nomOrga=nomorga, motDePasse= m.hexdigest(), typeOrga=typeorga)
-#     Session = sessionmaker(bind=engine)
-#     session = Session()
-#     session.add(u)
+# @app.cli.command()
+# @click.argument('nomorga')
+# @click.argument('motDePasse')
+# @click.argument('typeorga')
+def neworg(engine,nomorga, motdepasse,typeorga):
+    print(nomorga)
+    from .models import Organisation
+    from hashlib import sha256
+    login='chabilan'
+    passwd='chabilan'
+    serveur='servinfo-maria'
+    bd='DBchabilan'
+    engine=create_engine('mysql+mysqldb://'+login+':'+passwd+'@'+serveur+'/'+bd, echo=False)
+    m = sha256()
+    print(m)
+    m.update(motdepasse.encode())
+    print(m)
+    u = Organisation(nomOrga=nomorga, motDePasse= m.hexdigest(), typeOrga=typeorga)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    session.add(u)
 #     # db.session.commit()
 if __name__ == '__main__':
     login='debray'
