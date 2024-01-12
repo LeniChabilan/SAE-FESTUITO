@@ -1,0 +1,12 @@
+{% extends 'base_sans_log.html' %} {% block styles %} {{ super() }}
+<link rel="stylesheet" href="{{ url_for('static',filename='administrer_utilisateur.css')}}" />
+{% endblock %} {% block content %}
+
+    <div id="bouton_retour_choix_fiche">
+        <a href="{{ url_for('admin')}}">
+        <button type="button" class="bouton_de_retour">Retour</button>
+        </a>
+    </div>
+    <h1>UN GROS TABLEAU AVEC TOUT CE QU'IL FAUT !!!!!</h1>
+
+{% endblock %}

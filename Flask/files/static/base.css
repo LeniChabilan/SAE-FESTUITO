@@ -43,7 +43,9 @@ ul {
   margin-top: 4vh;
   margin-bottom: 4vh;
 }
-
+#fond_bouton{
+  text-decoration: none;
+}
 
 #bouton_se_connecter {
   display: flex;

@@ -1,0 +1,101 @@
+
+body .listeOptions {
+    background-color: #ffffff;
+  }
+  
+
+  .listeOptions {
+    height: 85vh;
+    margin: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    transition: 0.3s;
+    padding-left: 0;
+  }
+  
+  .listeOptions div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: #EAECEE;
+    margin: 1vw;
+    margin-top: 5vw;
+    border-radius: 5%;
+    height: 60vh;
+    width: 60vw;
+    transition: 0.3s;
+    max-width: 60vh;
+    border: 3px solid #000000;
+  }
+  
+  .listeOptions div:hover {
+    height: 65vh;
+    max-width: 65vh;
+  
+  }
+  .listeOptions div:hover img{
+    width: 23vw;
+    height: 28vh;
+    transition-duration: 0.2s;
+  }
+  
+  .listeOptions a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 2em;
+    margin: 1em;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .listeOptions div:hover a {
+    font-size: 2.1em;
+    transition-duration: 0.2s;
+  }
+  
+  
+  
+  .listeOptions img {
+    width: 20vw;
+    height: 25vh;
+    border-radius: 5%;
+    margin: 2rem;
+    align-self: center;
+  }
+  
+  @media screen and (max-width: 1100px) {
+    .listeOptions {
+      flex-direction: column;
+      height: 95%;
+      padding: 0;
+    }
+  
+    .listeOptions div {
+      height: 50vh;
+      width: 60vw;
+      max-width: 20vw;
+      max-width: 50vh;
+    }
+  
+    .listeOptions div:hover {
+      height: 53vh;
+      width: 63vw;
+      max-width: 20vw;
+      max-width: 50vh;
+    }
+  
+    .listeOptions img {
+      width: 30vw;
+      height: 20vh;
+      margin: 2rem;
+    }
+    .listeOptions div:hover img{
+      width: 33vw;
+      height: 24vh;
+      transition-duration: 0.2s;
+    }
+  }
+  

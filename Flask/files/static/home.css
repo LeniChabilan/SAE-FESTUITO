@@ -136,11 +136,11 @@ main{
 }
 .Marquee-content {
   display: flex;
-  -webkit-animation: marquee 10s linear infinite running;
-  -moz-animation: marquee 10s linear infinite running;
-  -o-animation: marquee 10s linear infinite running;
-  -ms-animation: marquee 10s linear infinite running;
-  animation: marquee 10s linear infinite running;
+  -webkit-animation: marquee 50s linear infinite running;
+  -moz-animation: marquee 50s linear infinite running;
+  -o-animation: marquee 50s linear infinite running;
+  -ms-animation: marquee 50s linear infinite running;
+  animation: marquee 50s linear infinite running;
 }
 .Marquee-content:hover {
   -webkit-animation-play-state: paused;
