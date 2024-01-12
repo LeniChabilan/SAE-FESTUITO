@@ -29,6 +29,12 @@ ul {
   margin-right: 2vw;
   margin-left: 2vw;
 }
+.img_co {
+  height: 3vw;
+  width: 3vw;
+  margin-right: 2vw;
+  margin-left: 2vw;
+}
 
 .img_reseau{
   height: 1.5vw;
@@ -161,6 +167,13 @@ ul {
   margin-right: 2%;
   
 }
+
+.centre{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 footer {
   background-color: #2a2b38;
