@@ -67,8 +67,17 @@ def consulter_les_groupes():
     return render_template("consulter_les_groupes.html")
    
 
+@app.route("/modifier_artiste")
+def modifier_artiste():
+    return render_template("modifier_artiste.html")
 
+@app.route("/modifier_groupe")
+def modifier_groupe():
+    return render_template("modifier_groupe.html")
 
+@app.route("/modifier_utilisateur")
+def modifier_utilisateur():
+    return render_template("modifier_utilisateur.html")
 
 
 class LoginForm(FlaskForm):

@@ -212,25 +212,6 @@ body{
       border-collapse: collapse;
   }
   
-  table{
-      outline: none;
-  }
-  
-  thead{
-      background-color: #2a2b38;
-      color: #fff;
-  }
-  thead th{
-      padding-left:2vw;
-      padding-right:2vw;
-      padding-bottom: 5vh;
-      padding-top:5vh;
-      border: none;
-  }
-  
-  tbody tr:nth-child(odd){
-      background-color: #b9b9b9;
-  }
   
   
   #tete_page{
@@ -281,5 +262,8 @@ body{
   a>i{
       color: black;
       justify-content: center;
-      padding: 30%;
   }
+
+table{
+  margin-top: 4vh;
+}
