@@ -45,20 +45,13 @@ class StyleMusical(db.Model):
     styleId = Column(Integer, primary_key=True)
     nomSM = Column(String(255))
 
-class Festival(db.Model):
-    __tablename__ = 'Festival'
-    festivalId = Column(Integer, primary_key=True)
-    nomF = Column(String(255))
-    dateHeureDebutF = Column(DateTime)
-    DateHeureFinF = Column(DateTime, nullable=False)
-
-# class StyleSimilaire(db.Model):
-#     __tablename__ = 'StyleSimilaire'
-#     styleId = Column(Integer, primary_key=True)
-#     styleSim = Column(Integer, ForeignKey('StyleMusical.styleId'))
-#     style = relationship(StyleMusical, foreign_keys=[styleId])
-#     styleSimilaire = relationship(StyleMusical, foreign_keys=[styleSim])
-
+class GroupeConcert(db.Model):
+    __tablename__ = 'GroupeConcert'
+    groupeConcertId = Column(Integer, primary_key=True)
+    nomGroupeConcert = Column(String(255))
+    descriptionGP = Column(Text)
+    dateHeureDebutGP = Column(DateTime)
+    dateHeureFinGP = Column(DateTime)
 
 class StyleSimilaire(db.Model):
     __tablename__ = 'StyleSimilaire'
@@ -92,9 +85,9 @@ class Billet(db.Model):
     typeB = Column(String(255))
     prixB = Column(Float)
     utilisateurId = Column(Integer, ForeignKey('Utilisateur.utilisateurId'))
-    festivalId = Column(Integer, ForeignKey('Festival.festivalId'))
+    groupeConcertId = Column(Integer, ForeignKey('GroupeConcert.groupeConcertId'))
     utilisateur = relationship(Utilisateur)
-    festival = relationship(Festival)
+    groupeC = relationship(GroupeConcert)
 
 class Concert(db.Model):
     __tablename__ = 'Concert'
@@ -102,10 +95,10 @@ class Concert(db.Model):
     dateHeureDebutConcert = Column(DateTime)
     dateHeureFinConcert = Column(DateTime)
     lieuId = Column(Integer, ForeignKey('Lieu.lieuId'))
-    festivalId = Column(Integer, ForeignKey('Festival.festivalId'))
+    groupeConcertId = Column(Integer, ForeignKey('GroupeConcert.groupeConcertId'))
     groupeId = Column(Integer, ForeignKey('GroupeDeMusique.groupeId'))
     lieu = relationship(Lieu)
-    festival = relationship(Festival)
+    groupeC = relationship(GroupeConcert)
     groupe = relationship(GroupeDeMusique)
 
 class ActiviteAnnexe(db.Model):
@@ -114,21 +107,21 @@ class ActiviteAnnexe(db.Model):
     descriptionACT = Column(Text)
     dateHeureACT = Column(DateTime)
     lieuId = Column(Integer, ForeignKey('Lieu.lieuId'))
-    festivalId = Column(Integer, ForeignKey('Festival.festivalId'))
+    groupeConcertId = Column(Integer, ForeignKey('GroupeConcert.groupeConcertId'))
     VisibilitePubliqueACT = Column(Boolean)
     GroupeDeMusiqueID = Column(Integer, ForeignKey('GroupeDeMusique.groupeId'))
     lieu = relationship(Lieu)
-    festival = relationship(Festival)
+    groupeC = relationship(GroupeConcert)
     groupe = relationship(GroupeDeMusique)
 
 class PreInscription(db.Model):
     __tablename__ = 'PreInscription'
     preinscriptionId = Column(Integer, primary_key=True)
     utilisateurId = Column(Integer, ForeignKey('Utilisateur.utilisateurId'))
-    festivalId = Column(Integer, ForeignKey('Festival.festivalId'))
+    groupeConcertId = Column(Integer, ForeignKey('GroupeConcert.groupeConcertId'))
     dateHeurePI = Column(DateTime)
     utilisateur = relationship(Utilisateur)
-    festival = relationship(Festival)
+    groupeC = relationship(GroupeConcert)
 
 class GroupesFavoris(db.Model):
     __tablename__ = 'GroupesFavoris'
