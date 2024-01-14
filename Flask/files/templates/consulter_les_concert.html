@@ -3,6 +3,8 @@
 {% block styles %}
     {{ super() }}
     <link rel="stylesheet" href="{{ url_for('static', filename='consulter_les_concert.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
 {% endblock %}
 
 {% block content %}
@@ -88,34 +90,35 @@
         </form>
 
         <div class="partie_principale">
-            <table class="liste_des_concerts">
+            <table class="table table-striped">
                 <thead>
-                    <th>concertId</th>
-                    <th>Date</th>
-                    <th>Groupe</th>
-                    <th>Lieu</th>
-                    <th></th>
-                    <th></th>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">DateDebutConcert</th>
+                    <th scope="col">DateFinConcert</th>
+                    <th scope="col">Lieu</th> 
+                    <!-- requete pour recup le nom du lieu avec l'id  -->
+                    <th scope="col">Groupe</th> 
+                    <!-- requete pour recup le nom du groupe avec l'id  -->
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+        
+                  </tr>
                 </thead>
-                {% if concerts != None %}
-                    {% for x in concerts %}
-                        <tr class="liens"
-                            onclick="window.location='{{ url_for('choix', typeOrga=current_user.typeOrga, concert=x.concertID) }}';"
-                            style="cursor: pointer;">
-                            <th>{{ x.concertId }}</th>
-                            <th>{{ x.dateHeureDebutConcert }}</th>
-                            <th></th>
-                            <th></th>
-                            <th><a href="{{ url_for('modification_concert', id=x.concertID) }}"
-                                    onclick="return showConfirmationModif()"><i
-                                        class="fa-solid fa-pen fa-xl"></i></a></td>
-                            <th><a href="{{ url_for('sup_concert', id=x.concertID) }}"
-                                    onclick="return showConfirmationSup()"><i
-                                        class="fa-solid fa-trash fa-xl"></i></a></td>
-                        </tr>
-                    {% endfor %}
-                {% endif %}
-            </table>
+                <tbody>
+                  {% for i in range(10) %}
+                  <tr>
+                    <td scope="row">1</td>
+                    <td>2023-06-15 20:00:00</td>
+                    <td>2023-06-15 22:00:00</td>
+                    <td>Grande Scène</td>
+                    <td>Les Électro Vibes</td>
+                    <td><a href="{{ url_for('consulter_les_concert') }}"><i class="fa-solid fa-pen"></i></a></td>
+                    <td><a href="{{ url_for('consulter_les_concert') }}"><i class="fa-solid fa-trash"></i></a></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
         </div>
     </div>
 {% endblock %}

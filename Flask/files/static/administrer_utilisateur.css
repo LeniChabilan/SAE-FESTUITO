@@ -28,3 +28,30 @@
     box-shadow: none;
     transform: translateY(0);
 }
+
+table{
+    margin-top: 4vh;
+}
+
+.middle {
+    flex-basis: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 3%;
+}
+
+#tete_page {
+    display: flex;
+}
+
+#modification {
+    font-weight: 300;
+}
+
+a > i {
+    color: black;
+    justify-content: center;
+}
