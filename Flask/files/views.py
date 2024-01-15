@@ -9,9 +9,11 @@ from wtforms import StringField , HiddenField, PasswordField
 from .requetes import *
 from .models import Utilisateur
 
+PROCHAIN=get_prochain_concert()
+
 @app.route("/")
 def home():
-    return render_template("home.html", title="Home")
+    return render_template("home.html", title="Home", lesConcerts=get_info_concert(),prochain=PROCHAIN)
 
 
 @app.route("/billeterie")
@@ -20,7 +22,7 @@ def billeterie():
 
 @app.route("/programmation")
 def programmation():
-    return render_template("programmation.html") 
+    return render_template("programmation.html", lesConcerts=get_info_concert()) 
 
 
 @app.route("/connexion")
@@ -51,20 +53,20 @@ def administrer_concert():
 
 @app.route("/administrer_utilisateur")
 def administrer_utilisateur():
-    return render_template("administrer_utilisateur.html")
+    return render_template("administrer_utilisateur.html", utilisateurs=get_info_utilisateur())
 
 
 @app.route("/consulter_les_artistes")
 def consulter_les_artistes():
-    return render_template("consulter_les_artistes.html")
+    return render_template("consulter_les_artistes.html",artistes=get_info_artiste())
 
 @app.route("/consulter_les_concert")
 def consulter_les_concert():
-    return render_template("consulter_les_concert.html")
+    return render_template("consulter_les_concert.html",concerts=get_info_concert())
 
 @app.route("/consulter_les_groupes")
 def consulter_les_groupes():
-    return render_template("consulter_les_groupes.html")
+    return render_template("consulter_les_groupes.html",groupes=get_info_groupe())
    
 
 @app.route("/modifier_artiste")

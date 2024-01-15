@@ -29,15 +29,15 @@
           </tr>
         </thead>
         <tbody>
-          {% for i in range(10) %}
+          {% for util in utilisateurs %}
           <tr>
-            <th scope="row">1</th>
-            <td>Jean Dupont</td>
-            <td>jean.dupont@email.com</td>
-            <td>mdp123</td>
-            <td>1993-03-10</td>
-            <td>0203040506</td>
-            <td>Spectateur</td>
+            <th scope="row">{{ util.utilisateurId }}</th>
+            <td>{{ util.nomUtilisateur }}</td>
+            <td>{{ util.emailUtilisateur }}</td>
+            <td>{{ util.MDPUtilisateur }}</td>
+            <td>{{ util.DdN }}</td>
+            <td>{{ util.tel }}</td>
+            <td>{{ util.role }}</td>
             <td><a href="{{ url_for('modifier_utilisateur') }}"><i class="fa-solid fa-pen"></i></a></td>
             <td><a href="{{ url_for('administrer_utilisateur') }}"><i class="fa-solid fa-trash"></i></a></td>
           </tr>

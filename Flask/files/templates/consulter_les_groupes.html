@@ -35,13 +35,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  {% for i in range(10) %}
+                  {% for grp in groupes %}
                   <tr>
-                    <td scope="row">1</td>
-                    <td>Les Électro Vibes</td>
-                    <td>Groupe électro dynamique</td>
-                    <td>https://www.electrovibes.com</td>
-                    <td>Électro</td>
+                    <td scope="row">{{ grp.groupeId }}</td>
+                    <td>{{ grp.nomGM }}</td>
+                    <td>{{ grp.descriptionGM }}</td>
+                    <td>{{ grp.lienGM }}</td>
+                    <td>{{ grp.style.nomSM }}</td>
                     <td><a href="{{ url_for('modifier_groupe') }}"><i class="fa-solid fa-pen"></i></a></td>
                     <td><a href="{{ url_for('consulter_les_groupes') }}"><i class="fa-solid fa-trash"></i></a></td>
                   </tr>

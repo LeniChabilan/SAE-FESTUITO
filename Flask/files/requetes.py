@@ -1,11 +1,12 @@
 from .models import *
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine,asc
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import func
 import pymysql
 from datetime import datetime
 import os
+from sqlalchemy.orm import joinedload
 
 from io import BytesIO
 from reportlab.lib.pagesizes import letter
@@ -29,25 +30,34 @@ def login():
     session = Session()
     return session
 
-def get_info_utilisateur(id):
+def get_info_un_utilisateur(id):
     session=login()
     return session.query(Utilisateur).filter(Utilisateur.utilisateurId==id).first()
 
+def get_info_utilisateur():
+    session=login()
+    return session.query(Utilisateur).all()
+
+
 def get_info_groupe():
     session=login()
-    return session.query(GroupeDeMusique).all()
+    return session.query(GroupeDeMusique).options(joinedload(GroupeDeMusique.style)).all()
 
 def get_info_un_groupe(id):
     session=login()
     return session.query(GroupeDeMusique).filter(GroupeDeMusique.groupeId==id).first()
 
-def get_info_artiste(id):
+def get_info_un_artiste(id):
     session=login()
     return session.query(Artiste).filter(Artiste.artisteId==id).first()
 
-def get_info_tous_concert():
+def get_info_artiste():
     session=login()
-    return session.query(Concert).all()
+    return session.query(Artiste).options(joinedload(Artiste.groupe)).all()
+
+def get_info_concert():
+    session=login()
+    return session.query(Concert).options(joinedload(Concert.groupe), joinedload(Concert.lieu)).all()
 
 def get_info_un_concert(id):
     session=login()
@@ -73,6 +83,7 @@ def get_groupe_favori(idUtil):
     session=login()
     return session.query(GroupesFavoris).filter(GroupesFavoris.utilisateurId==idUtil).all()
     
+
 
 def get_max_id_concert():
     session = login()
@@ -142,3 +153,17 @@ def get_user_by_email(email):
     session=login()
     return session.query(Utilisateur).filter(Utilisateur.emailUtilisateur==email).first()
 
+
+
+def get_prochain_concert():
+    session = login()
+    
+    conc = (
+        session.query(Concert)
+        .options(joinedload(Concert.groupe))
+        .filter(Concert.dateHeureDebutConcert >= datetime.now())
+        .order_by(asc(Concert.dateHeureDebutConcert))
+        .first()
+    )
+
+    return conc
