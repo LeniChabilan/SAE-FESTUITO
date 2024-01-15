@@ -92,6 +92,18 @@ ul {
   box-shadow: none;
   transform: translateY(0);
 }
+.username{
+  flex-basis: 100%;
+  color: white;
+  font-size: 1vw;
+}
+.user{
+  display: flex;
+  flex-basis: 50%;
+  justify-content: center;
+  align-items: center;
+
+}
 
 @media screen and (max-width: 1100px) {
   #nom_Entreprise {
