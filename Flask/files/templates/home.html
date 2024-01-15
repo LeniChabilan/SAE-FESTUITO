@@ -2,41 +2,34 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='home.css')}}" />
 {% endblock %} {% block content %}
 <main>
- 
+
   <div class="auteur">
     <div class="Marquee">
       <div class="Marquee-content">
-        <div class="Marquee-tag">Liam</div>
-        <div class="Marquee-tag">Romain</div>
-        <div class="Marquee-tag">Nathan</div>
-        <div class="Marquee-tag">Antoine</div>
-        <div class="Marquee-tag">Leni</div>
-        <div class="Marquee-tag">Remi</div>
-        <div class="Marquee-tag">Liam</div>
-        <div class="Marquee-tag">Romain</div>
-        <div class="Marquee-tag">Nathan</div>
-        <div class="Marquee-tag">Antoine</div>
-        <div class="Marquee-tag">Leni</div>
-        <div class="Marquee-tag">Remi</div>
+        {% for conc in lesConcerts %}
+        <a class="Marquee-tag" href="{{ url_for('billeterie', concertId=conc.concertId) }}">{{ conc.groupe.nomGM }}</a>
+        {% endfor %}
 
       </div>
     </div>
   </div>
-  <h1 class="bienvenue">Bienvenue sur FestIUT O</h1>
-  
+  <h1>Bienvenue sur FestIUT O</h1>
+  {% if prochain %}
   <div class="concert">
-    <img class="img-concert" src="{{ url_for('static', filename='img/fond.jpg') }}" alt="">
+    <object class="img-concert"  data=" data:image/jpeg;base64,{{ prochain.groupe.photoGM.decode('utf-8') }}" type="image/jpeg"></object>
     <div class="concert-info">
-      <h2 id="titre">Concert de l'année</h2>
-      <p id="description">Le concert de l'année aura lieu le 12/12/2020 à 20h00</p>
-      <a class="bouton-reserver" href="{{ url_for('programmation') }}">
+      <h2 id="titre">Prochain concert</h2>
+      <p id="date">{{ prochain.dateHeureDebutConcert }}</p>
+      <p id="description">{{ prochain.groupe.descriptionGM }}</p>
+      <a class="bouton-reserver" href="{{ url_for('billeterie', concertId=prochain.concertId) }}">
         <button class="buttonOrg">
           <span>Reserver</span>
         </button>
       </a>
     </div>
   </div>
-  
+  {% endif %}
+
 
 </main>
 <script>
