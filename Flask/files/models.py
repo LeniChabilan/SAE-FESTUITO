@@ -36,7 +36,16 @@ class Utilisateur(db.Model,UserMixin):
 
     def get_id(self):
         return self.utilisateurId
-
+    
+    def __init__(self, utilisateurId, nomUtilisateur, emailUtilisateur, MDPUtilisateur, DdN, tel, role):
+        self.utilisateurId = utilisateurId
+        self.nomUtilisateur = nomUtilisateur
+        self.emailUtilisateur = emailUtilisateur
+        self.MDPUtilisateur = MDPUtilisateur
+        self.DdN = DdN 
+        self.tel = tel
+        self.role = role
+        
 
     
 

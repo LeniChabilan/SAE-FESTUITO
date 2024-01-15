@@ -9,6 +9,8 @@ from wtforms import StringField , HiddenField, PasswordField
 from .requetes import *
 from .models import Utilisateur
 
+
+
 @app.route("/")
 def home():
     return render_template("home.html", title="Home")
@@ -21,6 +23,29 @@ def billeterie():
 @app.route("/programmation")
 def programmation():
     return render_template("programmation.html") 
+
+
+@app.route("/creer_compte", methods=["GET", "POST"])
+def creer_compte():
+    try:
+        nom = request.form['nomUtilisateur']
+        email = request.form['emailUtilisateur']
+        mdp = request.form['MDPUtilisateur']
+        ddn = request.form['DdN']
+        tel = request.form['tel']
+
+        print(nom, email, mdp, ddn, tel)
+    
+
+        if mdp == request.form['confirmMDPUtilisateur']:
+            create_user(nom, email, mdp, ddn, tel)
+            return render_template("home.html")
+        else:
+            return render_template("inscription.html")
+    except Exception as e:
+        print(f"Error in creer_compte: {str(e)}")
+        return "Internal Server Error", 500
+
 
 
 @app.route("/connexion")
@@ -113,8 +138,8 @@ def connexion():
     return render_template("connexion.html", form=f)
 
 
-@app.route("/logout/")
+@app.route("/logout")
 def logout():
     logout_user()
-    return redirect(url_for('connexion'))
+    return redirect(url_for('home'))
 
