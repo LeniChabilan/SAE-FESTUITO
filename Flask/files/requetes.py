@@ -6,6 +6,8 @@ from sqlalchemy import func
 import pymysql
 from datetime import datetime
 import os
+from .models import Utilisateur
+from hashlib import sha256
 
 from io import BytesIO
 from reportlab.lib.pagesizes import letter
@@ -28,6 +30,20 @@ def login():
     Session = sessionmaker(bind=engine)
     session = Session()
     return session
+
+def create_user(nom,email,mdp,ddn,tel):
+    session=login()
+    id=session.query(func.max(Utilisateur.utilisateurId)).all()[0][0]+1
+    print(id)
+    role="Spectateur"
+    m = sha256()
+    m.update(mdp.encode())
+    user=Utilisateur(id,nom,email,m.hexdigest(),ddn,tel,role)
+    print(user.nomUtilisateur)
+    print(user.emailUtilisateur)
+    print(user.MDPUtilisateur)
+    session.add(user)
+    session.commit()
 
 def get_info_utilisateur(id):
     session=login()

@@ -1,0 +1,174 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    height: auto;
+    transition: 0.3s;
+  }
+  
+  
+  body.light .main {
+    background-color: #ffffff;
+  }
+  
+  body.dark .main {
+    background-color: #212121;
+  }
+  
+  .card {
+    margin: 2rem;
+    width: 25vw;
+    padding: 1.9rem 1.2rem;
+    text-align: center;
+    background: #2a2b38;
+    border-radius: 20px;
+    height: auto; 
+    min-height: 55vh;
+  }
+  
+  /*Inputs*/
+  .field {
+    height: 5vh;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    background-color: #1f2029;
+    border-radius: 4px;
+    padding: 0.5em 1em;
+  }
+  
+  .input-icon {
+    height: 1em;
+    width: 1em;
+    fill: #ffffff;
+  }
+  
+  .input-field {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #d3d3d3;
+    font-size: 1vw;
+  }
+  
+  /*Text*/
+  .title {
+    margin-top: 0.5vw ;
+    font-size: 2vw;
+    font-weight: 500;
+    color: #ffffff;
+  }
+  
+  /*Buttons*/
+  .btn {
+    height: 4vh;
+    width: 8vw;
+    margin: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1vw;
+    text-transform: uppercase;
+    padding: 0;
+    background-color: #ffffff;
+    color: #5e6681;
+    box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn-crcompte {
+    height: 6vh;
+    width: 15vw;
+    margin: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1vw;
+    text-transform: uppercase;
+    padding: 0;
+    background-color: #ffffff;
+    color: #5e6681;
+    box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
+    transition: all 0.3s ease-in-out;
+  }
+
+  #error-message {
+    font-size: 1vw;
+    margin-top: 1vh;
+}
+
+.error-border {
+    border: 2px solid rgb(219, 36, 36);
+    border-radius: 10px;
+}
+
+  .btn-link {
+    color: #f5f5f5;
+    display: block;
+    font-size: 0.75em;
+    transition: color 0.3s ease-out;
+  }
+  
+  /*Hover & focus*/
+  .field input:focus::placeholder {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #5e6681;
+    color: #ffffff;
+    box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
+  }
+  
+  .btn-link:hover {
+    color: #ffffff;
+  }
+  .btn-link {
+    color: #f5f5f5;
+    display: block;
+    font-size: 1vw;
+    margin-top: 2vh;
+    transition: color 0.3s ease-out;
+  }
+  
+  
+  .inscription {
+    margin-top: 5vh;
+    padding: 1.9rem 1.2rem;
+    text-align: center;
+    background: #3a3b48; 
+    border-radius: 20px;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .card {
+      width: 75vw;
+      height: 50vh;
+    }
+  
+    .title {
+      font-size: 8vw;
+    }
+  
+    .input-field {
+      font-size: 4vw;
+    }
+  
+    .btn {
+      height: 9vh;
+      width: 30vw;
+      font-size: 2.5vw;
+    }
+  }
+  

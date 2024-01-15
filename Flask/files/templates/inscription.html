@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static',filename='inscription.css')}}">
+{% endblock %}
+{% block content %}
+</head> 
+<body>
+    <div class="main">
+        <div class="card">
+            <h4 class="title">Créer votre compte</h4>
+            <form class="form-horizontal" role="form" method="POST" action="{{ url_for('creer_compte') }}">
+                <div class="field">
+                    <svg class="input-icon"><!--SVG ici --></svg>
+                    <input type="text" name="nomUtilisateur" class="input-field" placeholder="Adress Mail" size="50">
+                </div>
+                <div class="field">
+                    <svg class="input-icon"><!--SVG ici --></svg>
+                    <input type="text" name="emailUtilisateur" class="input-field" placeholder="Nom Utilisateur" size="50">
+                </div>
+                <!-- Champ Date de Naissance -->
+                <div class="field">
+                    <svg class="input-icon"><!--SVG ici --></svg>
+                    <input type="date" name="DdN" class="input-field" placeholder="Date de Naissance">
+                </div>
+                <!-- Champ Numéro de Téléphone -->
+                <div class="field">
+                    <svg class="input-icon"><!--SVG ici --></svg>
+                    <input type="tel" name="tel" class="input-field" placeholder="Numéro de Téléphone" size="50">
+                </div>
+                <div class="field">
+                    <svg class="input-icon"><!--SVG ici --></svg>
+                    <input type="password" name="MDPUtilisateur" id="mdp" class="input-field" placeholder="Mot De Passe" size="50">
+                </div>
+                <div class="field">
+                    <svg class="input-icon"><!--SVG ici --></svg>
+                    <input type="password" name="confirmMDPUtilisateur" id="confirm_mdp" class="input-field" placeholder="Confirmé mot De Passe" size="50">
+                </div>
+                <div id="error-message" style="color: rgb(219, 36, 36);"></div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-crcompte">Créer mon compte</button>
+                    </div>
+                </div>
+            </form >
+        </div>
+    </div>
+    <script>
+        document.querySelector('.form-horizontal').addEventListener('submit', function(e) {
+            var mdp = document.getElementById('mdp').value;
+            var confirmMdp = document.getElementById('confirm_mdp').value;
+            var mdpField = document.getElementById('mdp');
+            var confirmMdpField = document.getElementById('confirm_mdp');
+            var errorMessage = document.getElementById('error-message');
+
+            if (mdp !== confirmMdp) {
+                errorMessage.textContent = 'Les mots de passe ne correspondent pas';
+                mdpField.classList.add('error-border');
+                confirmMdpField.classList.add('error-border');
+                e.preventDefault();
+            } else {
+                errorMessage.textContent = '';
+                mdpField.classList.remove('error-border');
+                confirmMdpField.classList.remove('error-border');
+            }
+        });
+    </script>    
+</body>
+{% endblock %}
