@@ -1,3 +1,9 @@
+
+
+
+
+
+
 {% extends 'base_sans_log.html' %}
 
 {% block styles %}
@@ -41,7 +47,7 @@
                     <td>{{ art.groupeId }}</td>
                     <td>{{ art.groupe.nomGM }}</td>
                     <td><a href="{{ url_for('modifier_artiste') }}"><i class="fa-solid fa-pen"></i></a></td>
-                    <td><a href="{{ url_for('consulter_les_artistes') }}"><i class="fa-solid fa-trash"></i></a></td>
+                    <td><a href="{{ url_for('sup_artiste', id=art.artisteId) }}"><i class="fa-solid fa-trash"></i></a></td>
                   </tr>
                   {% endfor %}
                 </tbody>
@@ -49,3 +55,4 @@
         </div>
     </div>
 {% endblock %}
+

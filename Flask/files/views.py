@@ -74,6 +74,22 @@ def administrer_concert():
     return render_template("administrer_concert.html")
 
 
+@app.route("/sup-concert/<int:id>")
+def sup_concert(id):
+    supprimer_concert(id)
+    return render_template("consulter_les_concert.html",concerts=get_info_concert())
+
+
+@app.route("/sup-artiste/<int:id>")
+def sup_artiste(id):
+    supprimer_artiste(id)
+    return render_template("consulter_les_artistes.html",artistes=get_info_artiste())
+
+@app.route("/sup-groupe/<int:id>")
+def sup_groupe(id):
+    supprimer_groupe(id)
+    return render_template("consulter_les_groupes.html",groupes=get_info_groupe())
+
 
 
 @app.route("/administrer_utilisateur")
