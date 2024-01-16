@@ -141,6 +141,7 @@ class LoginForm(FlaskForm):
         m = sha256()
         m.update(self.motDePasse.data.encode())
         passwd = m.hexdigest()
+        print(passwd, user.MDPUtilisateur)
         return user if passwd == user.MDPUtilisateur else print("Mot de passe incorrect")
 
 @app.route("/connexion/", methods =("GET","POST",))
