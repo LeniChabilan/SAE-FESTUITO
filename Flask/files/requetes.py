@@ -213,3 +213,56 @@ def get_prochain_concert():
 
     return conc
 
+
+
+def supprimer_concert(id):
+    try:
+        # Supprimez le concert et toutes les lignes liées dans d'autres tables
+        db.session.query(OrganisationDunGroupe).filter_by(concertId=id).delete(synchronize_session=False)
+
+        db.session.query(Concert).filter_by(concertId=id).delete(synchronize_session=False)
+
+        db.session.commit()
+        return "Concert et enregistrements liés supprimés avec succès."
+    except pymysql.IntegrityError:
+        # Si une contrainte de clé étrangère empêche la suppression, gérez l'erreur ici
+        db.session.rollback()
+        return "Erreur : Impossible de supprimer le concert et ses enregistrements liés en raison de contraintes de clé étrangère."
+
+
+def supprimer_artiste(id):
+    try:
+        # Supprimez le concert et toutes les lignes liées dans d'autres tables
+        db.session.query(Jouer).filter_by(ArtisteId=id).delete(synchronize_session=False)
+
+        db.session.query(Artiste).filter_by(artisteId=id).delete(synchronize_session=False)
+
+        db.session.commit()
+        return "Artiste et enregistrements liés supprimés avec succès."
+    except pymysql.IntegrityError:
+        # Si une contrainte de clé étrangère empêche la suppression, gérez l'erreur ici
+        db.session.rollback()
+        return "Erreur : Impossible de supprimer le concert et ses enregistrements liés en raison de contraintes de clé étrangère."
+
+
+def supprimer_groupe(id):
+    try:
+        session=login()
+        conc=session.query(Concert).filter_by(groupeId=id).first()
+        
+        # Supprimez le concert et toutes les lignes liées dans d'autres tables
+        session.query(Artiste).filter_by(groupeId=id).delete(synchronize_session=False)
+        supprimer_concert(conc.concertId)
+        session.query(ActiviteAnnexe).filter_by(GroupeDeMusiqueID=id).delete(synchronize_session=False)
+        session.query(GroupesFavoris).filter_by(groupeId=id).delete(synchronize_session=False)
+
+        session.query(GroupeDeMusique).filter_by(groupeId=id).delete(synchronize_session=False)
+
+        session.commit()
+        return "Groupe et enregistrements liés supprimés avec succès."
+    except pymysql.IntegrityError:
+        # Si une contrainte de clé étrangère empêche la suppression, gérez l'erreur ici
+        db.session.rollback()
+        return "Erreur : Impossible de supprimer le concert et ses enregistrements liés en raison de contraintes de clé étrangère."
+
+
