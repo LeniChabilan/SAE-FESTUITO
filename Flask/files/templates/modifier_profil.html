@@ -1,0 +1,46 @@
+{% extends 'base_sans_log.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='modif_artiste.css') }}" />
+{% endblock %}
+
+{% block content %}
+<div id="bouton_retour_choix_fiche">
+    <a href="{{ url_for('profil',user=user.utilisateurId) }}">
+    <button type="button" class="bouton_de_retour">Retour</button>
+    </a>
+  </div>
+  <div class="form">
+      <div class="title">Modifiez les information de votre profil </div>
+      <form role="form" method ="POST" action ="{{ url_for('modif_artiste_art', id=user.utilisateurId) }}">
+        <div class="input-container ">
+            <input placeholder="Nom du groupe" type="text" class="input" name="nom" value="{{user.nomUtilisateur}}" required>
+            <div class="cut"></div>
+            <label class="iLabel" for="nom">Nom du groupe</label>
+         </div>
+        <div class="input-container ">
+            <input placeholder="emailUtilisateur" type="text" class="input" name="emailUtilisateur" value="{{user.emailUtilisateur}}" required>
+            <div class="cut"></div>
+            <label class="iLabel" for="description">adresse mail</label>
+         </div>
+         <div class="input-container ">
+            <input placeholder="MDPUtilisateur" type="password" class="input" name="MDPUtilisateur" value="{{user.MDPUtilisateur}}" required>
+            <div class="cut"></div>
+            <label class="iLabel" for="lien">Mot de passe</label>
+         </div>
+         <div class="input-container ">
+            <input placeholder="DdN" type="date" class="input" name="DdN" value="{{user.DdN}}" required>
+            <div class="cut"></div>
+            <label class="iLabel" for="lien">Date de naissance</label>
+         </div>
+         <div class="input-container ">
+            <input placeholder="tel" type="text" class="input" name="tel" value="{{user.tel}}" required>
+            <div class="cut"></div>
+            <label class="iLabel" for="lien">telephone</label>
+         </div>
+ 
+            <button class="submit" type="text" onclick="showConfirmationEnregistrer()">Enregistrer</button>
+      </form>
+  </div>
+{% endblock %}

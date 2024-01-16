@@ -93,11 +93,12 @@ ul {
   transform: translateY(0);
 }
 .username{
+  text-decoration: none;
   flex-basis: 100%;
   color: white;
   font-size: 1vw;
 }
-.user{
+.utilisateur{
   display: flex;
   flex-basis: 50%;
   justify-content: center;
