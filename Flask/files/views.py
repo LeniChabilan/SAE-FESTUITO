@@ -32,11 +32,7 @@ def creer_compte():
         email = request.form['emailUtilisateur']
         mdp = request.form['MDPUtilisateur']
         ddn = request.form['DdN']
-        tel = request.form['tel']
-
-        print(nom, email, mdp, ddn, tel)
-    
-
+        tel = request.form['tel'] 
         if mdp == request.form['confirmMDPUtilisateur']:
             create_user(nom, email, mdp, ddn, tel)
             return render_template("home.html")
@@ -111,23 +107,20 @@ class LoginForm(FlaskForm):
     next = HiddenField()
     def get_authenticated_user(self):
         user = get_user_by_email(self.emailUtilisateur.data)
-        print(user.MDPUtilisateur)
         if user is None:
             return None
         m = sha256()
         m.update(self.motDePasse.data.encode())
-        passwd = m.hexdigest()      
+        passwd = m.hexdigest()
         return user if passwd == user.MDPUtilisateur else print("Mot de passe incorrect")
 
 @app.route("/connexion/", methods =("GET","POST",))
 def connexion():
     f = LoginForm()
-    print(f)
     if not f.is_submitted():
         f.next.data = request.args.get("next")
     elif f.validate_on_submit():
         user = f.get_authenticated_user()
-        print(user)
         if user:
             if user.role == "Spectateur":
                 login_user(user)
@@ -143,3 +136,22 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
+@app.route("/profil/<int:user>")
+def profil(user):
+    return render_template("profil.html", user=get_user_by_id(user))
+
+
+@app.route("/modifier_profil/<int:user>", methods=["GET", "POST"])
+def modifier_profil(user):
+   return render_template("modifier_profil.html", user=get_user_by_id(user))
+
+@app.route("/modif_artiste_art/<int:id>", methods=["GET", "POST"])
+def modif_artiste_art(id):
+    nom = request.form.get("nom")
+    mail = request.form.get("emailUtilisateur")
+    mdp = request.form.get("MDPUtilisateur")
+    ddn = request.form.get("DdN")
+    tel = request.form.get("tel")
+   
+    mod_artiste(id, nom, mail, mdp, ddn, tel)
+    return redirect(url_for('profil', user=id))

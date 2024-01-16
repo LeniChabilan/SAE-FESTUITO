@@ -158,3 +158,23 @@ def get_user_by_email(email):
     session=login()
     return session.query(Utilisateur).filter(Utilisateur.emailUtilisateur==email).first()
 
+def get_user_by_id(id):
+    session=login()
+    return session.query(Utilisateur).filter(Utilisateur.utilisateurId==id).first()
+
+def mod_artiste(id, nom, mail, mdp, ddn, tel):
+    session=login()
+    art=session.query(Utilisateur).filter(Utilisateur.utilisateurId==id).first()
+    if art:
+        print(art.nomUtilisateur, art.emailUtilisateur, art.MDPUtilisateur, art.DdN, art.tel)
+        art.nomUtilisateur=nom
+        art.emailUtilisateur=mail
+        m = sha256()
+        m.update(mdp.encode())
+        art.MDPUtilisateur=m.hexdigest()
+        art.DdN=ddn
+        art.tel=tel
+        print(art.nomUtilisateur, art.emailUtilisateur, art.MDPUtilisateur, art.DdN, art.tel)
+        session.commit()
+    else:
+        print("L'artiste n'a pas été trouvé")
