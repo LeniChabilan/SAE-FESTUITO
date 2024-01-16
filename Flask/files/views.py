@@ -86,6 +86,11 @@ def sup_groupe(id):
     supprimer_groupe(id)
     return render_template("consulter_les_groupes.html",groupes=get_info_groupe())
 
+@app.route("/sup-utilisateur/<int:id>")
+def sup_utilisateur(id):
+    supprimer_utilisateur(id)
+    return render_template("administrer_utilisateur.html",utilisateurs=get_info_utilisateur())
+
 
 
 @app.route("/administrer_utilisateur")
