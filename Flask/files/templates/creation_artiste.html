@@ -1,0 +1,27 @@
+{% extends 'base_sans_log.html' %} {% block styles %} {{ super() }}
+<link rel="stylesheet" href="{{ url_for('static',filename='creation_artiste.css')}}" />
+{% endblock %} {% block content %}
+<main>
+    <div id="bouton_retour_choix_fiche">
+      <a href="{{ url_for('administrer_concert') }}">
+        <button type="button" class="bouton_de_retour">Retour</button>
+      </a>
+    </div>
+      <div class="form">
+          <div class="title">Ajouter les information de l'artiste !</div>
+          <form role="form" method ="POST" action ="">
+            <div class="input-container ">
+                <input placeholder="Nom de l'artiste" type="text" class="input" name="pseudo" value="" required>
+                <div class="cut"></div>
+                <label class="iLabel" for="pseudo">Nom de l'artiste</label>
+             </div>           
+              <button class="submit" type="text" onclick="showConfirmationEnregistrer()">Enregistrer</button>
+        </form>
+      </div>
+      <div id="bouton_retour_choix_fiche">
+         <a href="{{ url_for('creation_concert') }}">
+            <button type="button" class="bouton_de_retour">Suivant</button>
+         </a>
+       </div>
+  </main>
+{% endblock %}
