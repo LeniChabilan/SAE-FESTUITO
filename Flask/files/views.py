@@ -118,6 +118,17 @@ def modifier_groupe():
 def modifier_utilisateur():
     return render_template("modifier_utilisateur.html")
 
+@app.route("/creation_concert")
+def creation_concert():
+    return render_template("creation_concert.html")
+
+@app.route("/creation_groupe")
+def creation_groupe():
+    return render_template("creation_groupe.html")
+
+@app.route("/creation_artiste")
+def creation_artiste():
+    return render_template("creation_artiste.html")
 
 class LoginForm(FlaskForm):
     emailUtilisateur = StringField('Username')
