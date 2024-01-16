@@ -27,10 +27,18 @@
       <div class="droite">
         <ul>
         {% if current_user.is_authenticated%}
-          <li class="utilisateur"><a class="username" href="{{ url_for('profil',user=current_user.utilisateurId) }}">{{ current_user.nomUtilisateur }}</a></li>
-          <li class="logout"><a href="{{ url_for('logout') }}" id="fond_bouton" class="noligne">
-            <button type="button" id="bouton_se_connecter">Se déconnecter</button>
-          </a></li>
+          {% if current_user.role == "Administateur" %}
+            <li class="utilisateur"><a class="username" href="{{ url_for('admin') }}">{{ current_user.nomUtilisateur }}</a></li>
+            <li class="logout"><a href="{{ url_for('logout') }}" id="fond_bouton" class="noligne">
+              <button type="button" id="bouton_se_connecter">Se déconnecter</button>
+            </a></li>
+          
+          {% else %}
+            <li class="utilisateur"><a class="username" href="{{ url_for('profil',user=current_user.utilisateurId) }}">{{ current_user.nomUtilisateur }}</a></li>
+            <li class="logout"><a href="{{ url_for('logout') }}" id="fond_bouton" class="noligne">
+              <button type="button" id="bouton_se_connecter">Se déconnecter</button>
+            </a></li>
+          {% endif %}
         {% else %}
           <li> <a href="{{ url_for('connexion') }}" id="fond_bouton" class="noligne">
             <button type="button" id="bouton_se_connecter">Se connecter</button>
