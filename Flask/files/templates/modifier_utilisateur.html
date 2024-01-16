@@ -13,28 +13,28 @@
   </div>
   <div class="form">
       <div class="title">Modifiez les information de l'utilisateur!</div>
-      <form role="form" method ="POST" action ="">
+      <form role="form" method ="POST" action ="{{ url_for('modif_utilisateur',id=utilisateur.utilisateurId) }}">
         <div class="input-container ">
-            <input placeholder="Nom de l'utilisateur" type="text" class="input" name="nom" value="" required>
+            <input placeholder="Nom de l'utilisateur" type="text" class="input" name="nom" value="{{ utilisateur.nomUtilisateur }}" required>
             <div class="cut"></div>
             <label class="iLabel" for="nom">Nom de l'utilisateur</label>
          </div>
         <div class="input-container ">
-            <input placeholder="Email" type="text" class="input" name="email" value="" required>
+            <input placeholder="Email" type="text" class="input" name="email" value="{{ utilisateur.emailUtilisateur }}" required>
             <div class="cut"></div>
             <label class="iLabel" for="email">Email</label>
          </div>
          <div class="input-container ">
-            <input placeholder="Mot De Passe" type="text" class="input" name="mdp" value="" required>
+            <input placeholder="Mot De Passe" type="text" class="input" name="mdp" value="{{ utilisateur.MDPUtilisateur }}" required>
             <div class="cut"></div>
             <label class="iLabel" for="mdp">Mot De Passe</label>
          </div>
          <div class="input-container">
-          <input placeholder="" type="date" class="input" name="dateDN" value="" required>
+          <input placeholder="" type="date" class="input" name="dateDN" value="{{ utilisateur.DdN }}" required>
           <label class="iLabel" for="dateDN"></label>
         </div>
         <div class="input-container ">
-          <input placeholder="Numero" type="text" class="input" name="numero" value="" required>
+          <input placeholder="Numero" type="text" class="input" name="numero" value="{{ utilisateur.tel }}" required>
           <div class="cut"></div>
           <label class="iLabel" for="numero">Numero</label>
        </div>

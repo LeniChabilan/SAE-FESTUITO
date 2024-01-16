@@ -38,7 +38,7 @@
             <td>{{ util.DdN }}</td>
             <td>{{ util.tel }}</td>
             <td>{{ util.role }}</td>
-            <td><a href="{{ url_for('modifier_utilisateur') }}"><i class="fa-solid fa-pen"></i></a></td>
+            <td><a href="{{ url_for('modifier_utilisateur',id=util.utilisateurId) }}"><i class="fa-solid fa-pen"></i></a></td>
             <td><a href="{{ url_for('sup_utilisateur',id=util.utilisateurId) }}"><i class="fa-solid fa-trash"></i></a></td>
           </tr>
           {% endfor %}
