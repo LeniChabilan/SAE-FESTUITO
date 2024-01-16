@@ -43,7 +43,7 @@
                     <td>{{ grp.lienGM }}</td>
                     <td>{{ grp.style.nomSM }}</td>
                     <td><a href="{{ url_for('modifier_groupe') }}"><i class="fa-solid fa-pen"></i></a></td>
-                    <td><a href="{{ url_for('consulter_les_groupes') }}"><i class="fa-solid fa-trash"></i></a></td>
+                    <td><a href="{{ url_for('sup_groupe' , id=grp.groupeId) }}"><i class="fa-solid fa-trash"></i></a></td>
                   </tr>
                   {% endfor %}
                 </tbody>
@@ -51,3 +51,5 @@
         </div>
     </div>
 {% endblock %}
+
+
