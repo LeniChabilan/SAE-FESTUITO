@@ -106,13 +106,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  {% for i in range(10) %}
+                  {% for conc in concerts %}
                   <tr>
-                    <td scope="row">1</td>
-                    <td>2023-06-15 20:00:00</td>
-                    <td>2023-06-15 22:00:00</td>
-                    <td>Grande Scène</td>
-                    <td>Les Électro Vibes</td>
+                    <td scope="row">{{ conc.concertId }}</td>
+                    <td>{{ conc.dateHeureDebutConcert }}</td>
+                    <td>{{ conc.dateHeureFinConcert }}</td>
+                    <td>{{ conc.lieu.nomL }}</td>
+                    <td>{{ conc.groupe.nomGM }}</td>
                     <td><a href="{{ url_for('consulter_les_concert') }}"><i class="fa-solid fa-pen"></i></a></td>
                     <td><a href="{{ url_for('consulter_les_concert') }}"><i class="fa-solid fa-trash"></i></a></td>
                   </tr>

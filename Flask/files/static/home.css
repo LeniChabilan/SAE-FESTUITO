@@ -177,6 +177,8 @@ main{
   -o-transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   transition: all 0.2s ease;
+  text-decoration: none;
+  color: #2a2b38;
 }
 .Marquee-tag:hover {
   background-color: #2a2b38;

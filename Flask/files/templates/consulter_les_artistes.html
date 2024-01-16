@@ -34,12 +34,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                  {% for i in range(10) %}
+                  {% for art in artistes %}
                   <tr>
-                    <td scope="row">1</td>
-                    <td>Alice Smith</td>
-                    <td>1</td>
-                    <td>Les Électro Vibes</td>
+                    <td scope="row">{{ art.artisteId }}</td>
+                    <td>{{ art.nomArt }}</td>
+                    <td>{{ art.groupeId }}</td>
+                    <td>{{ art.groupe.nomGM }}</td>
                     <td><a href="{{ url_for('modifier_artiste') }}"><i class="fa-solid fa-pen"></i></a></td>
                     <td><a href="{{ url_for('consulter_les_artistes') }}"><i class="fa-solid fa-trash"></i></a></td>
                   </tr>
