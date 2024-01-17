@@ -171,9 +171,11 @@ def mod_groupe(id,nom,description,lien,image,styleId):
     else:
         print("Le groupe n'a pas été trouvé")
 
-def create_groupe(nom, description, lien, image, styleId):
+def create_groupe(nom, description, lien, image, style):
     try:
         session = login()
+        stl = session.query(StyleMusical).filter_by(nomSM=style).first()
+        styleId = stl.styleId
         id = session.query(func.max(GroupeDeMusique.groupeId)).all()[0][0] + 1
         groupe = GroupeDeMusique(
             groupeId=id,
@@ -298,7 +300,8 @@ def supprimer_groupe(id):
         
         # Supprimez le concert et toutes les lignes liées dans d'autres tables
         session.query(Artiste).filter_by(groupeId=id).delete(synchronize_session=False)
-        supprimer_concert(conc.concertId)
+        if conc is not None : 
+            supprimer_concert(conc.concertId)
         session.query(ActiviteAnnexe).filter_by(GroupeDeMusiqueID=id).delete(synchronize_session=False)
         session.query(GroupesFavoris).filter_by(groupeId=id).delete(synchronize_session=False)
 
@@ -318,7 +321,7 @@ def supprimer_utilisateur(id):
         # Supprimez le concert et toutes les lignes liées dans d'autres tables
         db.session.query(PreInscription).filter_by(utilisateurId=id).delete(synchronize_session=False)
         db.session.query(GroupesFavoris).filter_by(utilisateurId=id).delete(synchronize_session=False)
-        db.session.query(Billet).filter_by(utilisateurId=id).delete(synchronize_session=False)
+        db.session.query(AcheterBillet).filter_by(utilisateurId=id).delete(synchronize_session=False)
         db.session.query(Utilisateur).filter_by(utilisateurId=id).delete(synchronize_session=False)
 
         db.session.commit()
