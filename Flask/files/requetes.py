@@ -361,16 +361,22 @@ def mod_concert(id, dateD,dateF,lieu,grp,grpC):
         print("Le concert n'a pas été trouvé.")
 
 
-def creer_conc( dateD,dateF,lieu,grp,grpC):
+def creer_conc(dateD, dateF, lieu, grp, grpC):
     session = login()
 
-    lieuC=session.query(Lieu).filter_by(nomL = lieu).first()
-    lieuId=lieuC.lieuId
-    groupe=session.query(GroupeDeMusique).filter_by(nomGM = grp).first()
-    groupeId=groupe.groupeId
-    groupeC=session.query(GroupeConcert).filter_by(nomGroupeConcert = grpC).first()
-    groupeCId=groupeC.groupeConcertId
+    lieuC = session.query(Lieu).filter_by(nomL=lieu).first()
+    lieuId = lieuC.lieuId
+    groupe = session.query(GroupeDeMusique).filter_by(nomGM=grp).first()
+    groupeId = groupe.groupeId
+    groupeC = session.query(GroupeConcert).filter_by(nomGroupeConcert=grpC).first()
+    groupeCId = groupeC.groupeConcertId
 
-    concert = Concert( datetime.strptime(dateD,"%Y-%m-%d").date(), datetime.strptime(dateF,"%Y-%m-%d").date(), lieuId,groupeCId,groupeId)
+    concert = Concert(
+        dateHeureDebutConcert=datetime.strptime(dateD, "%Y-%m-%dT%H:%M"),
+        dateHeureFinConcert=datetime.strptime(dateF, "%Y-%m-%dT%H:%M"),
+        lieuId=lieuId,
+        groupeConcertId=groupeCId,
+        groupeId=groupeId
+    )
     session.add(concert)
     session.commit()
