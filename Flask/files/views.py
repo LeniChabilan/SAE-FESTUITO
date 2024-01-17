@@ -1,13 +1,14 @@
 from .app import *
 from flask import render_template, flash, redirect, url_for, request
 from .app import app, db
-from flask import render_template, url_for, redirect
+from flask import render_template, url_for, redirect,jsonify
 from flask_login import login_user , current_user, logout_user, login_required
 from hashlib import sha256
 from flask_wtf import FlaskForm
 from wtforms import StringField , HiddenField, PasswordField
 from .requetes import *
 from .models import Utilisateur
+import base64
 
 
 
@@ -163,13 +164,14 @@ def modif_utilisateur(id):
 def creation_concert():
     return render_template("creation_concert.html")
 
+
 @app.route("/creation_groupe")
 def creation_groupe():
     return render_template("creation_groupe.html")
 
-@app.route("/creation_artiste")
-def creation_artiste():
-    return render_template("creation_artiste.html")
+@app.route("/creation_artiste/<int:id>")
+def creation_artiste(id):
+    return render_template("creation_artiste.html",id=id)
 
 class LoginForm(FlaskForm):
     emailUtilisateur = StringField('Username')
@@ -223,6 +225,35 @@ def modif_artiste_art(id):
     mdp = request.form.get("MDPUtilisateur")
     ddn = request.form.get("DdN")
     tel = request.form.get("tel")
-   
     mod_utilisateur(id, nom, mail, mdp, ddn, tel)
     return redirect(url_for('profil', user=id))
+
+@app.route("/creation_groupe_gr", methods=["POST"])
+def creation_groupe_gr():
+    try:
+        upload_file = request.files['avatar']
+            
+        # Lire le contenu du fichier
+        file_content = upload_file.read()
+        
+        # Encoder en base64
+        base64_encoded = base64.b64encode(file_content).decode('utf-8')
+        nom = request.form.get("nom")
+        desc = request.form.get("description")
+        lien = request.form.get("lien")
+        image = base64_encoded
+        styleId = request.form.get("Style")
+        if nom is None or desc is None or lien is None or image is None or styleId is None:
+            raise Exception("Missing fields")
+        id=create_groupe(nom, desc, lien, image, styleId)
+        print("Groupe ajouté")
+        return redirect(url_for('creation_artiste',id=id))
+    except:
+        return render_template("creation_groupe.html")
+    
+@app.route("/creation_artiste_art/<int:id>", methods=["POST"])
+def creation_artiste_art(id):
+    nom = request.form.get("pseudo")
+    create_artiste(nom,id)
+    return redirect(url_for('creation_artiste',id=id))
+

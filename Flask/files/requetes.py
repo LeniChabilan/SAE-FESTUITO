@@ -162,6 +162,31 @@ def mod_groupe(id,nom,description,lien,image,styleId):
     else:
         print("Le groupe n'a pas été trouvé")
 
+def create_groupe(nom, description, lien, image, styleId):
+    try:
+        session = login()
+        id = session.query(func.max(GroupeDeMusique.groupeId)).all()[0][0] + 1
+        groupe = GroupeDeMusique(id, nom, description, lien, image, styleId)
+        
+        session.add(groupe)
+        print(f"Groupe ajouté avec l'ID : {groupe.groupeId}")
+        
+        session.commit()
+        return groupe.groupeId
+    except Exception as e:
+        print(f"Erreur lors de la création du groupe : {str(e)}")
+        session.rollback()  # Annule la transaction en cas d'erreur
+    finally:
+        session.close()
+
+
+def create_artiste(nom, groupeId):
+    session = login()
+    id = session.query(func.max(Artiste.artisteId)).all()[0][0] + 1
+    artiste = Artiste(id, nom, groupeId)
+    session.add(artiste)
+    session.commit()
+
 def sup_concert(id):
     session=login()
     try:
