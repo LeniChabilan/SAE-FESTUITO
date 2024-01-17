@@ -106,7 +106,9 @@ def get_groupe_favori(idUtil):
     session=login()
     return session.query(GroupesFavoris).filter(GroupesFavoris.utilisateurId==idUtil).all()
     
-
+def get_info_style():
+    session=login()
+    return session.query(StyleMusical).all()
 
 def get_max_id_concert():
     session = login()
@@ -177,23 +179,27 @@ def get_user_by_email(email):
     return session.query(Utilisateur).filter(Utilisateur.emailUtilisateur==email).first()
 
 
+def get_info_un_utilisateur(id):
+    session=login()
+    return session.query(Utilisateur).filter(Utilisateur.utilisateurId==id).first()
+
 def get_user_by_id(id):
     session=login()
     return session.query(Utilisateur).filter(Utilisateur.utilisateurId==id).first()
 
-def mod_artiste(id, nom, mail, mdp, ddn, tel):
+def mod_utilisateur(id, nom, mail, mdp, ddn, tel):
     session=login()
-    art=session.query(Utilisateur).filter(Utilisateur.utilisateurId==id).first()
-    if art:
-        print(art.nomUtilisateur, art.emailUtilisateur, art.MDPUtilisateur, art.DdN, art.tel)
-        art.nomUtilisateur=nom
-        art.emailUtilisateur=mail
+    util=session.query(Utilisateur).filter(Utilisateur.utilisateurId==id).first()
+    if util:
+        print(util.nomUtilisateur, util.emailUtilisateur, util.MDPUtilisateur, util.DdN, util.tel)
+        util.nomUtilisateur=nom
+        util.emailUtilisateur=mail
         m = sha256()
         m.update(mdp.encode())
-        art.MDPUtilisateur=m.hexdigest()
-        art.DdN=ddn
-        art.tel=tel
-        print(art.nomUtilisateur, art.emailUtilisateur, art.MDPUtilisateur, art.DdN, art.tel)
+        util.MDPUtilisateur=m.hexdigest()
+        util.DdN=ddn
+        util.tel=tel
+        print(util.nomUtilisateur, util.emailUtilisateur, util.MDPUtilisateur, util.DdN, util.tel)
         session.commit()
     else:
         print("L'artiste n'a pas été trouvé")
@@ -281,3 +287,39 @@ def supprimer_utilisateur(id):
         # Si une contrainte de clé étrangère empêche la suppression, gérez l'erreur ici
         db.session.rollback()
         return "Erreur : Impossible de supprimer l'utilisateur et ses enregistrements liés en raison de contraintes de clé étrangère."
+
+
+def mod_artiste(id,nom, grp):
+   
+    session = login()
+    art = session.query(Artiste).filter_by(artisteId = id).first()
+
+    groupe=session.query(GroupeDeMusique).filter_by(nomGM = grp).first()
+    grpId=groupe.groupeId
+    if art:
+        art.nomArt = nom
+        
+        art.groupeId = grpId
+        art.groupe=groupe
+        session.commit()
+    else:
+        print("L'artiste n'a pas été trouvé.")
+
+
+def mod_groupe(id,nom, description,lien,style):
+   
+    session = login()
+    groupe = session.query(GroupeDeMusique).filter_by(groupeId = id).first()
+
+    stl=session.query(StyleMusical).filter_by(nomSM = style).first()
+    styleID=stl.styleId
+    if groupe:
+        groupe.nomGM = nom
+        
+        groupe.descriptionGM = description
+        groupe.lienGM=lien
+        groupe.style=stl
+        groupe.styleId = styleID
+        session.commit()
+    else:
+        print("L'artiste n'a pas été trouvé.")

@@ -13,26 +13,26 @@
   </div>
   <div class="form">
       <div class="title">Ajouter les information du groupe !</div>
-      <form role="form" method ="POST" action ="">
+      <form role="form" method ="POST" action ="{{ url_for('modif_groupe',id=groupe.groupeId) }}">
         <div class="input-container ">
-            <input placeholder="Nom du groupe" type="text" class="input" name="nom" value="" required>
+            <input placeholder="Nom du groupe" type="text" class="input" name="nom" value="{{ groupe.nomGM }}" required>
             <div class="cut"></div>
             <label class="iLabel" for="nom">Nom du groupe</label>
          </div>
         <div class="input-container ">
-            <input placeholder="Description du groupe" type="text" class="input" name="description" value="" required>
+            <input placeholder="Description du groupe" type="text" class="input" name="description" value="{{ groupe.descriptionGM }}" required>
             <div class="cut"></div>
             <label class="iLabel" for="description">Description</label>
          </div>
          <div class="input-container ">
-            <input placeholder="Lien du groupe" type="text" class="input" name="lien" value="" required>
+            <input placeholder="Lien du groupe" type="text" class="input" name="lien" value="{{ groupe.lienGM }}" required>
             <div class="cut"></div>
             <label class="iLabel" for="lien">Lien du groupe</label>
          </div>
          <div class="input-container">
-            <select name="Style" id="pet-select" class="input">
-              {% for i in range(3) %}
-              <option value="{{i}}">{{i}}</option>
+            <select name="style" id="pet-select" class="input">
+              {% for style in listeStyle %}
+              <option value="{{ style.nomSM }}">{{ style.nomSM }}</option>
               {% endfor %}
             </select>
             </input>
