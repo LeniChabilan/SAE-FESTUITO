@@ -119,7 +119,7 @@ class AcheterBillet(db.Model):
 
 class Concert(db.Model):
     __tablename__ = 'Concert'
-    concertId = Column(Integer, primary_key=True)
+    concertId = Column(Integer, primary_key=True,autoincrement=True)
     dateHeureDebutConcert = Column(DateTime)
     dateHeureFinConcert = Column(DateTime)
     lieuId = Column(Integer, ForeignKey('Lieu.lieuId'))
