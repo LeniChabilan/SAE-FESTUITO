@@ -30,7 +30,7 @@ def loaddb(filename):
     # importation des données à partir de yaml
     import yaml
     data = yaml.safe_load(open(filename))
-    from .models import Lieu, Instrument, Utilisateur, StyleMusical, GroupeConcert ,StyleSimilaire, GroupeDeMusique, Artiste, Billet, Concert, ActiviteAnnexe, PreInscription, GroupesFavoris, Hebergement, OrganisationDunGroupe, Jouer
+    from .models import Lieu, Instrument, Utilisateur, StyleMusical, GroupeConcert , Necessiter, TypeBillet , AcheterBillet ,StyleSimilaire, GroupeDeMusique, Artiste,Concert, ActiviteAnnexe, PreInscription, GroupesFavoris, Hebergement, OrganisationDunGroupe, Jouer
 
 
     for nomTable in data:
@@ -100,17 +100,29 @@ def loaddb(filename):
                 session.add(artiste)
                 session.commit()
 
-        elif "Billet" in nomTable:
-            billets = nomTable["Billet"]
-            for billet_data in billets:
-                billet = Billet(billetId=billet_data["billetId"], typeB=billet_data["typeB"], prixB=billet_data["prixB"], utilisateurId=billet_data["utilisateurId"], groupeConcertId=billet_data["groupeConcertId"])
-                session.add(billet)
+        elif "TypeBillet" in nomTable:
+            typeBillet = nomTable["TypeBillet"]
+            for typebillet_data in typeBillet:
+                Typebillets = TypeBillet(typeBilletId=typebillet_data["typeBilletId"], nomTypeBillet=typebillet_data["nomTypeBillet"], prixB=typebillet_data["prixB"])
+                session.add(Typebillets)
 
         elif "Concert" in nomTable:
             concerts = nomTable["Concert"]
             for concert_data in concerts:
                 concert = Concert(concertId=concert_data["concertId"], dateHeureDebutConcert=concert_data["dateHeureDebutConcert"], dateHeureFinConcert=concert_data["dateHeureFinConcert"], lieuId=concert_data["lieuId"], groupeConcertId=concert_data["groupeConcertId"], groupeId=concert_data["groupeId"])
                 session.add(concert)
+
+        elif "Necessiter" in nomTable:
+            necessiters = nomTable["Necessiter"]
+            for necessiter_data in necessiters:
+                necessiter = Necessiter(typeBilletId=necessiter_data["typeBilletId"], groupeConcertId=necessiter_data["groupeConcertId"])
+                session.add(necessiter)
+        
+        elif "AcheterBillet" in nomTable:
+            acheterbillets = nomTable["AcheterBillet"]
+            for acheterbillet_data in acheterbillets:
+                acheterbillet = AcheterBillet(billetId=acheterbillet_data["billetId"], utilisateurId=acheterbillet_data["utilisateurId"],typeBilletId=acheterbillet_data["typeBilletId"])
+                session.add(acheterbillet)
 
         elif "ActiviteAnnexe" in nomTable:
             activites = nomTable["ActiviteAnnexe"]
