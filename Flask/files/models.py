@@ -76,7 +76,7 @@ class GroupeDeMusique(db.Model):
     nomGM = Column(String(255))
     descriptionGM = Column(Text)
     lienGM = Column(String(255))
-    photoGM = Column(String, nullable=True)
+    photoGM = Column(LargeBinary(length=2**32-1), nullable=True)
     styleId = Column(Integer, ForeignKey('StyleMusical.styleId'))
     style = relationship(StyleMusical)
 
@@ -95,21 +95,27 @@ class Artiste(db.Model):
     nomArt = Column(String(255))
     groupeId = Column(Integer, ForeignKey('GroupeDeMusique.groupeId'))
     groupe = relationship(GroupeDeMusique)
-
+    
     def __init__(self, artisteId, nomArt, groupeId):
         self.artisteId = artisteId
         self.nomArt = nomArt
         self.groupeId = groupeId
 
-class Billet(db.Model):
-    __tablename__ = 'Billet'
-    billetId = Column(Integer, primary_key=True)
-    typeB = Column(String(255))
+class TypeBillet(db.Model):
+    __tablename__ = 'TypeBillet'
+    typeBilletId = Column(Integer, primary_key=True)
+    nomTypeBillet = Column(String(255))
     prixB = Column(Float)
+
+
+class AcheterBillet(db.Model):
+    __tablename__ = 'AcheterBillet'
+    billetId = Column(Integer, primary_key=True , autoincrement=True)
     utilisateurId = Column(Integer, ForeignKey('Utilisateur.utilisateurId'))
-    groupeConcertId = Column(Integer, ForeignKey('GroupeConcert.groupeConcertId'))
-    utilisateur = relationship(Utilisateur)
-    groupeC = relationship(GroupeConcert)
+    typeBilletId = Column(Integer, ForeignKey('TypeBillet.typeBilletId'))
+    user = relationship(Utilisateur)
+    typeB= relationship(TypeBillet)
+
 
 class Concert(db.Model):
     __tablename__ = 'Concert'
@@ -122,6 +128,14 @@ class Concert(db.Model):
     lieu = relationship(Lieu)
     groupeC = relationship(GroupeConcert)
     groupe = relationship(GroupeDeMusique)
+
+class Necessiter(db.Model):
+    __tablename__ = 'Necessiter'
+    typeBilletId = Column(Integer, ForeignKey('TypeBillet.typeBilletId'), primary_key=True)
+    groupeConcertId = Column(Integer, ForeignKey('GroupeConcert.groupeConcertId'), primary_key=True)
+    typeBil = relationship(TypeBillet)
+    groupeC = relationship(GroupeConcert)
+
 
 class ActiviteAnnexe(db.Model):
     __tablename__ = 'ActiviteAnnexe'

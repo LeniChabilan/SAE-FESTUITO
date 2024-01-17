@@ -353,57 +353,26 @@
     groupeId: 10
 
 
-- Billet:
-  - billetId: 1
-    typeB: "Billet 2 Jours"
-    prixB: 75.0
-    utilisateurId: 1
-    groupeConcertId: 1
-  - billetId: 2
-    typeB: "Billet VIP"
-    prixB: 100.0
-    utilisateurId: 2
-    groupeConcertId: 1
-  - billetId: 3
-    typeB: "Billet 1 Jour"
+- TypeBillet:
+  - typeBilletId: 1
+    nomTypeBillet: "Billet 1 Jours Samedi"
     prixB: 43.0
-    utilisateurId: 3
-    groupeConcertId: 1
-  - billetId: 4
-    typeB: "Billet 2 Jours"
-    prixB: 75.0
-    utilisateurId: 4
-    groupeConcertId: 1
-  - billetId: 5
-    typeB: "Billet VIP"
-    prixB: 100.0
-    utilisateurId: 5
-    groupeConcertId: 1
-  - billetId: 6
-    typeB: "Billet 1 Jour"
+  - typeBilletId: 2
+    nomTypeBillet: "Billet 1 Jours Dimanche"
     prixB: 43.0
-    utilisateurId: 6
-    groupeConcertId: 1
-  - billetId: 7
-    typeB: "Billet 2 Jours"
-    prixB: 75.0
-    utilisateurId: 7
-    groupeConcertId: 1
-  - billetId: 8
-    typeB: "Billet VIP"
-    prixB: 100.0
-    utilisateurId: 8
-    groupeConcertId: 1
-  - billetId: 9
-    typeB: "Billet 1 Jour"
+  - typeBilletId: 3
+    nomTypeBillet: "Billet 1 Jours Lundi"
     prixB: 43.0
-    utilisateurId: 9
-    groupeConcertId: 1
-  - billetId: 10
-    typeB: "Billet 2 Jours"
+  - typeBilletId: 4
+    nomTypeBillet: "Billet 2 Jours Samedi Dimanche"
     prixB: 75.0
-    utilisateurId: 10
-    groupeConcertId: 1
+  - typeBilletId: 5
+    nomTypeBillet: "Billet 2 Jours Dimanche Lundi"
+    prixB: 75.0
+  - typeBilletId: 6
+    nomTypeBillet: "Billet 3 Jours"
+    prixB: 100.0
+  
 
 - Concert:
   - concertId: 1
@@ -497,6 +466,59 @@
     groupeConcertId: 3
     groupeId: 15
 
+- Necessiter:
+  - typeBilletId: 1
+    groupeConcertId: 1
+  - typeBilletId: 2
+    groupeConcertId: 2
+  - typeBilletId: 3
+    groupeConcertId: 3
+  - typeBilletId: 4
+    groupeConcertId: 1
+  - typeBilletId: 4
+    groupeConcertId: 2
+  - typeBilletId: 5
+    groupeConcertId: 2
+  - typeBilletId: 5
+    groupeConcertId: 3
+  - typeBilletId: 6
+    groupeConcertId: 3
+  - typeBilletId: 6
+    groupeConcertId: 2
+  - typeBilletId: 6
+    groupeConcertId: 1
+
+- AcheterBillet:
+  - billetId : 1
+    utilisateurId : 1
+    typeBilletId : 1
+  - billetId : 2
+    utilisateurId : 2
+    typeBilletId : 2
+  - billetId : 3
+    utilisateurId : 3
+    typeBilletId : 3
+  - billetId : 4
+    utilisateurId : 4
+    typeBilletId : 4
+  - billetId : 5
+    utilisateurId : 5
+    typeBilletId : 5
+  - billetId : 6
+    utilisateurId : 6
+    typeBilletId : 6
+  - billetId : 7
+    utilisateurId : 7
+    typeBilletId : 1
+  - billetId : 8
+    utilisateurId : 8
+    typeBilletId : 2
+  - billetId : 9
+    utilisateurId : 9
+    typeBilletId : 3
+  - billetId : 10
+    utilisateurId : 10
+    typeBilletId : 4
 
 
 - ActiviteAnnexe:

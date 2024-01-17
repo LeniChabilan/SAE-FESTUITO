@@ -11,12 +11,11 @@ from .models import Utilisateur
 import base64
 
 
-PROCHAIN=get_prochain_concert()
 
 
 @app.route("/")
 def home():
-    return render_template("home.html", title="Home", lesConcerts=get_info_concert(),prochain=PROCHAIN)
+    return render_template("home.html", title="Home", lesConcerts=get_info_concert(),prochain=get_prochain_concert())
 
 
 @app.route("/billeterie")
