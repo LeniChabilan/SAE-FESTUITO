@@ -11,9 +11,9 @@
     <button type="button" class="bouton_de_retour">Retour</button>
     </a>
   </div>
-  <div class="form" enctype="multipart/form-data">
+  <div class="form" >
       <div class="title">Ajouter les information du groupe !</div>
-      <form role="form" method ="POST" action ="">
+      <form role="form" method ="POST" action ="{{ url_for('creation_groupe_gr') }}" enctype="multipart/form-data">
         <div class="input-container ">
             <input placeholder="Nom du groupe" type="text" class="input" name="nom" value="" required>
             <div class="cut"></div>

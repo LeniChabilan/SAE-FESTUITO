@@ -9,7 +9,7 @@
     </div>
       <div class="form">
           <div class="title">Ajouter les information de l'artiste !</div>
-          <form role="form" method ="POST" action ="">
+          <form role="form" method ="POST" action ="{{ url_for('creation_artiste_art',id=id) }}">
             <div class="input-container ">
                 <input placeholder="Nom de l'artiste" type="text" class="input" name="pseudo" value="" required>
                 <div class="cut"></div>
