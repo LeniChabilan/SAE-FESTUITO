@@ -37,7 +37,7 @@ def creer_compte():
         tel = request.form['tel'] 
         if mdp == request.form['confirmMDPUtilisateur']:
             create_user(nom, email, mdp, ddn, tel)
-            return render_template("home.html")
+            return render_template("home.html", title="Home", lesConcerts=get_info_concert(),prochain=get_prochain_concert())
         else:
             return render_template("inscription.html")
     except Exception as e:
