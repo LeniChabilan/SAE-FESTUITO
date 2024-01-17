@@ -13,12 +13,11 @@ main{
 .concert {
   display: flex;
   padding-top: 5vh;
-  padding-bottom: 5vh;
+  padding-bottom: 4vh;
   max-width: 100vw;
   padding-left: 2vw;
-  margin-bottom: 20vh;
+  margin-bottom: 5vh;
 }
-
 
 .bienvenue {
   text-align: center;
@@ -138,6 +137,61 @@ main{
   align-items: center;
   overflow: hidden;
 }
+.map{
+  padding-left: 14vw;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.info{
+  max-width: 30vw;
+  margin: 2vw;
+  margin-top: 3vw;
+}
+
+h1{
+  margin: 1vw;
+  margin-left: 4vw;
+  font-size: 2vw;
+}
+
+h2{
+  size: 1vw;
+}
+.pa{
+  margin: 2vw;
+}
+#compteurRebours {
+  text-align: center;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+#temps span {
+  color: #383634;
+  font-size: 24px;
+  margin: 0 5px;
+}
+
+.map-container {
+  margin:2vw;
+  width: 30vw;
+  height: 30vw;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 .Marquee-content {
   display: flex;
   -webkit-animation: marquee 50s linear infinite running;
