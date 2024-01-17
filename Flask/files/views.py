@@ -140,8 +140,37 @@ def modif_groupe(id):
     mod_groupe(id,nom,desc,link,stl)
     return render_template("consulter_les_groupes.html",groupes=get_info_groupe())
 
+@app.route("/creation_concert")
+def creation_concert():
+    return render_template("creation_concert.html",liste_groupes=get_info_groupe(),liste_lieu=get_info_lieu(), liste_grp_conc=get_info_groupe_concert())
 
 
+@app.route("/modifier_concert/<int:id>")
+def modifier_concert(id):
+    return render_template("modif_concert.html",concert=get_info_un_concert(id),liste_groupes=get_info_groupe(),liste_lieu=get_info_lieu(), liste_grp_conc=get_info_groupe_concert())
+
+@app.route("/creer_concert", methods=["GET", "POST"])
+def creer_concert():
+    dateD = request.form.get("Datedebut")
+    dateF = request.form.get("dateF")
+    lieu = request.form.get("Lieu")
+    grp = request.form.get("groupe")
+    grpC = request.form.get("groupeConcert")
+   
+    creer_conc( dateD,dateF,lieu,grp,grpC)
+    return render_template("administrer_concert.html")
+
+
+@app.route("/modif_concert/<int:id>", methods=["GET", "POST"])
+def modif_concert(id):
+    dateD = request.form.get("Datedebut")
+    dateF = request.form.get("dateF")
+    lieu = request.form.get("Lieu")
+    grp = request.form.get("groupe")
+    grpC = request.form.get("groupeConcert")
+   
+    mod_concert(id, dateD,dateF,lieu,grp,grpC)
+    return render_template("consulter_les_concert.html",concerts=get_info_concert())
 
 
 
@@ -160,9 +189,7 @@ def modif_utilisateur(id):
     mod_utilisateur(id, nom, mail, mdp, ddn, tel)
     return redirect(url_for('administrer_utilisateur',utilisateurs=get_info_utilisateur()))
 
-@app.route("/creation_concert")
-def creation_concert():
-    return render_template("creation_concert.html")
+
 
 @app.route("/creation_groupe")
 def creation_groupe():

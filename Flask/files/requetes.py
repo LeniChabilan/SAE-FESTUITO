@@ -90,7 +90,11 @@ def get_info_billet(id):
     session=login()
     return session.query(Billet).filter(Billet.billetId==id).first()
 
-def get_info_lieu(id):
+def get_info_lieu():
+    session=login()
+    return session.query(Lieu).all()
+
+def get_info_un_lieu(id):
     session=login()
     return session.query(Lieu).filter(Lieu.lieuId==id).first()
 
@@ -101,6 +105,11 @@ def get_info_activite_annexe(id):
 def get_info_toutes_activite():
     session=login()
     return session.query(ActiviteAnnexe).all()
+
+def get_info_groupe_concert():
+    session=login()
+    return session.query(GroupeConcert).all()
+
 
 def get_groupe_favori(idUtil):
     session=login()
@@ -322,4 +331,46 @@ def mod_groupe(id,nom, description,lien,style):
         groupe.styleId = styleID
         session.commit()
     else:
-        print("L'artiste n'a pas été trouvé.")
+        print("Le groupe n'a pas été trouvé.")
+
+
+def mod_concert(id, dateD,dateF,lieu,grp,grpC):
+   
+    session = login()
+    conc = session.query(Concert).filter_by(concertId = id).first()
+
+    lieuC=session.query(Lieu).filter_by(nomL = lieu).first()
+    lieuId=lieuC.lieuId
+    groupe=session.query(GroupeDeMusique).filter_by(nomGM = grp).first()
+    groupeId=groupe.groupeId
+    groupeC=session.query(GroupeConcert).filter_by(nomGroupeConcert = grpC).first()
+    groupeCId=groupeC.groupeConcertId
+    
+    if conc:
+        conc.dateHeureDebutConcert = dateD
+        
+        conc.dateHeureFinConcert = dateF
+        conc.lieuId=lieuId
+        conc.lieu=lieuC
+        conc.groupe=groupe
+        conc.groupeC=groupeC
+        conc.groupeConcertId=groupeCId
+        conc.groupeId=groupeId
+        session.commit()
+    else:
+        print("Le concert n'a pas été trouvé.")
+
+
+def creer_conc( dateD,dateF,lieu,grp,grpC):
+    session = login()
+
+    lieuC=session.query(Lieu).filter_by(nomL = lieu).first()
+    lieuId=lieuC.lieuId
+    groupe=session.query(GroupeDeMusique).filter_by(nomGM = grp).first()
+    groupeId=groupe.groupeId
+    groupeC=session.query(GroupeConcert).filter_by(nomGroupeConcert = grpC).first()
+    groupeCId=groupeC.groupeConcertId
+
+    concert = Concert( datetime.strptime(dateD,"%Y-%m-%d").date(), datetime.strptime(dateF,"%Y-%m-%d").date(), lieuId,groupeCId,groupeId)
+    session.add(concert)
+    session.commit()

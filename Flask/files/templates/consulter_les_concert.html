@@ -117,7 +117,7 @@
                     <td>{{ conc.dateHeureFinConcert }}</td>
                     <td>{{ conc.lieu.nomL }}</td>
                     <td>{{ conc.groupe.nomGM }}</td>
-                    <td><a href="{{ url_for('sup_concert',id=conc.concertId) }}"><i class="fa-solid fa-pen"></i></a></td>
+                    <td><a href="{{ url_for('modifier_concert',id=conc.concertId) }}"><i class="fa-solid fa-pen"></i></a></td>
                     <td><a href="{{ url_for('sup_concert',id=conc.concertId) }}"><i class="fa-solid fa-trash"></i></a></td>
                   </tr>
                   {% endfor %}
