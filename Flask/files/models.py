@@ -37,14 +37,14 @@ class Utilisateur(db.Model,UserMixin):
     def get_id(self):
         return self.utilisateurId
     
-    def __init__(self, utilisateurId, nomUtilisateur, emailUtilisateur, MDPUtilisateur, DdN, tel, role):
-        self.utilisateurId = utilisateurId
-        self.nomUtilisateur = nomUtilisateur
-        self.emailUtilisateur = emailUtilisateur
-        self.MDPUtilisateur = MDPUtilisateur
-        self.DdN = DdN 
-        self.tel = tel
-        self.role = role
+    # def __init__(self, utilisateurId, nomUtilisateur, emailUtilisateur, MDPUtilisateur, DdN, tel, role):
+    #     self.utilisateurId = utilisateurId
+    #     self.nomUtilisateur = nomUtilisateur
+    #     self.emailUtilisateur = emailUtilisateur
+    #     self.MDPUtilisateur = MDPUtilisateur
+    #     self.DdN = DdN 
+    #     self.tel = tel
+    #     self.role = role
         
 
     
@@ -76,17 +76,17 @@ class GroupeDeMusique(db.Model):
     nomGM = Column(String(255))
     descriptionGM = Column(Text)
     lienGM = Column(String(255))
-    photoGM = Column(LargeBinary(length=2**32-1), nullable=True)
+    photoGM = Column(String(length=2**32-1), nullable=True)
     styleId = Column(Integer, ForeignKey('StyleMusical.styleId'))
     style = relationship(StyleMusical)
 
-    def __init__(self, groupeId, nomGM, descriptionGM, lienGM,image, styleId):
-        self.groupeId = groupeId
-        self.nomGM = nomGM
-        self.descriptionGM = descriptionGM
-        self.lienGM = lienGM
-        self.photoGM=image
-        self.styleId = styleId
+    # def __init__(self, groupeId, nomGM, descriptionGM, lienGM,image, styleId):
+    #     self.groupeId = groupeId
+    #     self.nomGM = nomGM
+    #     self.descriptionGM = descriptionGM
+    #     self.lienGM = lienGM
+    #     self.photoGM=image
+    #     self.styleId = styleId
 
 
 class Artiste(db.Model):
@@ -96,10 +96,10 @@ class Artiste(db.Model):
     groupeId = Column(Integer, ForeignKey('GroupeDeMusique.groupeId'))
     groupe = relationship(GroupeDeMusique)
     
-    def __init__(self, artisteId, nomArt, groupeId):
-        self.artisteId = artisteId
-        self.nomArt = nomArt
-        self.groupeId = groupeId
+    # def __init__(self, artisteId, nomArt, groupeId):
+    #     self.artisteId = artisteId
+    #     self.nomArt = nomArt
+    #     self.groupeId = groupeId
 
 class TypeBillet(db.Model):
     __tablename__ = 'TypeBillet'

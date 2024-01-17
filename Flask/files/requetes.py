@@ -175,8 +175,14 @@ def create_groupe(nom, description, lien, image, styleId):
     try:
         session = login()
         id = session.query(func.max(GroupeDeMusique.groupeId)).all()[0][0] + 1
-        groupe = GroupeDeMusique(id, nom, description, lien, image, styleId)
-        
+        groupe = GroupeDeMusique(
+            groupeId=id,
+            nomGM=nom,
+            descriptionGM=description,
+            lienGM=lien,
+            image=image,
+            styleId=styleId
+        )
         session.add(groupe)
         print(f"Groupe ajouté avec l'ID : {groupe.groupeId}")
         
