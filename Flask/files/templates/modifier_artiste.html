@@ -13,12 +13,22 @@
   </div>
   <div class="form">
       <div class="title">Modifiez les information de l'artiste !</div>
-      <form role="form" method ="POST" action ="">
+      <form role="form" method ="POST" action ="{{ url_for('modif_artiste',id=art.artisteId) }}">
           <div class="input-container ">
-              <input placeholder="Nom de l'artiste" type="text" class="input" name="pseudo" value="" required>
+              <input placeholder="Nom de l'artiste" type="text" class="input" name="nom" value="{{ art.nomArt }}" required>
               <div class="cut"></div>
               <label class="iLabel" for="pseudo">Nom de l'artiste</label>
-           </div>           
+           </div>
+           <div class="input-container">
+            <select name="groupe" id="pet-select" class="input">
+              {% for g in liste_groupes %}
+              <option value="{{g.nomGM}}">{{ g.nomGM }}</option>
+              {% endfor %}
+            </select>
+            </input>
+            <div class="cut"></div>
+            <label class="iLabel" for="groupe">Groupe</label>
+          </div>           
             <button class="submit" type="text" onclick="showConfirmationEnregistrer()">Enregistrer</button>
       </form>
   </div>

@@ -112,17 +112,54 @@ def consulter_les_groupes():
     return render_template("consulter_les_groupes.html",groupes=get_info_groupe())
    
 
-@app.route("/modifier_artiste")
-def modifier_artiste():
-    return render_template("modifier_artiste.html")
+@app.route("/modifier_artiste/<int:id>")
+def modifier_artiste(id):
+    return render_template("modifier_artiste.html",artiste=get_info_un_artiste(id),liste_groupes=get_info_groupe(),art=get_info_un_artiste(id))
 
-@app.route("/modifier_groupe")
-def modifier_groupe():
-    return render_template("modifier_groupe.html")
 
-@app.route("/modifier_utilisateur")
-def modifier_utilisateur():
-    return render_template("modifier_utilisateur.html")
+@app.route("/modif_artiste/<int:id>", methods =["POST"])
+def modif_artiste(id):
+    nom=request.form.get("nom")
+    grp=request.form.get("groupe")
+
+    mod_artiste(id,nom,grp)
+    return render_template("consulter_les_artistes.html",artistes=get_info_artiste())
+
+
+
+@app.route("/modifier_groupe/<int:id>")
+def modifier_groupe(id):
+    return render_template("modifier_groupe.html",groupe=get_info_un_groupe(id),liste_groupes=get_info_groupe(),listeStyle=get_info_style())
+
+
+@app.route("/modif_groupe/<int:id>", methods =["POST"])
+def modif_groupe(id):
+    nom=request.form.get("nom")
+    desc=request.form.get("description")
+    link=request.form.get("lien")
+    stl=request.form.get("style")
+    mod_groupe(id,nom,desc,link,stl)
+    return render_template("consulter_les_groupes.html",groupes=get_info_groupe())
+
+
+
+
+
+
+@app.route("/modifier_utilisateur/<int:id>")
+def modifier_utilisateur(id):
+    return render_template("modifier_utilisateur.html",utilisateur=get_info_un_utilisateur(id))
+
+@app.route("/modif_utilisateur/<int:id>", methods=["GET", "POST"])
+def modif_utilisateur(id):
+    nom = request.form.get("nom")
+    mail = request.form.get("email")
+    mdp = request.form.get("mdp")
+    ddn = request.form.get("dateDN")
+    tel = request.form.get("numero")
+   
+    mod_utilisateur(id, nom, mail, mdp, ddn, tel)
+    return redirect(url_for('administrer_utilisateur',utilisateurs=get_info_utilisateur()))
 
 @app.route("/creation_concert")
 def creation_concert():
@@ -189,8 +226,7 @@ def modif_artiste_art(id):
     mdp = request.form.get("MDPUtilisateur")
     ddn = request.form.get("DdN")
     tel = request.form.get("tel")
-   
-    mod_artiste(id, nom, mail, mdp, ddn, tel)
+    mod_utilisateur(id, nom, mail, mdp, ddn, tel)
     return redirect(url_for('profil', user=id))
 
 @app.route("/creation_groupe_gr", methods=["POST"])
@@ -221,3 +257,4 @@ def creation_artiste_art(id):
     nom = request.form.get("pseudo")
     create_artiste(nom,id)
     return redirect(url_for('creation_artiste',id=id))
+

@@ -1,9 +1,89 @@
-{% extends 'base.html' %} {% block styles %}{{ super() }}
-<link rel="stylesheet" href="{{ url_for('static',filename='billeterie.css')}}" />
-{% endblock %} {% block content %}
-<main>
-    <p>billeterie</p>
-</main>
+{% extends 'base.html' %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static',filename='billeterie.css')}}">
+{% endblock %}
+{% block content %}
+</head> 
+<body>
+    <div class="main">
+        <h4 class="title">Billeterie</h4>
+        <div class="card">
+            <div>
+                <img class="img-billet" src="{{ url_for('static', filename='img/1jour.png') }}" alt="">
+            </div>
+            <div class="para">
+                <div>
+                    <h4 class="billet">Ticket pour 1 jour</h4>
+                    <p class="date">Le 15/06/2024 8h à 23h              </p>
+                    <p class="date">Prix 45€</p>
+                </div>
+                <div class="quantity-container">
+                    <button onclick="decreaseValue('quantity1')">-</button>
+                    <input type="number" id="quantity1" value="0" />
+                    <button onclick="increaseValue('quantity1')">+</button>
+                </div>              
+            </div>
+        </div>
 
+        <div class="card">
+            <div>
+                <img class="img-billet" src="{{ url_for('static', filename='img/2jour.jpg') }}" alt="">
+            </div>
+            <div class="para">
+                <div>
+                    <h4 class="billet">Ticket pour 2 jours</h4>
+                    <p class="date">Du 15/06/2024 8h au 16/06/2024 à 23h</p>
+                    <p class="date">Prix 75€</p>
+                </div>
+                <div class="quantity-container">
+                    <button onclick="decreaseValue('quantity2')">-</button>
+                    <input type="number" id="quantity2" value="0" />
+                    <button onclick="increaseValue('quantity2')">+</button>
+                </div>             
+            </div>
+        </div>
 
+        <div class="card">
+            <div>
+                <img class="img-billet" src="{{ url_for('static', filename='img/3jour.jpg') }}" alt="">
+            </div>
+            <div class="para">
+                <div>
+                    <h4 class="billet">Ticket pour 3 jours</h4>
+                    <p class="date">Du 15/06/2024 8h au 17/06/2024 à 23h</p>
+                    <p class="date">Prix 100€</p>
+                </div>
+                <div class="quantity-container">
+                    <button onclick="decreaseValue('quantity3')">-</button>
+                    <input type="number" id="quantity3" value="0" />
+                    <button onclick="increaseValue('quantity3')">+</button>
+                </div>          
+            </div>
+            
+        </div>
+        <div>           
+            <a href="{{ url_for('billeterie') }}" id="fond_bouton" class="noligne">
+                <button class='btnA' type="button" >Acheter</button>
+            </a>
+        </div>
+        </div>
+        
+    <script>
+        function increaseValue(id) {
+            var value = parseInt(document.getElementById(id).value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            document.getElementById(id).value = value;
+        }
+
+        function decreaseValue(id) {
+            var value = parseInt(document.getElementById(id).value, 10);
+            value = isNaN(value) ? 0 : value;
+            value < 1 ? value = 1 : '';
+            value--;
+            document.getElementById(id).value = value;
+        }
+    </script>
+</body>
 {% endblock %}
