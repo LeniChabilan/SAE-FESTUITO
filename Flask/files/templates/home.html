@@ -13,7 +13,7 @@
       </div>
     </div>
   </div>
-  <h1>Bienvenue sur FestIUT O</h1>
+  <h1>Bienvenue sur FestIUT'O</h1>
   {% if prochain %}
   <div class="concert">
     <object class="img-concert"  data=" data:image/jpeg;base64,{{ prochain.groupe.photoGM.decode('utf-8') }}" type="image/jpeg"></object>
@@ -28,6 +28,37 @@
       </a>
     </div>
   </div>
+  <div class = "map">
+    <div class="info">
+      <h2>Informations sur le Lieu</h2>
+      <p class= "pa">Nous sommes ravis d'offrir un parking gratuit à tous les visiteurs munis de billets pour l'événement. Notre objectif est de rendre votre expérience aussi confortable et pratique que possible.</p>
+      <h3>Caractéristiques du Parking :</h3>
+      <p class= "pa">Accès Facile : Situé à proximité immédiate du lieu de l'événement, notre parking est facilement accessible.</p>
+      <p class= "pa">Sécurité Assurée : Le parking est surveillé, assurant la sécurité de votre véhicule pendant toute la durée de l'événement.</p>
+      <p class= "pa">Places Spacieuses : Conçu pour accueillir un grand nombre de véhicules, notre parking offre des places spacieuses pour une manœuvre aisée.</p>
+    </div>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3384.302314603601!2d1.991536177043462!3d47.8099443712092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDfCsDQ4JzM1LjgiTiAxwrA1OSczOC44IkU!5e1!3m2!1sfr!2sfr!4v1705508216641!5m2!1sfr!2sfr"
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+  <div id="compteurRebours">
+    <h2>Compte à Rebours avant le Festival:</h2>
+    <div id="temps">
+      <span id="jours"></span>jours
+      <span id="heures"></span>heures
+      <span id="minutes"></span>minutes
+      <span id="secondes"></span>secondes
+    </div>
+  </div>
+  
   {% endif %}
 
 
@@ -53,5 +84,30 @@
     currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
     showSlide(currentSlide);
   }
+
+  function decompte() {
+    const dateCible = new Date("Jun 14, 2024 23:59:59").getTime(); // Modifier la date selon votre événement
+    const maintenant = new Date().getTime();
+    const ecart = dateCible - maintenant;
+  
+    const jours = Math.floor(ecart / (1000 * 60 * 60 * 24));
+    const heures = Math.floor((ecart % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((ecart % (1000 * 60 * 60)) / (1000 * 60));
+    const secondes = Math.floor((ecart % (1000 * 60)) / 1000);
+  
+    document.getElementById("jours").innerText = jours;
+    document.getElementById("heures").innerText = heures;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("secondes").innerText = secondes;
+  
+    if (ecart < 0) {
+      clearInterval(x);
+      document.getElementById("compteurRebours").innerHTML = "L'événement a commencé!";
+    }
+  }
+  
+  // Mettre à jour le compteur toutes les secondes
+  let x = setInterval(decompte, 1000);
+  
 </script>
 {% endblock %}
