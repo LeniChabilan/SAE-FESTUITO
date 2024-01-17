@@ -194,7 +194,7 @@ def modif_utilisateur(id):
 
 @app.route("/creation_groupe")
 def creation_groupe():
-    return render_template("creation_groupe.html")
+    return render_template("creation_groupe.html", list_style=get_info_style())
 
 @app.route("/creation_artiste/<int:id>")
 def creation_artiste(id):
@@ -264,19 +264,19 @@ def creation_groupe_gr():
         file_content = upload_file.read()
         
         # Encoder en base64
-        base64_encoded = base64.b64encode(file_content).decode('utf-8')
+        base64_encoded = base64.b64encode(file_content)
         nom = request.form.get("nom")
         desc = request.form.get("description")
         lien = request.form.get("lien")
         image = base64_encoded
-        styleId = request.form.get("Style")
-        if nom is None or desc is None or lien is None or image is None or styleId is None:
+        style = request.form.get("style")
+        if nom is None or desc is None or lien is None or image is None or style is None:
             raise Exception("Missing fields")
-        id=create_groupe(nom, desc, lien, image, styleId)
+        id=create_groupe(nom, desc, lien, image, style)
         print("Groupe ajouté")
         return redirect(url_for('creation_artiste',id=id))
     except:
-        return render_template("creation_groupe.html")
+        return render_template("creation_groupe.html",list_style=get_info_style())
     
 @app.route("/creation_artiste_art/<int:id>", methods=["POST"])
 def creation_artiste_art(id):
