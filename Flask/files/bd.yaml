@@ -39,7 +39,7 @@
     nomUtilisateur: "Marie Martin"
     emailUtilisateur: "marie.martin@email.com"
     MDPUtilisateur: "mdp123"
-    DdN: "1993-03-10"
+    DdN: "1999-04-11"
     tel: "0203040506"
     role: "Spectateur"
 
@@ -48,7 +48,7 @@
     nomUtilisateur: "Pierre Dubois"
     emailUtilisateur: "pierre.dubois@email.com"
     MDPUtilisateur: "mdp123"
-    DdN: "1993-03-10"
+    DdN: "1995-03-02"
     tel: "0203040506"
     role: "Spectateur"
 
@@ -57,7 +57,7 @@
     nomUtilisateur: "Sophie Lefebvre"
     emailUtilisateur: "sophie.lefebvre@email.com"
     MDPUtilisateur: "mdp123"
-    DdN: "1993-03-10"
+    DdN: "2000-01-21"
     tel: "0203040506"
     role: "Spectateur"
 
@@ -66,7 +66,7 @@
     nomUtilisateur: "Michel Tremblay"
     emailUtilisateur: "michel.tremblay@email.com"
     MDPUtilisateur: "mdp123"
-    DdN: "1993-03-10"
+    DdN: "2003-11-21"
     tel: "0203040506"
     role: "Spectateur"
 
@@ -75,7 +75,7 @@
     nomUtilisateur: "Isabelle Gagnon"
     emailUtilisateur: "isabelle.gagnon@email.com"
     MDPUtilisateur: "mdp123"
-    DdN: "1993-03-10"
+    DdN: "1965-04-12"
     tel: "0203040506"
     role: "Spectateur"
 
@@ -84,7 +84,7 @@
     nomUtilisateur: "Luc Leclerc"
     emailUtilisateur: "luc.leclerc@email.com"
     MDPUtilisateur: "mdp123"
-    DdN: "1993-03-10"
+    DdN: "2004-07-13"
     tel: "0203040506"
     role: "Spectateur"
 
@@ -102,7 +102,7 @@
     nomUtilisateur: "Marc Desjardins"
     emailUtilisateur: "marc.desjardins@email.com"
     MDPUtilisateur: "mdp123"
-    DdN: "1993-03-10"
+    DdN: "1997-02-11"
     tel: "0203040506"
     role: "Spectateur"
 
@@ -111,7 +111,7 @@
     nomUtilisateur: "Nathalie Bergeron"
     emailUtilisateur: "nathalie.bergeron@email.com"
     MDPUtilisateur: "mdp123"
-    DdN: "1993-03-10"
+    DdN: "1984-02-17"
     tel: "0203040506"
     role: "Spectateur"
 
@@ -119,7 +119,7 @@
     nomUtilisateur: "Admin"
     emailUtilisateur: "admin@email.com"
     MDPUtilisateur: "admin123"
-    DdN: "1993-03-10"
+    DdN: "2011-02-11"
     tel: "0203040506"
     role: "Administateur"
 
@@ -149,22 +149,22 @@
 
 - GroupeConcert:
   - groupeConcertId: 1
-    nomGroupeConcert: "Jeudi"
+    nomGroupeConcert: "Samedi"
     descriptionGP: "description du GP1"
-    dateHeureDebutGP: "2023-06-15 8:00:00"
-    dateHeureFinGP: "2023-06-15 23:00:00"
+    dateHeureDebutGP: "2024-06-15 8:00:00"
+    dateHeureFinGP: "2024-06-15 23:00:00"
 
   - groupeConcertId: 2
-    nomGroupeConcert: "Vendredi"
+    nomGroupeConcert: "Dimanche"
     descriptionGP: "description du GP2"
-    dateHeureDebutGP: "2023-06-16 8:00:00"
-    dateHeureFinGP: "2023-06-16 23:00:00"
+    dateHeureDebutGP: "2024-06-16 8:00:00"
+    dateHeureFinGP: "2024-06-16 23:00:00"
   
   - groupeConcertId: 3
-    nomGroupeConcert: "Samedi"
+    nomGroupeConcert: "Lundi"
     descriptionGP: "description du GP3"
-    dateHeureDebutGP: "2023-06-17 8:00:00"
-    dateHeureFinGP: "2023-06-17 23:00:00"
+    dateHeureDebutGP: "2024-06-17 8:00:00"
+    dateHeureFinGP: "2024-06-17 23:00:00"
 
 - StyleSimilaire:
   - styleId: 1
@@ -211,6 +211,67 @@
     lienGM: "https://www.raprevolution.com"
     photoGM: "./static/img/cover4.jpg"
     styleId: 3
+  - groupeId: 6
+    nomGM: "Les Sonic Pulse"
+    descriptionGM: "Énergie électro en fusion"
+    lienGM: "https://www.sonicpulse.com"
+    photoGM: "./static/img/cover6.jpg"
+    styleId: 3
+  - groupeId: 7
+    nomGM: "Les Électro Fusion"
+    descriptionGM: "Fusion électrique captivante"
+    lienGM: "https://www.electrofusionband.com"
+    photoGM: "./static/img/cover7.jpg"
+    styleId: 8
+  - groupeId: 8
+    nomGM: "Les Voltage Beats"
+    descriptionGM: "Battements électriques intenses"
+    lienGM: "https://www.voltagebeats.net"
+    photoGM: "./static/img/cover8.jpg"
+    styleId: 1
+  - groupeId: 9
+    nomGM: "Les Électro Surge"
+    descriptionGM: "Décharge électro percutante"
+    lienGM: "https://www.electrosurgeband.com"
+    photoGM: "./static/img/cover9.jpg"
+    styleId: 5
+  - groupeId: 10
+    nomGM: "Les Power Synths"
+    descriptionGM: "Synthés puissants, ambiance électro"
+    lienGM: "https://www.powersynths.com"
+    photoGM: "./static/img/cover10.jpg"
+    styleId: 2
+  - groupeId: 11
+    nomGM: "Les Électro Groove Masters"
+    descriptionGM: "Maîtres du groove électro"
+    lienGM: "https://www.electrogroovemasters.com"
+    photoGM: "./static/img/cover11.jpg"
+    styleId: 9
+  - groupeId: 12
+    nomGM: "Les Pulse Circuits"
+    descriptionGM: "Circuits pulsants, son électro unique"
+    lienGM: "https://www.pulsecircuitsband.com"
+    photoGM: "./static/img/cover12.jpg"
+    styleId: 4
+  - groupeId: 13
+    nomGM: "Les Électro Momentum"
+    descriptionGM: "Momentum électro irrésistible"
+    lienGM: "https://www.electromomentum.net"
+    photoGM: "./static/img/cover13.jpg"
+    styleId: 10
+  - groupeId: 14
+    nomGM: "Les Voltage Vibes"
+    descriptionGM: "Vibes électriques, énergie sans limite"
+    lienGM: "https://www.voltagevibes.com"
+    photoGM: "./static/img/cover14.jpg"
+    styleId: 6
+  - groupeId: 15
+    nomGM: "Les Électro Resonance"
+    descriptionGM: "Résonance électro captivante"
+    lienGM: "https://www.electroresonanceband.com"
+    photoGM: "./static/img/cover15.jpg"
+    styleId: 7
+
 
 
 - Artiste:
@@ -231,34 +292,66 @@
     groupeId: 5
   - artisteId: 6
     nomArt: "Liam Sottier"
-    groupeId: 1
+    groupeId: 6
   - artisteId: 7
     nomArt: "David Davis"
-    groupeId: 2
+    groupeId: 7
   - artisteId: 8
     nomArt: "Olivia Owens"
-    groupeId: 3
+    groupeId: 8
   - artisteId: 9
     nomArt: "Robert Roberts"
-    groupeId: 4
+    groupeId: 9
   - artisteId: 10
     nomArt: "Tom Thompson"
-    groupeId: 5
+    groupeId: 10
   - artisteId: 11
     nomArt: "Grace Green"
-    groupeId: 1
+    groupeId: 11
   - artisteId: 12
     nomArt: "Michael Miller"
-    groupeId: 3
+    groupeId: 12
   - artisteId: 13
     nomArt: "Sophia Stewart"
-    groupeId: 4
+    groupeId: 13
   - artisteId: 14
     nomArt: "William Wilson"
-    groupeId: 2
+    groupeId: 14
+
   - artisteId: 15
     nomArt: "Emily Edwards"
+    groupeId: 15
+  - artisteId: 16
+    nomArt: "Isaac Ingram"
     groupeId: 1
+  - artisteId: 17
+    nomArt: "Ava Anderson"
+    groupeId: 2
+  - artisteId: 18
+    nomArt: "Mason Murphy"
+    groupeId: 3
+  - artisteId: 19
+    nomArt: "Eva Ellis"
+    groupeId: 4
+  - artisteId: 20
+    nomArt: "Owen Olson"
+    groupeId: 5
+  - artisteId: 21
+    nomArt: "Aria Adams"
+    groupeId: 6
+  - artisteId: 22
+    nomArt: "Landon Lopez"
+    groupeId: 7
+  - artisteId: 23
+    nomArt: "Zoe Zimmerman"
+    groupeId: 8
+  - artisteId: 24
+    nomArt: "Jackson James"
+    groupeId: 9
+  - artisteId: 25
+    nomArt: "Mia Martinez"
+    groupeId: 10
+
 
 - Billet:
   - billetId: 1
@@ -314,92 +407,123 @@
 
 - Concert:
   - concertId: 1
-    dateHeureDebutConcert: "2023-06-15 20:00:00"
-    dateHeureFinConcert: "2023-06-15 22:00:00"
+    dateHeureDebutConcert: "2024-06-15 21:00:00"
+    dateHeureFinConcert: "2024-06-15 22:30:00"
     lieuId: 1
     groupeConcertId: 1
     groupeId: 1
   - concertId: 2
-    dateHeureDebutConcert: "2023-06-17 10:30:00"
-    dateHeureFinConcert: "2023-06-17 12:00:00"
+    dateHeureDebutConcert: "2024-06-15 12:30:00"
+    dateHeureFinConcert: "2024-06-15 14:00:00"
     lieuId: 2
     groupeConcertId: 1
     groupeId: 2
   - concertId: 3
-    dateHeureDebutConcert: "2023-06-17 18:00:00"
-    dateHeureFinConcert: "2023-06-17 19:15:00"
+    dateHeureDebutConcert: "2024-06-15 18:30:00"
+    dateHeureFinConcert: "2024-06-15 20:00:00"
     lieuId: 3
     groupeConcertId: 1
     groupeId: 3
   - concertId: 4
-    dateHeureDebutConcert: "2023-06-16 21:00:00"
-    dateHeureFinConcert: "2023-06-16 23:00:00"
+    dateHeureDebutConcert: "2024-06-16 20:00:00"
+    dateHeureFinConcert: "2024-06-16 21:30:00"
     lieuId: 1
-    groupeConcertId: 1
+    groupeConcertId: 2
     groupeId: 4
   - concertId: 5
-    dateHeureDebutConcert: "2023-06-17 22:15:00"
-    dateHeureFinConcert: "2023-06-17 23:15:00"
+    dateHeureDebutConcert: "2024-06-16 22:30:00"
+    dateHeureFinConcert: "2024-06-16 23:45:00"
     lieuId: 2
-    groupeConcertId: 1
+    groupeConcertId: 2
     groupeId: 5
   - concertId: 6
-    dateHeureDebutConcert: "2023-06-16 9:30:00"
-    dateHeureFinConcert: "2023-06-16 11:00:00"
+    dateHeureDebutConcert: "2024-06-16 10:00:00"
+    dateHeureFinConcert: "2024-06-16 11:30:00"
     lieuId: 3
-    groupeConcertId: 1
-    groupeId: 1
+    groupeConcertId: 2
+    groupeId: 6
   - concertId: 7
-    dateHeureDebutConcert: "2023-06-17 10:15:00"
-    dateHeureFinConcert: "2023-06-17 11:35:00"
+    dateHeureDebutConcert: "2024-06-17 11:00:00"
+    dateHeureFinConcert: "2024-06-17 12:15:00"
     lieuId: 1
-    groupeConcertId: 1
-    groupeId: 2
+    groupeConcertId: 3
+    groupeId: 7
   - concertId: 8
-    dateHeureDebutConcert: "2023-06-17 14:30:00"
-    dateHeureFinConcert: "2023-06-17 15:40:00"
+    dateHeureDebutConcert: "2024-06-17 15:00:00"
+    dateHeureFinConcert: "2024-06-17 16:15:00"
+    lieuId: 2
+    groupeConcertId: 3
+    groupeId: 8
+  - concertId: 9
+    dateHeureDebutConcert: "2024-06-17 19:30:00"
+    dateHeureFinConcert: "2024-06-17 21:00:00"
+    lieuId: 3
+    groupeConcertId: 3
+    groupeId: 9
+  - concertId: 10
+    dateHeureDebutConcert: "2024-06-16 18:00:00"
+    dateHeureFinConcert: "2024-06-16 19:45:00"
+    lieuId: 1
+    groupeConcertId: 2
+    groupeId: 10
+  - concertId: 11
+    dateHeureDebutConcert: "2024-06-15 22:00:00"
+    dateHeureFinConcert: "2024-06-15 23:30:00"
     lieuId: 2
     groupeConcertId: 1
-    groupeId: 3
-  - concertId: 9
-    dateHeureDebutConcert: "2023-06-17 18:45:00"
-    dateHeureFinConcert: "2023-06-17 20:20:00"
+    groupeId: 11
+  - concertId: 12
+    dateHeureDebutConcert: "2024-06-16 12:30:00"
+    dateHeureFinConcert: "2024-06-16 14:00:00"
     lieuId: 3
-    groupeConcertId: 1
-    groupeId: 4
-  - concertId: 10
-    dateHeureDebutConcert: "2023-06-16 19:00:00"
-    dateHeureFinConcert: "2023-06-16 20:50:00"
+    groupeConcertId: 2
+    groupeId: 12
+  - concertId: 13
+    dateHeureDebutConcert: "2024-06-16 17:30:00"
+    dateHeureFinConcert: "2024-06-16 19:00:00"
     lieuId: 1
-    groupeConcertId: 1
-    groupeId: 5
+    groupeConcertId: 2
+    groupeId: 13
+  - concertId: 14
+    dateHeureDebutConcert: "2024-06-17 13:00:00"
+    dateHeureFinConcert: "2024-06-17 14:15:00"
+    lieuId: 2
+    groupeConcertId: 3
+    groupeId: 14
+  - concertId: 15
+    dateHeureDebutConcert: "2024-06-17 17:45:00"
+    dateHeureFinConcert: "2024-06-17 19:15:00"
+    lieuId: 3
+    groupeConcertId: 3
+    groupeId: 15
+
 
 
 - ActiviteAnnexe:
   - activiteId: 1
     descriptionACT: "Atelier de peinture"
-    dateHeureACT: "2023-06-16 15:00:00"
+    dateHeureACT: "2024-06-15 15:00:00"
     lieuId: 1
     groupeConcertId: 1
     VisibilitePubliqueACT: true
     GroupeDeMusiqueID: 1
   - activiteId: 2
     descriptionACT: "Conférence sur la musique"
-    dateHeureACT: "2023-07-22 14:30:00"
+    dateHeureACT: "2024-06-15 19:30:00"
     lieuId: 2
     groupeConcertId: 1
     VisibilitePubliqueACT: true
     GroupeDeMusiqueID: 2
   - activiteId: 3
     descriptionACT: "Séance de dédicaces"
-    dateHeureACT: "2023-09-07 17:00:00"
+    dateHeureACT: "2024-06-16 17:00:00"
     lieuId: 3
     groupeConcertId: 1
     VisibilitePubliqueACT: true
     GroupeDeMusiqueID: 3
   - activiteId: 4
     descriptionACT: "Atelier de danse"
-    dateHeureACT: "2023-08-12 16:45:00"
+    dateHeureACT: "2024-06-17 16:45:00"
     lieuId: 1
     groupeConcertId: 1
     VisibilitePubliqueACT: true
@@ -489,94 +613,140 @@
 - OrganisationDunGroupe:
   - OrgaID: 1
     concertId: 1
-    JourArriveeODG: "2023-06-15"
+    JourArriveeODG: "2024-06-15"
     HeureArriveeODG: "12:00:00"
-    JourDepartODG: "2023-06-17"
+    JourDepartODG: "2024-06-17"
     HeureDepartODG: "12:00:00"
     TempsDeMontageODG: "02:00:00"
     TempsDeDemontageODG: "02:00:00"
     HebergementID: 1
   - OrgaID: 2
     concertId: 2
-    JourArriveeODG: "2023-07-21"
+    JourArriveeODG: "2024-06-15"
     HeureArriveeODG: "14:00:00"
-    JourDepartODG: "2023-07-23"
+    JourDepartODG: "2024-06-17"
     HeureDepartODG: "14:00:00"
     TempsDeMontageODG: "02:30:00"
     TempsDeDemontageODG: "02:30:00"
     HebergementID: 2
   - OrgaID: 3
     concertId: 3
-    JourArriveeODG: "2023-09-06"
+    JourArriveeODG: "2024-06-15"
     HeureArriveeODG: "10:00:00"
-    JourDepartODG: "2023-09-08"
+    JourDepartODG: "2024-06-17"
     HeureDepartODG: "10:00:00"
     TempsDeMontageODG: "01:45:00"
     TempsDeDemontageODG: "01:45:00"
     HebergementID: 3
   - OrgaID: 4
     concertId: 4
-    JourArriveeODG: "2023-08-11"
+    JourArriveeODG: "2024-06-16"
     HeureArriveeODG: "12:00:00"
-    JourDepartODG: "2023-08-14"
+    JourDepartODG: "2024-06-18"
     HeureDepartODG: "12:00:00"
     TempsDeMontageODG: "01:45:00"
     TempsDeDemontageODG: "01:45:00"
     HebergementID: 1
   - OrgaID: 5
     concertId: 5
-    JourArriveeODG: "2023-10-16"
+    JourArriveeODG: "2024-06-16"
     HeureArriveeODG: "14:00:00"
-    JourDepartODG: "2023-10-18"
+    JourDepartODG: "2024-06-18"
     HeureDepartODG: "14:00:00"
     TempsDeMontageODG: "02:30:00"
     TempsDeDemontageODG: "02:30:00"
     HebergementID: 2
   - OrgaID: 6
     concertId: 6
-    JourArriveeODG: "2023-06-20"
+    JourArriveeODG: "2024-06-16"
     HeureArriveeODG: "10:00:00"
-    JourDepartODG: "2023-06-22"
+    JourDepartODG: "2024-06-18"
     HeureDepartODG: "10:00:00"
     TempsDeMontageODG: "02:00:00"
     TempsDeDemontageODG: "02:00:00"
     HebergementID: 3
   - OrgaID: 7
     concertId: 7
-    JourArriveeODG: "2023-07-25"
+    JourArriveeODG: "2024-06-17"
     HeureArriveeODG: "12:00:00"
-    JourDepartODG: "2023-07-27"
+    JourDepartODG: "2024-06-19"
     HeureDepartODG: "12:00:00"
     TempsDeMontageODG: "02:30:00"
     TempsDeDemontageODG: "02:30:00"
     HebergementID: 1
   - OrgaID: 8
     concertId: 8
-    JourArriveeODG: "2023-09-10"
+    JourArriveeODG: "2024-06-17"
     HeureArriveeODG: "10:00:00"
-    JourDepartODG: "2023-09-12"
+    JourDepartODG: "2024-06-19"
     HeureDepartODG: "10:00:00"
     TempsDeMontageODG: "01:45:00"
     TempsDeDemontageODG: "01:45:00"
     HebergementID: 2
   - OrgaID: 9
     concertId: 9
-    JourArriveeODG: "2023-08-15"
+    JourArriveeODG: "2024-06-17"
     HeureArriveeODG: "12:00:00"
-    JourDepartODG: "2023-08-17"
+    JourDepartODG: "2024-06-19"
     HeureDepartODG: "12:00:00"
     TempsDeMontageODG: "02:00:00"
     TempsDeDemontageODG: "02:00:00"
     HebergementID: 3
   - OrgaID: 10
     concertId: 10
-    JourArriveeODG: "2023-06-25"
+    JourArriveeODG: "2024-06-16"
     HeureArriveeODG: "14:00:00"
-    JourDepartODG: "2023-06-27"
+    JourDepartODG: "2024-06-18"
     HeureDepartODG: "14:00:00"
     TempsDeMontageODG: "02:30:00"
     TempsDeDemontageODG: "02:30:00"
     HebergementID: 4
+  - OrgaID: 11
+    concertId: 11
+    JourArriveeODG: "2024-06-15"
+    HeureArriveeODG: "22:00:00"
+    JourDepartODG: "2024-06-16"
+    HeureDepartODG: "23:30:00"
+    TempsDeMontageODG: "01:30:00"
+    TempsDeDemontageODG: "01:30:00"
+    HebergementID: 1
+  - OrgaID: 12
+    concertId: 12
+    JourArriveeODG: "2024-06-16"
+    HeureArriveeODG: "12:30:00"
+    JourDepartODG: "2024-06-17"
+    HeureDepartODG: "14:00:00"
+    TempsDeMontageODG: "02:00:00"
+    TempsDeDemontageODG: "02:00:00"
+    HebergementID: 2
+  - OrgaID: 13
+    concertId: 13
+    JourArriveeODG: "2024-06-16"
+    HeureArriveeODG: "17:30:00"
+    JourDepartODG: "2024-06-16"
+    HeureDepartODG: "19:00:00"
+    TempsDeMontageODG: "01:45:00"
+    TempsDeDemontageODG: "01:45:00"
+    HebergementID: 3
+  - OrgaID: 14
+    concertId: 14
+    JourArriveeODG: "2024-06-17"
+    HeureArriveeODG: "13:00:00"
+    JourDepartODG: "2024-06-17"
+    HeureDepartODG: "14:15:00"
+    TempsDeMontageODG: "02:15:00"
+    TempsDeDemontageODG: "02:15:00"
+    HebergementID: 4
+  - OrgaID: 15
+    concertId: 15
+    JourArriveeODG: "2024-06-17"
+    HeureArriveeODG: "17:45:00"
+    JourDepartODG: "2024-06-17"
+    HeureDepartODG: "19:15:00"
+    TempsDeMontageODG: "01:30:00"
+    TempsDeDemontageODG: "01:30:00"
+    HebergementID: 1
+
 
 - Jouer:
   - instrumentId: 1
