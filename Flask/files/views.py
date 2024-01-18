@@ -238,7 +238,8 @@ def logout():
 
 @app.route("/profil/<int:user>")
 def profil(user):
-    return render_template("profil.html", user=get_user_by_id(user))
+    type=get_type_billet(user)
+    return render_template("profil.html", user=get_user_by_id(user),type=type)
 
 
 @app.route("/modifier_profil/<int:user>", methods=["GET", "POST"])

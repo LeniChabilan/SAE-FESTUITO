@@ -15,6 +15,19 @@
         <p>Statut : {{user.role}}</p>
         <p>date de naissance : {{user.DdN}}</p>
         <p>Mot de passe : {{user.MDPUtilisateur}}</p>
+        <h2>Vos Achats : </h2>
+        <ul>
+            {% for item in type %}
+            
+            <li class="achat"><div class="billet">
+                <p>{{ item.nomTypeBillet }}</p>
+                <p>{{ item.prixB }} euros</p>
+            </div>
+            </li>
+            {% endfor %}
+        </ul>
+        
+
     </div>
     <div class="bouton">
        <ul class="liste_bouton">
@@ -24,6 +37,7 @@
         <li class="logout"><a href="{{ url_for('logout') }}" id="fond_boutone" class="noligne">
             <button type="button" id="bouton_se_connecte">Se déconnecter</button>
             </a></li>
+        
     
     </ul>  
         
