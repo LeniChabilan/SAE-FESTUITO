@@ -414,3 +414,11 @@ def creer_conc(dateD, dateF, lieu, grp, grpC):
     )
     session.add(concert)
     session.commit()
+
+def get_type_billet(user):
+    session=login()
+    type=session.query(AcheterBillet.typeBilletId).filter(AcheterBillet.utilisateurId==user).all()
+    reel_type=[]
+    for val in type:
+        reel_type+=session.query(TypeBillet).filter(TypeBillet.typeBilletId==val[0]).all()
+    return reel_type

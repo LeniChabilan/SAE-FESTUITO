@@ -19,7 +19,18 @@ img{
     height: 30%;
     border-radius: 30%;
     margin-left: 3%;
+}
+.achat{
+  flex-basis: 100%;
 
+}
+.billet{
+  display: flex;
+}
+.billet>p{
+  justify-content: center;
+  align-items: center;
+  padding-left: 5%;
 }
 .bouton{
     flex-basis: 100%;
