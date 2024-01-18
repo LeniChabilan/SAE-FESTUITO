@@ -26,7 +26,7 @@ def acheter_billet(idU):
             quantite = request.form.get(str(billet.typeBilletId), 0)
             achatBillet(billet.typeBilletId, idU, int(quantite))
 
-        return render_template("profil.html", user=get_user_by_id(idU))
+        return redirect(url_for("profil", user=idU))
     else:
         return redirect(url_for('connexion'))
 
