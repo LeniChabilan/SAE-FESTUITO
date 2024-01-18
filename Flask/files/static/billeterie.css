@@ -3,6 +3,13 @@ body {
     padding: 0;
   }
 
+
+
+  .scroll{
+    height: 5vh;
+    overflow: scroll;
+  }
+
   .btnA {
 
     height: 4vh;
@@ -34,11 +41,7 @@ body {
   body.light .main {
     background-color: #ffffff;
   }
-.img-billet{
-    height: 8vw;
-    width: 30vw;
-    border-radius: 20px 0 0 20px;
-}
+
 .para{
     margin-left: 1.5vw;
     display: flex;
@@ -48,7 +51,7 @@ body {
   .card {
     margin: 2rem;
     width: 65vw;
-    height: 8vw; 
+    height: 12vw; 
     background: #2a2b38;
     border-radius: 20px;
     display: flex;
@@ -71,7 +74,7 @@ body {
     background-color: #ffffff;
   }
 .img-billet{
-    height: 8vw;
+    height: 12vw;
     width: 30vw;
     border-radius: 20px 0 0 20px;
 }

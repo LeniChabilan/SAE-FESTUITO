@@ -17,10 +17,19 @@ import base64
 def home():
     return render_template("home.html", title="Home", lesConcerts=get_info_concert(),prochain=get_prochain_concert())
 
+@app.route("/acheter_billet/<int:idU>", methods=["GET", "POST"])
+def acheter_billet(idU):
+    typeB=get_info_billet()
+    for billet in typeB:
+
+        quantite = request.form['billet.typeBilletId']
+        achatBillet(billet.typeBilletId,idU,int(quantite))
+   
+    return render_template("profil.html", user=get_user_by_id(idU))
 
 @app.route("/billeterie")
 def billeterie():
-    return render_template("billeterie.html") 
+    return render_template("billeterie.html",typesBillet=get_info_billet(),necessiter=get_info_necessiter(),concerts=get_info_groupe_concert()) 
 
 @app.route("/programmation")
 def programmation():
@@ -46,7 +55,7 @@ def creer_compte():
 
 
 
-@app.route("/connexion")
+@app.route("/connexion",methods=["POST", "GET"])
 def connexion1():
     return render_template("connexion.html")
 
