@@ -113,3 +113,8 @@ img{
     color: #000000;
     margin-bottom: 5%;
 }
+.bille{
+  display: block;
+  max-height:40vh ;
+  overflow: scroll;
+}
