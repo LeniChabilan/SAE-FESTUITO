@@ -196,6 +196,13 @@ def create_groupe(nom, description, lien, image, style):
     finally:
         session.close()
 
+def creer_artiste(nom, groupe):
+    session = login()
+    id = session.query(func.max(Artiste.artisteId)).all()[0][0] + 1
+    id_groupe=session.query(GroupeDeMusique.groupeId).filter(GroupeDeMusique.nomGM==groupe).all()[0][0]
+    artiste = Artiste(id, nom, id_groupe)
+    session.add(artiste)
+    session.commit()
 
 def create_artiste(nom, groupeId):
     session = login()
