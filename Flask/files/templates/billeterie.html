@@ -4,86 +4,66 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='billeterie.css')}}">
 {% endblock %}
 {% block content %}
-</head> 
+</head>
+
 <body>
     <div class="main">
         <h4 class="title">Billeterie</h4>
-        <div class="card">
-            <div>
-                <img class="img-billet" src="{{ url_for('static', filename='img/1jour.png') }}" alt="">
-            </div>
-            <div class="para">
-                <div>
-                    <h4 class="billet">Ticket pour 1 jour</h4>
-                    <p class="date">Le 15/06/2024 8h à 23h              </p>
-                    <p class="date">Prix 45€</p>
-                </div>
-                <div class="quantity-container">
-                    <button onclick="decreaseValue('quantity1')">-</button>
-                    <input type="number" id="quantity1" value="0" />
-                    <button onclick="increaseValue('quantity1')">+</button>
-                </div>              
-            </div>
-        </div>
+        {% if current_user.is_authenticated%}
+        <form role="form" method="POST" action="{{ url_for('acheter_billet',idU=current_user.utilisateurId) }}">
+            {% else %}
+            <form role="form" method="POST" action="{{ url_for('connexion') }}"></form>
 
-        <div class="card">
-            <div>
-                <img class="img-billet" src="{{ url_for('static', filename='img/2jour.jpg') }}" alt="">
-            </div>
-            <div class="para">
-                <div>
-                    <h4 class="billet">Ticket pour 2 jours</h4>
-                    <p class="date">Du 15/06/2024 8h au 16/06/2024 à 23h</p>
-                    <p class="date">Prix 75€</p>
-                </div>
-                <div class="quantity-container">
-                    <button onclick="decreaseValue('quantity2')">-</button>
-                    <input type="number" id="quantity2" value="0" />
-                    <button onclick="increaseValue('quantity2')">+</button>
-                </div>             
-            </div>
-        </div>
+            {% endif %}
 
-        <div class="card">
-            <div>
-                <img class="img-billet" src="{{ url_for('static', filename='img/3jour.jpg') }}" alt="">
-            </div>
-            <div class="para">
+            {% for billet in typesBillet %}
+            <div class="card">
                 <div>
-                    <h4 class="billet">Ticket pour 3 jours</h4>
-                    <p class="date">Du 15/06/2024 8h au 17/06/2024 à 23h</p>
-                    <p class="date">Prix 100€</p>
+                    <img class="img-billet" src="{{ url_for('static', filename='img/1jour.png') }}" alt="">
                 </div>
-                <div class="quantity-container">
-                    <button onclick="decreaseValue('quantity3')">-</button>
-                    <input type="number" id="quantity3" value="0" />
-                    <button onclick="increaseValue('quantity3')">+</button>
-                </div>          
+                <div class="para">
+                    <div>
+
+                        <h4 class="billet">{{ billet.nomTypeBillet }}</h4>
+                        <div class="scroll">
+                            {% for nec in necessiter %}
+                            {% if nec.typeBilletId==billet.typeBilletId %}
+                            {% for conc in concerts %}
+                            {% if nec.groupeConcertId==conc.groupeConcertId %}
+
+                            <p class="date">{{ conc.descriptionGP }}</p>
+
+
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        <p class="date">{{ billet.prixB }} €</p>
+                    </div>
+                    <div class="quantity-container">
+
+                        <input type="number" name="billet.typeBilletId" id="quantity1" value="0" />
+
+                    </div>
+                </div>
             </div>
-            
-        </div>
-        <div>           
-            <a href="{{ url_for('billeterie') }}" id="fond_bouton" class="noligne">
-                <button class='btnA' type="button" >Acheter</button>
+            {% endfor %}
+
+
+
+
+            {% if current_user.is_authenticated%}
+            <button class='btnA' type="submit">Acheter</button>
+            {% else %}
+            <a href="{{ url_for('connexion') }}">
+            <button class='btnA' type="submit">Acheter</button>
             </a>
-        </div>
-        </div>
-        
-    <script>
-        function increaseValue(id) {
-            var value = parseInt(document.getElementById(id).value, 10);
-            value = isNaN(value) ? 0 : value;
-            value++;
-            document.getElementById(id).value = value;
-        }
+            {% endif %}
+        </form>
 
-        function decreaseValue(id) {
-            var value = parseInt(document.getElementById(id).value, 10);
-            value = isNaN(value) ? 0 : value;
-            value < 1 ? value = 1 : '';
-            value--;
-            document.getElementById(id).value = value;
-        }
-    </script>
+    </div>
+
+
 </body>
 {% endblock %}

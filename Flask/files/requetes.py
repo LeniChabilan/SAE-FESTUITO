@@ -86,9 +86,9 @@ def get_info_un_concert(id):
     session=login()
     return session.query(Concert).filter(Concert.concertId==id).first()
 
-def get_info_billet(id):
+def get_info_un_billet(id):
     session=login()
-    return session.query(Billet).filter(Billet.billetId==id).first()
+    return session.query(TypeBillet).filter(TypeBillet.typeBilletId==id).first()
 
 def get_info_lieu():
     session=login()
@@ -188,6 +188,15 @@ def create_groupe(nom, description, lien, image, styleId):
     finally:
         session.close()
 
+def get_info_necessiter_billet(id):
+    session = login()
+    return session.query(Necessiter).filter_by(typeBilletId=id).all()
+
+
+
+def get_info_necessiter():
+    session = login()
+    return session.query(Necessiter).all()
 
 def create_artiste(nom, groupeId):
     session = login()
@@ -358,6 +367,18 @@ def mod_groupe(id,nom, description,lien,style):
     else:
         print("Le groupe n'a pas été trouvé.")
 
+
+def get_info_billet():
+    session = login()
+    types_billet = session.query(TypeBillet).all()
+    return types_billet if types_billet else []
+
+def achatBillet(idB, idU,quantite):
+    session = login()
+    for i in range(quantite):
+        achat = AcheterBillet(idU,idB)
+        session.add(achat)
+    session.commit()
 
 def mod_concert(id, dateD,dateF,lieu,grp,grpC):
    
