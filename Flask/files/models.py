@@ -116,6 +116,9 @@ class AcheterBillet(db.Model):
     user = relationship(Utilisateur)
     typeB= relationship(TypeBillet)
 
+    def __init__(self,utilisateurId,typeBilletId):
+        self.utilisateurId=utilisateurId
+        self.typeBilletId=typeBilletId
 
 class Concert(db.Model):
     __tablename__ = 'Concert'

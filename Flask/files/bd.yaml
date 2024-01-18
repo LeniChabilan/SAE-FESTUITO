@@ -492,6 +492,12 @@
   - billetId : 1
     utilisateurId : 1
     typeBilletId : 1
+  - billetId : 55
+    utilisateurId : 1
+    typeBilletId : 1
+  - billetId : 556
+    utilisateurId : 1
+    typeBilletId : 3
   - billetId : 2
     utilisateurId : 2
     typeBilletId : 2
