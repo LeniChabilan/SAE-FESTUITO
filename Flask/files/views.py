@@ -294,3 +294,14 @@ def creation_artiste_art(id):
     create_artiste(nom,id)
     return redirect(url_for('creation_artiste',id=id))
 
+@app.route("/ajouter_artiste")
+def ajouter_artiste():
+    return render_template("ajouter_artiste.html",liste_groupes=get_info_groupe())
+
+@app.route("/ajout_artiste", methods=["POST"])
+def ajout_artiste():
+    nom=request.form.get("nom")
+    groupe=request.form.get("groupe")
+    print(nom,groupe)
+    creer_artiste(nom,groupe)
+    return redirect(url_for('consulter_les_artistes'))
