@@ -110,6 +110,10 @@ def administrer_utilisateur():
     return render_template("administrer_utilisateur.html", utilisateurs=get_info_utilisateur())
 
 
+@app.route("/consulter_activite_annexe")
+def consulter_activite_annexe():
+    return render_template("consulter_activite_annexe.html",activites=get_info_toutes_activite())
+
 @app.route("/consulter_les_artistes")
 def consulter_les_artistes():
     return render_template("consulter_les_artistes.html",artistes=get_info_artiste())
@@ -127,6 +131,10 @@ def consulter_les_groupes():
 def modifier_artiste(id):
     return render_template("modifier_artiste.html",artiste=get_info_un_artiste(id),liste_groupes=get_info_groupe(),art=get_info_un_artiste(id))
 
+
+@app.route("/modif_activite")
+def modif_activite():
+    return render_template("modif_activite.html")
 
 @app.route("/modif_artiste/<int:id>", methods =["POST"])
 def modif_artiste(id):
@@ -156,6 +164,10 @@ def modif_groupe(id):
 def creation_concert():
     return render_template("creation_concert.html",liste_groupes=get_info_groupe(),liste_lieu=get_info_lieu(), liste_grp_conc=get_info_groupe_concert())
 
+
+@app.route("/creation_activite")
+def creation_activite():
+    return render_template("creation_activite.html")
 
 @app.route("/modifier_concert/<int:id>")
 def modifier_concert(id):

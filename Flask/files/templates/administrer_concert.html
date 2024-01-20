@@ -28,6 +28,14 @@
                 </div>
             </a>
         </li>
+        <li>
+            <a href="{{ url_for('consulter_activite_annexe')}}">
+                <div>
+                    Activités Annexes
+                    <img src="{{ url_for('static', filename='img/annexe.jpg') }}" alt="image d'un chanteur" />
+                </div>
+            </a>
+        </li>
     </ul>
     <script type="text/javascript" src="{{ url_for('static', filename='script/App.js') }}"></script>
 {% endblock %}
