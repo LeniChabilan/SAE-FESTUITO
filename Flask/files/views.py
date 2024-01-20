@@ -34,6 +34,10 @@ def acheter_billet(idU):
 def billeterie():
     return render_template("billeterie.html",typesBillet=get_info_billet(),necessiter=get_info_necessiter(),concerts=get_info_groupe_concert()) 
 
+@app.route("/activite_annexe")
+def activite_annexe():
+    return render_template("activite_annexe.html",lesactivites=get_info_toutes_activite()) 
+
 @app.route("/programmation")
 def programmation():
     return render_template("programmation.html", lesConcerts=get_info_concert()) 
