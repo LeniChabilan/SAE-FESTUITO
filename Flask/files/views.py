@@ -92,6 +92,11 @@ def sup_concert(id):
     return render_template("consulter_les_concert.html",concerts=get_info_concert())
 
 
+@app.route("/sup-activite/<int:id>")
+def sup_activite(id):
+    supprimer_activite(id)
+    return render_template("consulter_activite_annexe.html",activites=get_info_toutes_activite())
+
 @app.route("/sup-artiste/<int:id>")
 def sup_artiste(id):
     supprimer_artiste(id)
@@ -136,9 +141,25 @@ def modifier_artiste(id):
     return render_template("modifier_artiste.html",artiste=get_info_un_artiste(id),liste_groupes=get_info_groupe(),art=get_info_un_artiste(id))
 
 
-@app.route("/modif_activite")
-def modif_activite():
-    return render_template("modif_activite.html")
+@app.route("/modif_activite/<int:id>")
+def modif_activite(id):
+    return render_template("modif_activite.html",activite=get_info_activite_annexe(id),liste_groupes=get_info_groupe(),liste_lieu=get_info_lieu(), liste_grp_conc=get_info_groupe_concert())
+
+
+@app.route("/modifier_activite/<int:id>", methods =["POST"])
+def modifier_activite(id):
+    if request.method == 'POST':
+        desc = request.form.get("desc")
+        datedebut = request.form.get("Datedebut")
+        lieu = request.form.get("Lieu")
+        groupeConcert = request.form.get("groupeConcert")
+        visibilitepub = request.form.get("VisibilitePublique")
+        groupe = request.form.get("groupe")
+
+    modif_acti(id,desc,datedebut,lieu,groupeConcert,visibilitepub,groupe)
+    return render_template("consulter_activite_annexe.html",activites=get_info_toutes_activite())
+
+
 
 @app.route("/modif_artiste/<int:id>", methods =["POST"])
 def modif_artiste(id):
@@ -171,7 +192,7 @@ def creation_concert():
 
 @app.route("/creation_activite")
 def creation_activite():
-    return render_template("creation_activite.html")
+    return render_template("creation_activite.html",liste_groupes=get_info_groupe(),liste_lieu=get_info_lieu(), liste_grp_conc=get_info_groupe_concert())
 
 @app.route("/modifier_concert/<int:id>")
 def modifier_concert(id):
@@ -187,6 +208,25 @@ def creer_concert():
    
     creer_conc( dateD,dateF,lieu,grp,grpC)
     return render_template("administrer_concert.html")
+
+
+
+
+@app.route("/creer_active", methods=["GET", "POST"])
+def creer_active():
+    if request.method == 'POST':
+        desc = request.form.get("desc")
+        datedebut = request.form.get("Datedebut")
+        lieu = request.form.get("Lieu")
+        groupeConcert = request.form.get("groupeConcert")
+        visibilitepub = request.form.get("VisibilitePublique")
+        groupe = request.form.get("groupe")
+       
+        cree_acti(desc, datedebut, lieu, groupeConcert, visibilitepub, groupe)
+        return render_template("consulter_activite_annexe.html", activites=get_info_toutes_activite())
+    else:
+        return "Méthode non autorisée pour cette URL", 405
+
 
 
 @app.route("/modif_concert/<int:id>", methods=["GET", "POST"])
