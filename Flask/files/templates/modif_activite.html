@@ -1,0 +1,76 @@
+{% extends 'base_sans_log.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='modif_activite.css') }}" />
+{% endblock %}
+
+{% block content %}
+<div id="bouton_retour_choix_fiche">
+    <a href="{{ url_for('consulter_activite_annexe') }}">
+      <button type="button" class="bouton_de_retour">Retour</button>
+    </a>
+</div>
+  <div class="form">
+      <div class="title">Modifier votre Activite !</div>
+      <form role="form" method ="POST" action ="{{ url_for('modifier_activite', id=activite.activiteId) }}">
+
+            <div class="input-container ">
+                <input placeholder="Description de l'activite" type="text" class="input" name="desc" value="{{ activite.descriptionACT }}" required>
+                <div class="cut"></div>
+                <label class="iLabel" for="desc">Description de l'activite</label>
+            </div>
+          
+           <div class="input-container">
+            <input placeholder="" type="datetime-local" class="input" name="Datedebut" value="{{ activite.dateHeureACT }}" required>
+            <label class="iLabel" for="Datedebut">Date de début</label>
+           </div>
+        
+            <div class="input-container">
+              <select name="Lieu" id="pet-select" class="input" >
+                {% for salle in liste_lieu %}
+                <option value="{{ salle.nomL }}">{{ salle.nomL }}</option>
+                {% endfor %}
+              </select>
+              </input>
+              <div class="cut"></div>
+              <label class="iLabel" for="Lieu">Lieu</label>
+            </div>
+
+            <div class="input-container">
+                <select name="groupeConcert" id="pet-select" class="input">
+                  {% for grpC in liste_grp_conc %}
+                  <option value="{{ grpC.nomGroupeConcert }}">{{ grpC.nomGroupeConcert }}</option>
+                  {% endfor %}
+                </select>
+                </input>
+                <div class="cut"></div>
+                <label class="iLabel" for="groupeConcert">Groupe de concerts</label>
+            </div>
+
+            <div class="input-container">
+                <select name="VisibilitePublique" id="pet-select" class="input" >
+                  <option value="True">True</option>
+                  <option value="False">False</option>
+                </select>
+                </input>
+                <div class="cut"></div>
+                <label class="iLabel" for="Visibilite Publique">Visibilite Publique</label>
+              </div>
+
+            <div class="input-container">
+              <select name="groupe" id="pet-select" class="input">
+                {% for grp in liste_groupes %}
+                <option value="{{ grp.nomGM }}">{{ grp.nomGM }}</option>
+                {% endfor %}
+              </select>
+              </input>
+              <div class="cut"></div>
+              <label class="iLabel" for="groupe">Groupe</label>
+            </div>
+
+            <button class="submit" type="text" onclick="showConfirmationEnregistrer()">Enregistrer</button>
+      </form>
+  </div>
+</main>
+{% endblock %}

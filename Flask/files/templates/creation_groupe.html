@@ -1,0 +1,52 @@
+{% extends 'base_sans_log.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='creation_groupe.css') }}" />
+{% endblock %}
+
+{% block content %}
+<div id="bouton_retour_choix_fiche">
+    <a href="{{ url_for('consulter_les_groupes') }}">
+    <button type="button" class="bouton_de_retour">Retour</button>
+    </a>
+  </div>
+  <div class="form" >
+      <div class="title">Ajouter les information du groupe !</div>
+      <form role="form" method ="POST" action ="{{ url_for('creation_groupe_gr') }}" enctype="multipart/form-data">
+        <div class="input-container ">
+            <input placeholder="Nom du groupe" type="text" class="input" name="nom" value="" required>
+            <div class="cut"></div>
+            <label class="iLabel" for="nom">Nom du groupe</label>
+         </div>
+        <div class="input-container ">
+            <input placeholder="Description du groupe" type="text" class="input" name="description" value="" required>
+            <div class="cut"></div>
+            <label class="iLabel" for="description">Description</label>
+         </div>
+         <div class="input-container ">
+            <input placeholder="Lien du groupe" type="text" class="input" name="lien" value="" required>
+            <div class="cut"></div>
+            <label class="iLabel" for="lien">Lien du groupe</label>
+         </div>
+         
+        <div class="input-container ">
+         <label class="image" for="avatar">Inserer votre Image </label>
+          <input class="image" type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
+        </div>
+
+        <div class="input-container">
+          <select name="style" id="pet-select" class="input">
+            {% for style in list_style %}
+            <option value="{{ style.nomSM }}">{{ style.nomSM }}</option>
+            {% endfor %}
+          </select>
+          </input>
+          <div class="cut"></div>
+          <label class="iLabel" for="style">Style</label>
+        </div>
+ 
+            <button class="submit" type="text" onclick="showConfirmationEnregistrer()">Enregistrer</button>
+      </form>
+  </div>
+  {% endblock %}

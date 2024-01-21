@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block styles %}{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static',filename='programmation.css')}}" />
+{% endblock %} {% block content %}
+<div id="header" class="container-xl">
+    <div class="row spectacles-list">
+        {% for conc in lesConcerts %}
+        <div class="col-md-4" style="opacity: 1; transform: translateX(0px) skew(0deg);">
+            <article class="card bg-creations">
+                <div class="card-body flex justify-between p-2">
+                    <div class="visual">
+                        <a href="#">
+                            <object  width="396" data=" data:image/jpeg;base64,{{ conc.groupe.photoGM.decode('utf-8') }}" type="image/jpeg"></object>
+                        </a>
+                        <div class="infos">
+                            <a href="{{ url_for('billeterie', concertId=conc.concertId) }}" class="btn btn-dark">
+                                <span aria-hidden="true">Réserver mes places </span>
+                            </a>
+                            <div>
+                                <a href="#" id="h5" class="h5">En savoir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cnt">
+                        <div class="h5">
+                            {{ conc.groupe.nomGM }}
+                        </div>
+                        <div class="date">
+                            {{ conc.dateHeureDebutConcert }}
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static',filename='profil.css')}}">
+{% endblock %}
+{% block content %}
+<main>
+    <h1>{{user.nomUtilisateur}}</h1>
+    <img src="{{ url_for('static', filename='img/imageartiste.jpg') }}" alt="Photo de profil" class="photo-profil">
+    <div class="info">
+        <h2>Informations</h2>
+        <p>Nom : {{user.nomUtilisateur}}</p>
+        <p>Adresse mail : {{user.emailUtilisateur}}</p>
+        <p>Numéro de téléphone : {{user.tel}}</p>
+        <p>Statut : {{user.role}}</p>
+        <p>date de naissance : {{user.DdN}}</p>
+        <p>Mot de passe : {{user.MDPUtilisateur}}</p>
+        <h2>Vos Achats : </h2>
+        <ul class="bille">
+            {% for item in type %}
+            
+            <li class="achat"><div class="billet">
+                <p>{{ item.nomTypeBillet }}</p>
+                <p>{{ item.prixB }} euros</p>
+            </div>
+            </li>
+            {% endfor %}
+        </ul>
+        
+
+    </div>
+    <div class="bouton">
+       <ul class="liste_bouton">
+        <li class="logout"><a href="{{ url_for('modifier_profil',user=current_user.utilisateurId) }}" id="fond_boutone" class="noligne">
+        <button type="button" id="bouton_se_connecte">modifier</button>
+        </a></li>
+        <li class="logout"><a href="{{ url_for('logout') }}" id="fond_boutone" class="noligne">
+            <button type="button" id="bouton_se_connecte">Se déconnecter</button>
+            </a></li>
+        
+    
+    </ul>  
+        
+
+    </div>
+
+</main>
+{% endblock %}

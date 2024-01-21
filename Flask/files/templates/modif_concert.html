@@ -1,0 +1,62 @@
+{% extends 'base_sans_log.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='creation_concert.css') }}" />
+{% endblock %}
+
+{% block content %}
+<div id="bouton_retour_choix_fiche">
+    <a href="{{ url_for('consulter_les_concert') }}">
+      <button type="button" class="bouton_de_retour">Retour</button>
+    </a>
+</div>
+  <div class="form">
+      <div class="title">Créer votre concert !</div>
+      <form role="form" method ="POST" action ="{{ url_for('modif_concert',id=concert.concertId) }}">
+          
+           <div class="input-container">
+            <input placeholder="" type="datetime-local" class="input" name="Datedebut" value="{{ concert.dateHeureDebutConcert }}" required>
+            <label class="iLabel" for="Datedebut">Date de début</label>
+           </div>
+        
+            <div class="input-container">
+              <input placeholder="" type="datetime-local" class="input" name="dateF" value="{{ concert.dateHeureFinConcert }}" required>
+              <label class="iLabel" for="dateF">Date de fin</label>
+              <div class="cut"></div>
+            </div>
+            <div class="input-container">
+              <select name="Lieu" id="pet-select" class="input" >
+                {% for salle in liste_lieu %}
+                <option value="{{ salle.nomL }}">{{ salle.nomL }}</option>
+                {% endfor %}
+              </select>
+              </input>
+              <div class="cut"></div>
+              <label class="iLabel" for="Lieu">Lieu</label>
+            </div>
+            <div class="input-container">
+              <select name="groupe" id="pet-select" class="input">
+                {% for grp in liste_groupes %}
+                <option value="{{ grp.nomGM }}">{{ grp.nomGM }}</option>
+                {% endfor %}
+              </select>
+              </input>
+              <div class="cut"></div>
+              <label class="iLabel" for="groupe">Groupe</label>
+            </div>
+            <div class="input-container">
+                <select name="groupeConcert" id="pet-select" class="input">
+                  {% for grpC in liste_grp_conc %}
+                  <option value="{{ grpC.nomGroupeConcert }}">{{ grpC.nomGroupeConcert }}</option>
+                  {% endfor %}
+                </select>
+                </input>
+                <div class="cut"></div>
+                <label class="iLabel" for="groupeConcert">Groupe de concerts</label>
+              </div>
+            <button class="submit" type="text" onclick="showConfirmationEnregistrer()">Enregistrer</button>
+      </form>
+  </div>
+</main>
+{% endblock %}

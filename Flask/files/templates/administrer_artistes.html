@@ -1,0 +1,33 @@
+{% extends 'base_sans_log.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='administrer_artistes.css') }}" />
+{% endblock %}
+
+{% block content %}
+    <div id="bouton_retour_choix_fiche">
+        <a href="{{ url_for('admin') }}">
+            <button type="button" class="bouton_de_retour">Retour</button>
+        </a>
+    </div>
+    <ul class="listeOptions">
+        <li>
+            <a href="{{ url_for('consulter_les_artistes') }}">
+                <div>
+                    Consulter les Artistes 
+                    <img src="{{ url_for('static', filename='img/imageartistedemusique.jpg') }}" alt="Image de Scène de concert" />
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('consulter_les_groupes') }}">
+                <div>
+                    Consulter les Groupes
+                    <img src="{{ url_for('static', filename='img/imagegroupedemusique.jpg') }}" alt="Image d'un chanteur" />
+                </div>
+            </a>
+        </li>
+    </ul>
+    <script type="text/javascript" src="{{ url_for('static', filename='script/App.js') }}"></script>
+{% endblock %}

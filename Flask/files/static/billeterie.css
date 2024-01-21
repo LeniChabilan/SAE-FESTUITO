@@ -1,0 +1,449 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+
+
+
+  .scroll{
+    height: 5vh;
+    overflow: scroll;
+  }
+
+  .btnA {
+
+    height: 4vh;
+    width: 8vw;
+    margin: 1rem;
+    border: none;
+    transition: transform 0.3s ease; /* Ajoute une transition douce pour l'agrandissement */
+    box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
+    text-transform: uppercase;
+    color: #6a7496;
+    border-radius: 10px;
+
+  }
+  
+  .btnA:hover {
+    transform: scale(1.1); /* Agrandit le bouton de 10% lorsqu'il est survolé */
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    height: auto;
+    transition: 0.3s;
+  }
+  
+  
+  body.light .main {
+    background-color: #ffffff;
+  }
+
+.para{
+    margin-left: 1.5vw;
+    display: flex;
+}
+
+
+  .card {
+    margin: 2rem;
+    width: 65vw;
+    height: 12vw; 
+    background: #2a2b38;
+    border-radius: 20px;
+    display: flex;
+    body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    height: auto;
+    transition: 0.3s;
+  }
+  
+  
+  body.light .main {
+    background-color: #ffffff;
+  }
+.img-billet{
+    height: 12vw;
+    width: 30vw;
+    border-radius: 20px 0 0 20px;
+}
+.para{
+    margin-left: 1.5vw;
+}
+.button {
+    display: flex;
+    text-align: right;
+    display: flex;
+  }
+  .card {
+    margin: 2rem;
+    width: 65vw;
+    height: 8vw; 
+    background: #2a2b38;
+    border-radius: 20px;
+    display: flex;
+  }
+  .acheter{
+    margin: 2rem;
+    width: 10vw;
+    background: #2a2b38;
+    border-radius: 20px;
+    display: flex;
+    text-align: right;
+  }
+
+  .quantity-container {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    margin-left: 5vw;
+    margin-right: 7vw;
+}
+
+.quantity-container button {
+    background-color: #f1f1f1;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.quantity-container input {
+    text-align: center;
+    margin: 0 10px;
+    width: 40px;
+    border-radius: 10px;
+}
+/* Pour les navigateurs WebKit comme Chrome, Safari, etc. */
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+/* Pour Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+  /*Inputs*/
+  .field {
+    height: 5vh;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    background-color: #1f2029;
+    border-radius: 4px;
+    padding: 0.5em 1em;
+  }
+  
+  .input-icon {
+    height: 1em;
+    width: 1em;
+    fill: #ffffff;
+  }
+  
+  .input-field {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #d3d3d3;
+    font-size: 1vw;
+  }
+  
+  /*Text*/
+  .title {
+    margin-top: 1vw ;
+    margin-bottom: 0.5vw ;
+    font-size: 3vw;
+    font-weight: 500;
+    color: #2a2b38;
+  }
+  .date{
+    margin-top: 0.5vw ;
+    margin-bottom: 0.5vw ;
+    font-size: 1vw;
+    color: #ffffff; 
+  }
+  .billet {
+    margin-top: 1vw ;
+    margin-bottom: 0.5vw ;
+    font-size: 1.75vw;
+    font-weight: 500;
+    color: #ffffff;
+    justify-content: center;
+  }
+  
+  /*Buttons*/
+  .btn {
+    height: 4vh;
+    width: 8vw;
+    margin: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1vw;
+    text-transform: uppercase;
+    padding: 0;
+    background-color: #ffffff;
+    color: #5e6681;
+    box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn-crcompte {
+    height: 6vh;
+    width: 15vw;
+    margin: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1vw;
+    text-transform: uppercase;
+    padding: 0;
+    background-color: #ffffff;
+    color: #5e6681;
+    box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
+    transition: all 0.3s ease-in-out;
+  }
+
+  #error-message {
+    font-size: 1vw;
+    margin-top: 1vh;
+}
+
+.error-border {
+    border: 2px solid rgb(219, 36, 36);
+    border-radius: 10px;
+}
+
+  .btn-link {
+    color: #f5f5f5;
+    display: block;
+    font-size: 0.75em;
+    transition: color 0.3s ease-out;
+  }
+  
+  /*Hover & focus*/
+  .field input:focus::placeholder {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #5e6681;
+    color: #ffffff;
+    box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
+  }
+  
+  .btn-link:hover {
+    color: #ffffff;
+  }
+  .btn-link {
+    color: #f5f5f5;
+    display: block;
+    font-size: 1vw;
+    margin-top: 2vh;
+    transition: color 0.3s ease-out;
+  }
+  
+  
+  .inscription {
+    margin-top: 5vh;
+    padding: 1.9rem 1.2rem;
+    text-align: center;
+    background: #3a3b48; 
+    border-radius: 20px;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .card {
+      width: 75vw;
+      height: 50vh;
+    }
+  
+    .title {
+      font-size: 8vw;
+    }
+  
+    .input-field {
+      font-size: 4vw;
+    }
+  
+    .btn {
+      height: 9vh;
+      width: 30vw;
+      font-size: 2.5vw;
+    }
+  }
+  
+  }
+
+  /*Inputs*/
+  .field {
+    height: 5vh;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    background-color: #1f2029;
+    border-radius: 4px;
+    padding: 0.5em 1em;
+  }
+  
+  .input-icon {
+    height: 1em;
+    width: 1em;
+    fill: #ffffff;
+  }
+  
+  .input-field {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #d3d3d3;
+    font-size: 1vw;
+  }
+  
+  /*Text*/
+  .title {
+    margin-top: 1vw ;
+    margin-bottom: 0.5vw ;
+    font-size: 3vw;
+    font-weight: 500;
+    color: #2a2b38;
+  }
+  .date{
+    margin-top: 0.5vw ;
+    margin-bottom: 0.5vw ;
+    font-size: 1vw;
+    color: #ffffff; 
+  }
+  .billet {
+    margin-top: 1vw ;
+    margin-bottom: 0.5vw ;
+    font-size: 1.75vw;
+    font-weight: 500;
+    color: #ffffff;
+    justify-content: center;
+  }
+  
+  /*Buttons*/
+  .btn {
+    height: 4vh;
+    width: 8vw;
+    margin: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1vw;
+    text-transform: uppercase;
+    padding: 0;
+    background-color: #ffffff;
+    color: #5e6681;
+    box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn-crcompte {
+    height: 6vh;
+    width: 15vw;
+    margin: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1vw;
+    text-transform: uppercase;
+    padding: 0;
+    background-color: #ffffff;
+    color: #5e6681;
+    box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
+    transition: all 0.3s ease-in-out;
+  }
+
+  #error-message {
+    font-size: 1vw;
+    margin-top: 1vh;
+}
+
+.error-border {
+    border: 2px solid rgb(219, 36, 36);
+    border-radius: 10px;
+}
+
+  .btn-link {
+    color: #f5f5f5;
+    display: block;
+    font-size: 0.75em;
+    transition: color 0.3s ease-out;
+  }
+  
+  /*Hover & focus*/
+  .field input:focus::placeholder {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #5e6681;
+    color: #ffffff;
+    box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
+  }
+  
+  .btn-link:hover {
+    color: #ffffff;
+  }
+  .btn-link {
+    color: #f5f5f5;
+    display: block;
+    font-size: 1vw;
+    margin-top: 2vh;
+    transition: color 0.3s ease-out;
+  }
+  
+  
+  .inscription {
+    margin-top: 5vh;
+    padding: 1.9rem 1.2rem;
+    text-align: center;
+    background: #3a3b48; 
+    border-radius: 20px;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .card {
+      width: 75vw;
+      height: 50vh;
+    }
+  
+    .title {
+      font-size: 8vw;
+    }
+  
+    .input-field {
+      font-size: 4vw;
+    }
+  
+    .btn {
+      height: 9vh;
+      width: 30vw;
+      font-size: 2.5vw;
+    }
+  }
+  

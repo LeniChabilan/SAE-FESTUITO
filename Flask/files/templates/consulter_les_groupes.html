@@ -1,0 +1,57 @@
+{% extends 'base_sans_log.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='consulter_les_groupes.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+{% endblock %}
+
+{% block content %}
+    <div class="main">
+        <div id="tete_page">
+            <div id="bouton_retour_choix_fiche">
+                <a href="{{ url_for('administrer_artistes') }}">
+                    <button type="button" class="bouton_de_retour">Retour</button>
+                </a>
+                <a href="{{ url_for('creation_groupe') }}">
+                  <button type="button" class="bouton_de_retour">Creer Groupe</button></a>
+            </div>
+            <div class="middle">
+                <h1 id="modification">Liste des groupes</h1>
+            </div>
+        </div>
+        <div class="partie_principale">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">lienGM</th> 
+                    <th scope="col">Style</th> 
+                    <!-- requete pour recup le style du groupe avec l'styleId  -->
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+        
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for grp in groupes %}
+                  <tr>
+                    <td scope="row">{{ grp.groupeId }}</td>
+                    <td>{{ grp.nomGM }}</td>
+                    <td>{{ grp.descriptionGM }}</td>
+                    <td>{{ grp.lienGM }}</td>
+                    <td>{{ grp.style.nomSM }}</td>
+                    <td><a href="{{ url_for('modifier_groupe',id=grp.groupeId) }}"><i class="fa-solid fa-pen"></i></a></td>
+                    <td><a href="{{ url_for('sup_groupe' , id=grp.groupeId) }}"><i class="fa-solid fa-trash"></i></a></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        </div>
+    </div>
+{% endblock %}
+
+

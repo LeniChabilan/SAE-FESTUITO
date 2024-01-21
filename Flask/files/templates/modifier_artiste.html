@@ -1,0 +1,35 @@
+{% extends 'base_sans_log.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='modif_artiste.css') }}" />
+{% endblock %}
+
+{% block content %}
+<div id="bouton_retour_choix_fiche">
+    <a href="{{ url_for('consulter_les_artistes') }}">
+    <button type="button" class="bouton_de_retour">Retour</button>
+    </a>
+  </div>
+  <div class="form">
+      <div class="title">Modifiez les information de l'artiste !</div>
+      <form role="form" method ="POST" action ="{{ url_for('modif_artiste',id=art.artisteId) }}">
+          <div class="input-container ">
+              <input placeholder="Nom de l'artiste" type="text" class="input" name="nom" value="{{ art.nomArt }}" required>
+              <div class="cut"></div>
+              <label class="iLabel" for="pseudo">Nom de l'artiste</label>
+           </div>
+           <div class="input-container">
+            <select name="groupe" id="pet-select" class="input">
+              {% for g in liste_groupes %}
+              <option value="{{g.nomGM}}">{{ g.nomGM }}</option>
+              {% endfor %}
+            </select>
+            </input>
+            <div class="cut"></div>
+            <label class="iLabel" for="groupe">Groupe</label>
+          </div>           
+            <button class="submit" type="text" onclick="showConfirmationEnregistrer()">Enregistrer</button>
+      </form>
+  </div>
+{% endblock %}

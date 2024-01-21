@@ -1,0 +1,120 @@
+main{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+h1{
+    flex-basis: 100%;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000000;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+img{
+    flex-basis: 40%;
+    width: 30%;
+    height: 30%;
+    border-radius: 30%;
+    margin-left: 3%;
+}
+.achat{
+  flex-basis: 100%;
+
+}
+.billet{
+  display: flex;
+}
+.billet>p{
+  justify-content: center;
+  align-items: center;
+  padding-left: 5%;
+}
+.bouton{
+    flex-basis: 100%;
+    text-align: center;
+    margin-top: 5%;
+
+
+}
+.liste_bouton{
+   display: flex;
+   align-items: end;
+    justify-content: end;
+}
+
+#fond_boutone{
+    text-decoration: none;
+  }
+
+#bouton_se_connecte {
+
+    display: flex;
+    appearance: none;
+    background-color: transparent;
+    border: 0.125em solid #2a2b38;
+    border-radius: 0.9375em;
+    box-sizing: border-box;
+    color: #2a2b38;
+    cursor: pointer;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+      Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height:normal;
+    min-height: 2.5em;
+    outline:none;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+    font-size: 1vw;
+    width: 11.1vw;
+    justify-content: center;
+    align-items: center;
+    margin: 0.7vw;
+  }
+  
+  
+  
+  #bouton_se_connecte:disabled {
+    pointer-events: none;
+  }
+  
+  #bouton_se_connecte:hover {
+    color: #2a2b38;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+  
+  #bouton_se_connecte:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+
+.info{
+    flex-basis: 50%;
+    margin-left: 5%;
+}
+.info h2{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000000;
+    margin-bottom: 5%;
+}
+
+.info p{
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000000;
+    margin-bottom: 5%;
+}
+.bille{
+  display: block;
+  max-height:40vh ;
+  overflow: scroll;
+}
