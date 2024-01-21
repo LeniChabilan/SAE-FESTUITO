@@ -142,7 +142,7 @@ class Necessiter(db.Model):
 
 class ActiviteAnnexe(db.Model):
     __tablename__ = 'ActiviteAnnexe'
-    activiteId = Column(Integer, primary_key=True)
+    activiteId = Column(Integer, primary_key=True , autoincrement=True)
     descriptionACT = Column(Text)
     dateHeureACT = Column(DateTime)
     lieuId = Column(Integer, ForeignKey('Lieu.lieuId'))
@@ -152,6 +152,14 @@ class ActiviteAnnexe(db.Model):
     lieu = relationship(Lieu)
     groupeC = relationship(GroupeConcert)
     groupe = relationship(GroupeDeMusique)
+
+    def __init__(self,descriptionACT, dateHeureACT, lieuId,groupeConcertId, VisibilitePubliqueACT,GroupeDeMusiqueID):
+        self.descriptionACT = descriptionACT
+        self.dateHeureACT = dateHeureACT
+        self.lieuId = lieuId
+        self.groupeConcertId=groupeConcertId
+        self.VisibilitePubliqueACT = VisibilitePubliqueACT
+        self.GroupeDeMusiqueID = GroupeDeMusiqueID
 
 class PreInscription(db.Model):
     __tablename__ = 'PreInscription'

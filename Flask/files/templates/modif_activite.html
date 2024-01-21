@@ -13,16 +13,16 @@
 </div>
   <div class="form">
       <div class="title">Modifier votre Activite !</div>
-      <form role="form" method ="POST" action ="">
+      <form role="form" method ="POST" action ="{{ url_for('modifier_activite', id=activite.activiteId) }}">
 
             <div class="input-container ">
-                <input placeholder="Description de l'activite" type="text" class="input" name="desc" value="" required>
+                <input placeholder="Description de l'activite" type="text" class="input" name="desc" value="{{ activite.descriptionACT }}" required>
                 <div class="cut"></div>
                 <label class="iLabel" for="desc">Description de l'activite</label>
             </div>
           
            <div class="input-container">
-            <input placeholder="" type="datetime-local" class="input" name="Datedebut" value="" required>
+            <input placeholder="" type="datetime-local" class="input" name="Datedebut" value="{{ activite.dateHeureACT }}" required>
             <label class="iLabel" for="Datedebut">Date de début</label>
            </div>
         
@@ -49,9 +49,9 @@
             </div>
 
             <div class="input-container">
-                <select name="Visibilite Publique" id="pet-select" class="input" >
-                  <option value="true">true</option>
-                  <option value="false">false</option>
+                <select name="VisibilitePublique" id="pet-select" class="input" >
+                  <option value="True">True</option>
+                  <option value="False">False</option>
                 </select>
                 </input>
                 <div class="cut"></div>

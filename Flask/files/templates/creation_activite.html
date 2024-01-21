@@ -13,7 +13,7 @@
 </div>
   <div class="form">
       <div class="title">Ajouter votre Activite !</div>
-      <form role="form" method ="POST" action ="">
+      <form role="form" method ="POST" action ="{{ url_for('creer_active') }}">
 
             <div class="input-container ">
                 <input placeholder="Description de l'activite" type="text" class="input" name="desc" value="" required>
@@ -49,9 +49,9 @@
             </div>
 
             <div class="input-container">
-                <select name="Visibilite Publique" id="pet-select" class="input" >
-                  <option value="true">true</option>
-                  <option value="false">false</option>
+                <select name="VisibilitePublique" id="pet-select" class="input" >
+                  <option value="True">True</option>
+                  <option value="False">False</option>
                 </select>
                 </input>
                 <div class="cut"></div>

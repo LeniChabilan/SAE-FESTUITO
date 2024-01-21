@@ -104,7 +104,7 @@ def get_info_activite_annexe(id):
 
 def get_info_toutes_activite():
     session=login()
-    return session.query(ActiviteAnnexe).all()
+    return session.query(ActiviteAnnexe).options(joinedload(ActiviteAnnexe.lieu),joinedload(ActiviteAnnexe.groupe),joinedload(ActiviteAnnexe.groupeC)).all()
 
 def get_info_groupe_concert():
     session=login()
@@ -296,6 +296,20 @@ def supprimer_concert(id):
         return "Erreur : Impossible de supprimer le concert et ses enregistrements liés en raison de contraintes de clé étrangère."
 
 
+def supprimer_activite(id):
+    try:
+        # Supprimez le concert et toutes les lignes liées dans d'autres tables
+        db.session.query(ActiviteAnnexe).filter_by(activiteId=id).delete(synchronize_session=False)
+
+        db.session.commit()
+        return "Activite et enregistrements liés supprimés avec succès."
+    except pymysql.IntegrityError:
+        # Si une contrainte de clé étrangère empêche la suppression, gérez l'erreur ici
+        db.session.rollback()
+        return "Erreur : Impossible de supprimer l'activite et ses enregistrements liés en raison de contraintes de clé étrangère."
+
+
+
 def supprimer_artiste(id):
     try:
         # Supprimez le concert et toutes les lignes liées dans d'autres tables
@@ -444,6 +458,62 @@ def creer_conc(dateD, dateF, lieu, grp, grpC):
     )
     session.add(concert)
     session.commit()
+
+
+def cree_acti(desc,datedebut,lieu,groupeConcert,visibilitepub,groupe):
+    session = login()
+
+    lieuC = session.query(Lieu).filter_by(nomL=lieu).first()
+    lieuId = lieuC.lieuId
+    grp = session.query(GroupeDeMusique).filter_by(nomGM=groupe).first()
+    groupeId = grp.groupeId
+    groupeC = session.query(GroupeConcert).filter_by(nomGroupeConcert=groupeConcert).first()
+    groupeCId = groupeC.groupeConcertId
+    if visibilitepub == 'True':
+        vis = True
+    else :
+        vis = False
+
+    activite = ActiviteAnnexe(
+        descriptionACT = desc,
+        dateHeureACT= datetime.strptime(datedebut, "%Y-%m-%dT%H:%M"),
+        lieuId=lieuId,
+        groupeConcertId=groupeCId,
+        VisibilitePubliqueACT = vis,
+        GroupeDeMusiqueID=groupeId
+    )
+    session.add(activite)
+    session.commit()
+
+
+
+def modif_acti(id,desc,datedebut,lieu,groupeConcert,visibilitepub,groupe):
+    session = login()
+    acti=session.query(ActiviteAnnexe).filter_by(activiteId=id).first()
+    lieuC = session.query(Lieu).filter_by(nomL=lieu).first()
+    lieuId = lieuC.lieuId
+    grp = session.query(GroupeDeMusique).filter_by(nomGM=groupe).first()
+    groupeId = grp.groupeId
+    groupeC = session.query(GroupeConcert).filter_by(nomGroupeConcert=groupeConcert).first()
+    groupeCId = groupeC.groupeConcertId
+    if visibilitepub == 'True':
+        vis = True
+    else :
+        vis = False
+
+    if acti :
+        acti.descriptionACT = desc
+        acti.dateHeureACT= datetime.strptime(datedebut, "%Y-%m-%dT%H:%M")
+        acti.lieuId=lieuId
+        acti.groupeConcertId=groupeCId
+        acti.VisibilitePubliqueACT = vis
+        acti.GroupeDeMusiqueID=groupeId
+        session.commit()
+
+    else:
+        print("le concert n'a pas été trouvé")
+    
+
 
 def get_type_billet(user):
     session=login()

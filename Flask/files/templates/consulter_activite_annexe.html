@@ -51,8 +51,8 @@
                     <td>{{ acti.groupeConcertId }}</td>
                     <td>{{ acti.VisibilitePubliqueACT }}</td>
                     <td>{{ acti.groupe.nomGM }}</td>
-                    <td><a href="{{ url_for('modif_activite') }}"><i class="fa-solid fa-pen"></i></a></td>
-                    <td><a href=""><i class="fa-solid fa-trash"></i></a></td>
+                    <td><a href="{{ url_for('modif_activite', id=acti.activiteId) }}"><i class="fa-solid fa-pen"></i></a></td>
+                    <td><a href="{{ url_for('sup_activite',id=acti.activiteId) }}"><i class="fa-solid fa-trash"></i></a></td>
                   </tr>
                   {% endfor %}
                 </tbody>
